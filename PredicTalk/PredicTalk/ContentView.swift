@@ -8,14 +8,21 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var transcript = "hello"
+    @State private var prediction = "world"
+    @State private var isRecording = false
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        VStack(spacing: 0) {
+            ScrollView {
+                Text("\(transcript) \(prediction)")
+                    .font(.largeTitle)
+                    .bold()
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+            }
+            
+            RecordButton(isRecording: $isRecording)
         }
-        .padding()
     }
 }
 

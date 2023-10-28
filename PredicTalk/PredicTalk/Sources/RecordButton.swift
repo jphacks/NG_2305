@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RecordButton: View {
-    @Binding var isActive: Bool
+    @Binding var isRecording: Bool
 
     let strokeWidth: CGFloat = 4
     let buttonSize: CGFloat = 60
@@ -33,12 +33,12 @@ struct RecordButton: View {
         return Button {
             let impactMed = UIImpactFeedbackGenerator(style: .medium)
             impactMed.impactOccurred()
-            isActive.toggle()
+            isRecording.toggle()
         } label: {
-            RoundedRectangle(cornerRadius: isActive ? activeRadius : inactiveRadius)
+            RoundedRectangle(cornerRadius: isRecording ? activeRadius : inactiveRadius)
                 .fill(.red)
                 .aspectRatio(1, contentMode: .fit)
-                .frame(width: isActive ? activeSize : inactiveSize)
+                .frame(width: isRecording ? activeSize : inactiveSize)
         }
     }
 }
@@ -47,11 +47,11 @@ struct RecordButton: View {
 #Preview("Not Recording") {
     @State var isActive = false
 
-    return RecordButton(isActive: $isActive)
+    return RecordButton(isRecording: $isActive)
 }
 
 #Preview("Recording") {
     @State var isActive = true
 
-    return RecordButton(isActive: $isActive)
+    return RecordButton(isRecording: $isActive)
 }
