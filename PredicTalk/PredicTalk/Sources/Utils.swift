@@ -64,3 +64,9 @@ struct Utils {
     }
 }
 
+extension String {
+    func isAlphabet() -> Bool {
+        let alphabetSet = CharacterSet.letters
+        return self.rangeOfCharacter(from: alphabetSet.inverted) == nil
+    }
+}
