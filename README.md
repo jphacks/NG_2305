@@ -1,4 +1,4 @@
-# サンプル（プロダクト名）
+# PredicTalk
 
 [![IMAGE ALT TEXT HERE](https://jphacks.com/wp-content/uploads/2023/07/JPHACKS2023_ogp.png)](https://www.youtube.com/watch?v=yYRQEdfGjEg)
 
