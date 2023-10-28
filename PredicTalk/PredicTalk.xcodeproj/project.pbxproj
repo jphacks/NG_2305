@@ -20,7 +20,7 @@
 		1710D1C72AEC88F400BCAC46 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1710D1C92AEC88F500BCAC46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1710D1CC2AEC88F500BCAC46 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		4C25C1162AECA4C50030E4CE /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizer.swift; sourceTree = SOURCE_ROOT; };
+		4C25C1162AECA4C50030E4CE /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SpeechRecognizer.swift; path = PredicTalk/Sources/SpeechRecognizer.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +55,7 @@
 			children = (
 				1710D1C52AEC88F400BCAC46 /* PredicTalkApp.swift */,
 				1710D1C72AEC88F400BCAC46 /* ContentView.swift */,
-				1710D1D32AEC8F9E00BCAC46 /* Sources */,
+				17C425902AED088600B2FAA3 /* Sources */,
 				1710D1D52AEC8FB200BCAC46 /* Resources */,
 				1710D1C92AEC88F500BCAC46 /* Assets.xcassets */,
 				1710D1CB2AEC88F500BCAC46 /* Preview Content */,
@@ -71,19 +71,19 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		1710D1D32AEC8F9E00BCAC46 /* Sources */ = {
-			isa = PBXGroup;
-			children = (
-				4C25C1162AECA4C50030E4CE /* SpeechRecognizer.swift */,
-			);
-			path = Sources;
-			sourceTree = "<group>";
-		};
 		1710D1D52AEC8FB200BCAC46 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		17C425902AED088600B2FAA3 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				4C25C1162AECA4C50030E4CE /* SpeechRecognizer.swift */,
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
