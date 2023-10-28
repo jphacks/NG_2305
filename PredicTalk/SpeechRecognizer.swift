@@ -101,7 +101,7 @@ class SpeechRecognizer: ObservableObject {
         let audioEngine = AVAudioEngine()
 
         let request = SFSpeechAudioBufferRecognitionRequest()
-        request.shouldReportPartialResults = true
+        request.shouldReportPartialResults = false
         request.requiresOnDeviceRecognition = true
 
         let audioSession = AVAudioSession.sharedInstance()
