@@ -1,6 +1,6 @@
 # PredicTalk
 
-[![IMAGE ALT TEXT HERE](https://jphacks.com/wp-content/uploads/2023/07/JPHACKS2023_ogp.png)](https://www.youtube.com/watch?v=yYRQEdfGjEg)
+<img src="image/67B03357-594F-44BC-831B-76A3EB3689E7_1_201_a.jpeg" width="30%">
 
 ## 製品概要
 ### 背景(製品開発のきっかけ、課題等）
