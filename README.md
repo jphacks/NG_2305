@@ -1,4 +1,5 @@
 # PredicTalk
+<img src="https://github.com/jphacks/NG_2305/assets/78719395/728ca450-a66f-488c-b3fd-08c311537cdf" width=300>
 
 ## 製品概要
 ### 背景(製品開発のきっかけ、課題等）
