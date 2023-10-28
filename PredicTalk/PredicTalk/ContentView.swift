@@ -9,21 +9,21 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject var wordPredictor = WordPredictor()
-    @State private var transcript = "hello"
+    @StateObject var speechRecognizer = SpeechRecognizer()
     @State private var isRecording = false
     
     var body: some View {
         VStack(spacing: 0) {
             ScrollView {
                 Group {
-                    Text("\(transcript) ") +
+                    Text("\(speechRecognizer.transcript) ") +
                     Text(wordPredictor.nextWord)
                         .foregroundColor(.secondary)
                 }
                     .font(.largeTitle)
                     .bold()
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-                    .onChange(of: transcript) { newTranscript in
+                    .onChange(of: speechRecognizer.transcript) { newTranscript in
                         wordPredictor.predictNextWord(sentence: newTranscript)
                     }
             }

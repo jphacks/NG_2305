@@ -12,7 +12,6 @@
 		1710D1CA2AEC88F500BCAC46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1710D1C92AEC88F500BCAC46 /* Assets.xcassets */; };
 		1710D1CD2AEC88F500BCAC46 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1710D1CC2AEC88F500BCAC46 /* Preview Assets.xcassets */; };
 		1710D1DC2AEC99AE00BCAC46 /* RecordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1710D1DB2AEC99AE00BCAC46 /* RecordButton.swift */; };
-		4C25C1172AECA4C50030E4CE /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C25C1162AECA4C50030E4CE /* SpeechRecognizer.swift */; };
 		1710D1DE2AECD58A00BCAC46 /* MobileBert.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 1710D1DD2AECD58A00BCAC46 /* MobileBert.mlpackage */; };
 		1710D1E02AECD6D500BCAC46 /* vocab.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1710D1DF2AECD6D500BCAC46 /* vocab.txt */; };
 		1710D1E22AECD83E00BCAC46 /* BertTokenizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1710D1E12AECD83E00BCAC46 /* BertTokenizer.swift */; };
@@ -20,6 +19,7 @@
 		1710D1E62AECD96B00BCAC46 /* WordPredictor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1710D1E52AECD96B00BCAC46 /* WordPredictor.swift */; };
 		1710D1E82AECDFAE00BCAC46 /* MLMultiArray+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1710D1E72AECDFAE00BCAC46 /* MLMultiArray+Utils.swift */; };
 		1710D1EA2AECE06500BCAC46 /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1710D1E92AECE06500BCAC46 /* Math.swift */; };
+		4C25C1172AECA4C50030E4CE /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C25C1162AECA4C50030E4CE /* SpeechRecognizer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,7 +29,6 @@
 		1710D1C92AEC88F500BCAC46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1710D1CC2AEC88F500BCAC46 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1710D1DB2AEC99AE00BCAC46 /* RecordButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordButton.swift; sourceTree = "<group>"; };
-		4C25C1162AECA4C50030E4CE /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SpeechRecognizer.swift; path = PredicTalk/Sources/SpeechRecognizer.swift; sourceTree = SOURCE_ROOT; };
 		1710D1DD2AECD58A00BCAC46 /* MobileBert.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = MobileBert.mlpackage; sourceTree = "<group>"; };
 		1710D1DF2AECD6D500BCAC46 /* vocab.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vocab.txt; sourceTree = "<group>"; };
 		1710D1E12AECD83E00BCAC46 /* BertTokenizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BertTokenizer.swift; sourceTree = "<group>"; };
@@ -37,6 +36,7 @@
 		1710D1E52AECD96B00BCAC46 /* WordPredictor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordPredictor.swift; sourceTree = "<group>"; };
 		1710D1E72AECDFAE00BCAC46 /* MLMultiArray+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MLMultiArray+Utils.swift"; sourceTree = "<group>"; };
 		1710D1E92AECE06500BCAC46 /* Math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
+		4C25C1162AECA4C50030E4CE /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SpeechRecognizer.swift; path = PredicTalk/Sources/SpeechRecognizer.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -324,6 +324,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PredicTalk/Preview Content\"";
+				DEVELOPMENT_TEAM = N38H3ZBTB2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -353,6 +354,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PredicTalk/Preview Content\"";
+				DEVELOPMENT_TEAM = N38H3ZBTB2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
