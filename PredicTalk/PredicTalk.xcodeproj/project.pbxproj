@@ -12,6 +12,8 @@
 		1710D1CA2AEC88F500BCAC46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1710D1C92AEC88F500BCAC46 /* Assets.xcassets */; };
 		1710D1CD2AEC88F500BCAC46 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1710D1CC2AEC88F500BCAC46 /* Preview Assets.xcassets */; };
 		1710D1DC2AEC99AE00BCAC46 /* RecordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1710D1DB2AEC99AE00BCAC46 /* RecordButton.swift */; };
+		1710D1DE2AECD58A00BCAC46 /* MobileBert.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 1710D1DD2AECD58A00BCAC46 /* MobileBert.mlpackage */; };
+		1710D1E02AECD6D500BCAC46 /* vocab.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1710D1DF2AECD6D500BCAC46 /* vocab.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +23,8 @@
 		1710D1C92AEC88F500BCAC46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1710D1CC2AEC88F500BCAC46 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1710D1DB2AEC99AE00BCAC46 /* RecordButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordButton.swift; sourceTree = "<group>"; };
+		1710D1DD2AECD58A00BCAC46 /* MobileBert.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = MobileBert.mlpackage; sourceTree = "<group>"; };
+		1710D1DF2AECD6D500BCAC46 /* vocab.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vocab.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +78,8 @@
 		1710D1D52AEC8FB200BCAC46 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1710D1DD2AECD58A00BCAC46 /* MobileBert.mlpackage */,
+				1710D1DF2AECD6D500BCAC46 /* vocab.txt */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -144,6 +150,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1710D1E02AECD6D500BCAC46 /* vocab.txt in Resources */,
 				1710D1CD2AEC88F500BCAC46 /* Preview Assets.xcassets in Resources */,
 				1710D1CA2AEC88F500BCAC46 /* Assets.xcassets in Resources */,
 			);
@@ -156,6 +163,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1710D1DE2AECD58A00BCAC46 /* MobileBert.mlpackage in Sources */,
 				1710D1C82AEC88F400BCAC46 /* ContentView.swift in Sources */,
 				1710D1C62AEC88F400BCAC46 /* PredicTalkApp.swift in Sources */,
 				1710D1DC2AEC99AE00BCAC46 /* RecordButton.swift in Sources */,
