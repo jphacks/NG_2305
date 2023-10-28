@@ -27,6 +27,8 @@ class SpeechRecognizer: ObservableObject {
     }
 
     @Published var transcript: String = "Tap a button to start recording."
+    private var prv: String = ""
+    private var logMessage: String = ""
     
     private var audioEngine: AVAudioEngine?
     private var request: SFSpeechAudioBufferRecognitionRequest?
@@ -58,6 +60,8 @@ class SpeechRecognizer: ObservableObject {
     }
 
     func reset() {
+        logMessage = ""
+        prv = ""
         task?.cancel()
         audioEngine?.stop()
         audioEngine = nil
@@ -101,7 +105,7 @@ class SpeechRecognizer: ObservableObject {
         let audioEngine = AVAudioEngine()
 
         let request = SFSpeechAudioBufferRecognitionRequest()
-        request.shouldReportPartialResults = false
+        request.shouldReportPartialResults = true
         request.requiresOnDeviceRecognition = true
 
         let audioSession = AVAudioSession.sharedInstance()
@@ -125,7 +129,11 @@ class SpeechRecognizer: ObservableObject {
     }
 
     private func speak(_ message: String) {
-            transcript = message
+        if( !message.contains(" ") && !logMessage.isEmpty && logMessage != message){
+                    prv += logMessage + " "
+        }
+        transcript = prv + message
+        logMessage = message
     }
 
     private func speakError(_ error: Error) {
