@@ -11,6 +11,7 @@
 		1710D1C82AEC88F400BCAC46 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1710D1C72AEC88F400BCAC46 /* ContentView.swift */; };
 		1710D1CA2AEC88F500BCAC46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1710D1C92AEC88F500BCAC46 /* Assets.xcassets */; };
 		1710D1CD2AEC88F500BCAC46 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1710D1CC2AEC88F500BCAC46 /* Preview Assets.xcassets */; };
+		1710D1DC2AEC99AE00BCAC46 /* RecordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1710D1DB2AEC99AE00BCAC46 /* RecordButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		1710D1C72AEC88F400BCAC46 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1710D1C92AEC88F500BCAC46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1710D1CC2AEC88F500BCAC46 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1710D1DB2AEC99AE00BCAC46 /* RecordButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,7 +55,7 @@
 			children = (
 				1710D1C52AEC88F400BCAC46 /* PredicTalkApp.swift */,
 				1710D1C72AEC88F400BCAC46 /* ContentView.swift */,
-				1710D1D32AEC8F9E00BCAC46 /* Sources */,
+				1710D1DA2AEC999F00BCAC46 /* Sources */,
 				1710D1D52AEC8FB200BCAC46 /* Resources */,
 				1710D1C92AEC88F500BCAC46 /* Assets.xcassets */,
 				1710D1CB2AEC88F500BCAC46 /* Preview Content */,
@@ -69,18 +71,19 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		1710D1D32AEC8F9E00BCAC46 /* Sources */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Sources;
-			sourceTree = "<group>";
-		};
 		1710D1D52AEC8FB200BCAC46 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		1710D1DA2AEC999F00BCAC46 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				1710D1DB2AEC99AE00BCAC46 /* RecordButton.swift */,
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,6 +158,7 @@
 			files = (
 				1710D1C82AEC88F400BCAC46 /* ContentView.swift in Sources */,
 				1710D1C62AEC88F400BCAC46 /* PredicTalkApp.swift in Sources */,
+				1710D1DC2AEC99AE00BCAC46 /* RecordButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
