@@ -11,8 +11,6 @@
 		1710D1C82AEC88F400BCAC46 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1710D1C72AEC88F400BCAC46 /* ContentView.swift */; };
 		1710D1CA2AEC88F500BCAC46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1710D1C92AEC88F500BCAC46 /* Assets.xcassets */; };
 		1710D1CD2AEC88F500BCAC46 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1710D1CC2AEC88F500BCAC46 /* Preview Assets.xcassets */; };
-		1710D1DE2AECD58A00BCAC46 /* MobileBert.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 1710D1DD2AECD58A00BCAC46 /* MobileBert.mlpackage */; };
-		1710D1E02AECD6D500BCAC46 /* vocab.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1710D1DF2AECD6D500BCAC46 /* vocab.txt */; };
 		1710D1E22AECD83E00BCAC46 /* BertTokenizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1710D1E12AECD83E00BCAC46 /* BertTokenizer.swift */; };
 		1710D1E42AECD8A700BCAC46 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1710D1E32AECD8A700BCAC46 /* Utils.swift */; };
 		1710D1E62AECD96B00BCAC46 /* WordPredictor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1710D1E52AECD96B00BCAC46 /* WordPredictor.swift */; };
@@ -27,8 +25,6 @@
 		1710D1C72AEC88F400BCAC46 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1710D1C92AEC88F500BCAC46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1710D1CC2AEC88F500BCAC46 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		1710D1DD2AECD58A00BCAC46 /* MobileBert.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = MobileBert.mlpackage; sourceTree = "<group>"; };
-		1710D1DF2AECD6D500BCAC46 /* vocab.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vocab.txt; sourceTree = "<group>"; };
 		1710D1E12AECD83E00BCAC46 /* BertTokenizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BertTokenizer.swift; sourceTree = "<group>"; };
 		1710D1E32AECD8A700BCAC46 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		1710D1E52AECD96B00BCAC46 /* WordPredictor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordPredictor.swift; sourceTree = "<group>"; };
@@ -70,7 +66,6 @@
 				1710D1C52AEC88F400BCAC46 /* PredicTalkApp.swift */,
 				1710D1C72AEC88F400BCAC46 /* ContentView.swift */,
 				1710D1DA2AEC999F00BCAC46 /* Sources */,
-				1710D1D52AEC8FB200BCAC46 /* Resources */,
 				1710D1C92AEC88F500BCAC46 /* Assets.xcassets */,
 				1710D1CB2AEC88F500BCAC46 /* Preview Content */,
 			);
@@ -83,15 +78,6 @@
 				1710D1CC2AEC88F500BCAC46 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		1710D1D52AEC8FB200BCAC46 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				1710D1DD2AECD58A00BCAC46 /* MobileBert.mlpackage */,
-				1710D1DF2AECD6D500BCAC46 /* vocab.txt */,
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 		1710D1DA2AEC999F00BCAC46 /* Sources */ = {
@@ -165,7 +151,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1710D1E02AECD6D500BCAC46 /* vocab.txt in Resources */,
 				1710D1CD2AEC88F500BCAC46 /* Preview Assets.xcassets in Resources */,
 				1710D1CA2AEC88F500BCAC46 /* Assets.xcassets in Resources */,
 			);
@@ -179,7 +164,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1710D1E62AECD96B00BCAC46 /* WordPredictor.swift in Sources */,
-				1710D1DE2AECD58A00BCAC46 /* MobileBert.mlpackage in Sources */,
 				1710D1EA2AECE06500BCAC46 /* Math.swift in Sources */,
 				1710D1E82AECDFAE00BCAC46 /* MLMultiArray+Utils.swift in Sources */,
 				1710D1C82AEC88F400BCAC46 /* ContentView.swift in Sources */,
