@@ -27,8 +27,12 @@ struct ContentView: View {
                         wordPredictor.predictNextWord(sentence: newTranscript)
                     }
             }
-            
-            RecordButton(isRecording: $isRecording)
+            .onTapGesture {
+                isRecording.toggle()
+            }
+            .onChange(of: isRecording) { isRecording in
+                isRecording ? speechRecognizer.transcribe() : speechRecognizer.stopTranscribing()
+            }
         }
     }
 }
