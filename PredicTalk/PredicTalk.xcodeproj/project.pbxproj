@@ -12,6 +12,7 @@
 		1710D1CA2AEC88F500BCAC46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1710D1C92AEC88F500BCAC46 /* Assets.xcassets */; };
 		1710D1CD2AEC88F500BCAC46 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1710D1CC2AEC88F500BCAC46 /* Preview Assets.xcassets */; };
 		1710D1DC2AEC99AE00BCAC46 /* RecordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1710D1DB2AEC99AE00BCAC46 /* RecordButton.swift */; };
+		4C25C1172AECA4C50030E4CE /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C25C1162AECA4C50030E4CE /* SpeechRecognizer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		1710D1C92AEC88F500BCAC46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1710D1CC2AEC88F500BCAC46 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1710D1DB2AEC99AE00BCAC46 /* RecordButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordButton.swift; sourceTree = "<group>"; };
+		4C25C1162AECA4C50030E4CE /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SpeechRecognizer.swift; path = PredicTalk/Sources/SpeechRecognizer.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				1710D1DB2AEC99AE00BCAC46 /* RecordButton.swift */,
+				4C25C1162AECA4C50030E4CE /* SpeechRecognizer.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -159,6 +162,7 @@
 				1710D1C82AEC88F400BCAC46 /* ContentView.swift in Sources */,
 				1710D1C62AEC88F400BCAC46 /* PredicTalkApp.swift in Sources */,
 				1710D1DC2AEC99AE00BCAC46 /* RecordButton.swift in Sources */,
+				4C25C1172AECA4C50030E4CE /* SpeechRecognizer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
