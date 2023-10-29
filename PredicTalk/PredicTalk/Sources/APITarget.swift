@@ -32,7 +32,7 @@ extension APITarget: TargetType {
             
             data["model"] = "gpt-3.5-turbo"
             
-            let sysMsg = ["role": "system", "content": "Generate a continuation of the entered text to the end. Keep the continuation of the sentence as short as possible."]
+            let sysMsg = ["role": "system", "content": "Please complete the rest of the sentence. Think of the sentence as if it were one person speaking. Please keep sentences a short as possible"]
             let usrMsg = ["role": "user", "content": sentence]
             let msgs = [sysMsg, usrMsg]
             

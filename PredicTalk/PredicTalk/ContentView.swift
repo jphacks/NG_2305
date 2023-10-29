@@ -20,18 +20,15 @@ struct ContentView: View {
                 .ignoresSafeArea()
             
             VStack(spacing: 0) {
-                ScrollView(.horizontal, showsIndicators: false) {
+                ScrollView(.vertical, showsIndicators: false) {
                     ScrollViewReader { reader in
-                        HStack(spacing: 0) {
-                            Text("\(speechRecognizer.transcript) ").foregroundColor(.white)
-                            
-                            EmptyView().id(0)
-                            
+                        Group {
+                            Text("\(speechRecognizer.transcript) ").foregroundColor(.white) +
                             Text(prediction)
                                 .foregroundColor(.secondary)
                         }
                         .font(.largeTitle)
-                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
                         .onChange(of: speechRecognizer.transcript) { newTranscript in
                             Task {
                                 do {
