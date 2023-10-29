@@ -26,7 +26,7 @@ class SpeechRecognizer: ObservableObject {
         }
     }
 
-    @Published var transcript: String = "Tap a button to start recording."
+    @Published var transcript: String = "Tap the screen to start transcripting."
     private var prv: String = ""
     private var logMessage: String = ""
     
