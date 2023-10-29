@@ -12,6 +12,8 @@ struct ContentView: View {
     @State private var prediction = ""
     @State private var isRecording = false
     
+    let haptic = UIImpactFeedbackGenerator(style: .medium)
+    
     var body: some View {
         VStack(spacing: 0) {
             ScrollView {
@@ -36,6 +38,7 @@ struct ContentView: View {
                 }
             }
             .onTapGesture {
+                haptic.impactOccurred()
                 isRecording.toggle()
             }
             .onChange(of: isRecording) { isRecording in
