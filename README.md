@@ -1,5 +1,5 @@
 # PredicTalk
-<img src="https://github.com/jphacks/NG_2305/assets/78719395/728ca450-a66f-488c-b3fd-08c311537cdf" width=300>
+[![thumnail](https://github.com/jphacks/NG_2305/assets/78719395/d47173eb-7c42-4296-bd39-49d90ff80654)](https://youtu.be/Jx81Q2Q_JAw)
 
 ## 製品概要
 初心者以上・ネイティブ未満の外国語学習者の会話を視覚的に補助するためのアプリ
