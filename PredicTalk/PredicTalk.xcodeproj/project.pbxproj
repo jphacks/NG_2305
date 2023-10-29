@@ -14,6 +14,7 @@
 		1760F4642AEDDAE00019A36F /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 1760F4632AEDDAE00019A36F /* Moya */; };
 		1760F4662AEDDB2E0019A36F /* APITarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1760F4652AEDDB2E0019A36F /* APITarget.swift */; };
 		1760F46A2AEDDC720019A36F /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1760F4692AEDDC720019A36F /* APIKey.swift */; };
+		1760F46C2AEDDD060019A36F /* APIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1760F46B2AEDDD060019A36F /* APIModel.swift */; };
 		4C25C1172AECA4C50030E4CE /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C25C1162AECA4C50030E4CE /* SpeechRecognizer.swift */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +26,7 @@
 		1710D1CC2AEC88F500BCAC46 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1760F4652AEDDB2E0019A36F /* APITarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITarget.swift; sourceTree = "<group>"; };
 		1760F4692AEDDC720019A36F /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		1760F46B2AEDDD060019A36F /* APIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIModel.swift; sourceTree = "<group>"; };
 		4C25C1162AECA4C50030E4CE /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SpeechRecognizer.swift; path = PredicTalk/Sources/SpeechRecognizer.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -81,6 +83,7 @@
 			children = (
 				4C25C1162AECA4C50030E4CE /* SpeechRecognizer.swift */,
 				1760F4652AEDDB2E0019A36F /* APITarget.swift */,
+				1760F46B2AEDDD060019A36F /* APIModel.swift */,
 				1760F4692AEDDC720019A36F /* APIKey.swift */,
 			);
 			path = Sources;
@@ -166,6 +169,7 @@
 				1710D1C62AEC88F400BCAC46 /* PredicTalkApp.swift in Sources */,
 				4C25C1172AECA4C50030E4CE /* SpeechRecognizer.swift in Sources */,
 				1760F4662AEDDB2E0019A36F /* APITarget.swift in Sources */,
+				1760F46C2AEDDD060019A36F /* APIModel.swift in Sources */,
 				1760F46A2AEDDC720019A36F /* APIKey.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
