@@ -11,6 +11,7 @@
 		1710D1C82AEC88F400BCAC46 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1710D1C72AEC88F400BCAC46 /* ContentView.swift */; };
 		1710D1CA2AEC88F500BCAC46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1710D1C92AEC88F500BCAC46 /* Assets.xcassets */; };
 		1710D1CD2AEC88F500BCAC46 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1710D1CC2AEC88F500BCAC46 /* Preview Assets.xcassets */; };
+		1760F4642AEDDAE00019A36F /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 1760F4632AEDDAE00019A36F /* Moya */; };
 		4C25C1172AECA4C50030E4CE /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C25C1162AECA4C50030E4CE /* SpeechRecognizer.swift */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1760F4642AEDDAE00019A36F /* Moya in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +96,9 @@
 			dependencies = (
 			);
 			name = PredicTalk;
+			packageProductDependencies = (
+				1760F4632AEDDAE00019A36F /* Moya */,
+			);
 			productName = PredicTalk;
 			productReference = 1710D1C22AEC88F400BCAC46 /* PredicTalk.app */;
 			productType = "com.apple.product-type.application";
@@ -122,6 +127,9 @@
 				Base,
 			);
 			mainGroup = 1710D1B92AEC88F400BCAC46;
+			packageReferences = (
+				1760F4622AEDDAE00019A36F /* XCRemoteSwiftPackageReference "Moya" */,
+			);
 			productRefGroup = 1710D1C32AEC88F400BCAC46 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -362,6 +370,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1760F4622AEDDAE00019A36F /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1760F4632AEDDAE00019A36F /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1760F4622AEDDAE00019A36F /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1710D1BA2AEC88F400BCAC46 /* Project object */;
 }
