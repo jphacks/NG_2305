@@ -12,13 +12,15 @@
 		1710D1CA2AEC88F500BCAC46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1710D1C92AEC88F500BCAC46 /* Assets.xcassets */; };
 		1710D1CD2AEC88F500BCAC46 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1710D1CC2AEC88F500BCAC46 /* Preview Assets.xcassets */; };
 		1710D1DC2AEC99AE00BCAC46 /* RecordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1710D1DB2AEC99AE00BCAC46 /* RecordButton.swift */; };
-		1710D1DE2AECD58A00BCAC46 /* MobileBert.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 1710D1DD2AECD58A00BCAC46 /* MobileBert.mlpackage */; };
-		1710D1E02AECD6D500BCAC46 /* vocab.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1710D1DF2AECD6D500BCAC46 /* vocab.txt */; };
-		1710D1E22AECD83E00BCAC46 /* BertTokenizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1710D1E12AECD83E00BCAC46 /* BertTokenizer.swift */; };
 		1710D1E42AECD8A700BCAC46 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1710D1E32AECD8A700BCAC46 /* Utils.swift */; };
 		1710D1E62AECD96B00BCAC46 /* WordPredictor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1710D1E52AECD96B00BCAC46 /* WordPredictor.swift */; };
 		1710D1E82AECDFAE00BCAC46 /* MLMultiArray+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1710D1E72AECDFAE00BCAC46 /* MLMultiArray+Utils.swift */; };
 		1710D1EA2AECE06500BCAC46 /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1710D1E92AECE06500BCAC46 /* Math.swift */; };
+		176CD5422AEE29D200BA309E /* gpt2-vocab.json in Resources */ = {isa = PBXBuildFile; fileRef = 176CD5402AEE29D200BA309E /* gpt2-vocab.json */; };
+		176CD5432AEE29D200BA309E /* gpt2-merges.txt in Resources */ = {isa = PBXBuildFile; fileRef = 176CD5412AEE29D200BA309E /* gpt2-merges.txt */; };
+		176CD5452AEE2A6600BA309E /* GPT2.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 176CD5442AEE2A6600BA309E /* GPT2.mlpackage */; };
+		176CD5472AEE2A9D00BA309E /* GPT2Tokenizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176CD5462AEE2A9D00BA309E /* GPT2Tokenizer.swift */; };
+		176CD5492AEE2AB400BA309E /* GPT2ByteEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176CD5482AEE2AB400BA309E /* GPT2ByteEncoder.swift */; };
 		4C25C1172AECA4C50030E4CE /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C25C1162AECA4C50030E4CE /* SpeechRecognizer.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,13 +31,15 @@
 		1710D1C92AEC88F500BCAC46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1710D1CC2AEC88F500BCAC46 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1710D1DB2AEC99AE00BCAC46 /* RecordButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordButton.swift; sourceTree = "<group>"; };
-		1710D1DD2AECD58A00BCAC46 /* MobileBert.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = MobileBert.mlpackage; sourceTree = "<group>"; };
-		1710D1DF2AECD6D500BCAC46 /* vocab.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vocab.txt; sourceTree = "<group>"; };
-		1710D1E12AECD83E00BCAC46 /* BertTokenizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BertTokenizer.swift; sourceTree = "<group>"; };
 		1710D1E32AECD8A700BCAC46 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		1710D1E52AECD96B00BCAC46 /* WordPredictor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordPredictor.swift; sourceTree = "<group>"; };
 		1710D1E72AECDFAE00BCAC46 /* MLMultiArray+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MLMultiArray+Utils.swift"; sourceTree = "<group>"; };
 		1710D1E92AECE06500BCAC46 /* Math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
+		176CD5402AEE29D200BA309E /* gpt2-vocab.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "gpt2-vocab.json"; sourceTree = "<group>"; };
+		176CD5412AEE29D200BA309E /* gpt2-merges.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "gpt2-merges.txt"; sourceTree = "<group>"; };
+		176CD5442AEE2A6600BA309E /* GPT2.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = GPT2.mlpackage; sourceTree = "<group>"; };
+		176CD5462AEE2A9D00BA309E /* GPT2Tokenizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPT2Tokenizer.swift; sourceTree = "<group>"; };
+		176CD5482AEE2AB400BA309E /* GPT2ByteEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPT2ByteEncoder.swift; sourceTree = "<group>"; };
 		4C25C1162AECA4C50030E4CE /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SpeechRecognizer.swift; path = PredicTalk/Sources/SpeechRecognizer.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -90,8 +94,9 @@
 		1710D1D52AEC8FB200BCAC46 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				1710D1DD2AECD58A00BCAC46 /* MobileBert.mlpackage */,
-				1710D1DF2AECD6D500BCAC46 /* vocab.txt */,
+				176CD5442AEE2A6600BA309E /* GPT2.mlpackage */,
+				176CD5412AEE29D200BA309E /* gpt2-merges.txt */,
+				176CD5402AEE29D200BA309E /* gpt2-vocab.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -101,7 +106,8 @@
 			children = (
 				1710D1DB2AEC99AE00BCAC46 /* RecordButton.swift */,
 				4C25C1162AECA4C50030E4CE /* SpeechRecognizer.swift */,
-				1710D1E12AECD83E00BCAC46 /* BertTokenizer.swift */,
+				176CD5462AEE2A9D00BA309E /* GPT2Tokenizer.swift */,
+				176CD5482AEE2AB400BA309E /* GPT2ByteEncoder.swift */,
 				1710D1E52AECD96B00BCAC46 /* WordPredictor.swift */,
 				1710D1E32AECD8A700BCAC46 /* Utils.swift */,
 				1710D1E72AECDFAE00BCAC46 /* MLMultiArray+Utils.swift */,
@@ -168,8 +174,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1710D1E02AECD6D500BCAC46 /* vocab.txt in Resources */,
+				176CD5422AEE29D200BA309E /* gpt2-vocab.json in Resources */,
 				1710D1CD2AEC88F500BCAC46 /* Preview Assets.xcassets in Resources */,
+				176CD5432AEE29D200BA309E /* gpt2-merges.txt in Resources */,
 				1710D1CA2AEC88F500BCAC46 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -182,15 +189,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				1710D1E62AECD96B00BCAC46 /* WordPredictor.swift in Sources */,
-				1710D1DE2AECD58A00BCAC46 /* MobileBert.mlpackage in Sources */,
 				1710D1EA2AECE06500BCAC46 /* Math.swift in Sources */,
+				176CD5452AEE2A6600BA309E /* GPT2.mlpackage in Sources */,
 				1710D1E82AECDFAE00BCAC46 /* MLMultiArray+Utils.swift in Sources */,
+				176CD5472AEE2A9D00BA309E /* GPT2Tokenizer.swift in Sources */,
 				1710D1C82AEC88F400BCAC46 /* ContentView.swift in Sources */,
 				1710D1C62AEC88F400BCAC46 /* PredicTalkApp.swift in Sources */,
-				1710D1E22AECD83E00BCAC46 /* BertTokenizer.swift in Sources */,
 				1710D1DC2AEC99AE00BCAC46 /* RecordButton.swift in Sources */,
 				4C25C1172AECA4C50030E4CE /* SpeechRecognizer.swift in Sources */,
 				1710D1E42AECD8A700BCAC46 /* Utils.swift in Sources */,
+				176CD5492AEE2AB400BA309E /* GPT2ByteEncoder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
