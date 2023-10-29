@@ -16,6 +16,7 @@
 		1760F46A2AEDDC720019A36F /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1760F4692AEDDC720019A36F /* APIKey.swift */; };
 		1760F46C2AEDDD060019A36F /* APIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1760F46B2AEDDD060019A36F /* APIModel.swift */; };
 		1760F46E2AEDDE460019A36F /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1760F46D2AEDDE460019A36F /* APIRequest.swift */; };
+		1760F4722AEDED700019A36F /* MockResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 1760F4712AEDED700019A36F /* MockResponse.json */; };
 		4C25C1172AECA4C50030E4CE /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C25C1162AECA4C50030E4CE /* SpeechRecognizer.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,7 @@
 		1760F4692AEDDC720019A36F /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		1760F46B2AEDDD060019A36F /* APIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIModel.swift; sourceTree = "<group>"; };
 		1760F46D2AEDDE460019A36F /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
+		1760F4712AEDED700019A36F /* MockResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockResponse.json; sourceTree = "<group>"; };
 		4C25C1162AECA4C50030E4CE /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SpeechRecognizer.swift; path = PredicTalk/Sources/SpeechRecognizer.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -65,6 +67,7 @@
 			children = (
 				1710D1C52AEC88F400BCAC46 /* PredicTalkApp.swift */,
 				1710D1C72AEC88F400BCAC46 /* ContentView.swift */,
+				1760F4702AEDED490019A36F /* Resources */,
 				1710D1DA2AEC999F00BCAC46 /* Sources */,
 				1710D1C92AEC88F500BCAC46 /* Assets.xcassets */,
 				1710D1CB2AEC88F500BCAC46 /* Preview Content */,
@@ -90,6 +93,14 @@
 				1760F4692AEDDC720019A36F /* APIKey.swift */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		1760F4702AEDED490019A36F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1760F4712AEDED700019A36F /* MockResponse.json */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -158,6 +169,7 @@
 			files = (
 				1710D1CD2AEC88F500BCAC46 /* Preview Assets.xcassets in Resources */,
 				1710D1CA2AEC88F500BCAC46 /* Assets.xcassets in Resources */,
+				1760F4722AEDED700019A36F /* MockResponse.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
