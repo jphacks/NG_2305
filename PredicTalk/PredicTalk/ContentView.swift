@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var wordPredictor = WordPredictor()
     @StateObject var speechRecognizer = SpeechRecognizer()
+    @State private var prediction = ""
     @State private var isRecording = false
     
     var body: some View {
@@ -17,15 +17,23 @@ struct ContentView: View {
             ScrollView {
                 Group {
                     Text("\(speechRecognizer.transcript) ") +
-                    Text(wordPredictor.nextWord)
+                    Text(prediction)
                         .foregroundColor(.secondary)
                 }
-                    .font(.largeTitle)
-                    .bold()
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-                    .onChange(of: speechRecognizer.transcript) { newTranscript in
-                        wordPredictor.predictNextWord(sentence: newTranscript)
+                .font(.largeTitle)
+                .bold()
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+                .onChange(of: speechRecognizer.transcript) { newTranscript in
+                    Task {
+                        do {
+                            if !newTranscript.isEmpty {
+                                try await prediction = APIRequest.shared.predict(sentence: newTranscript)
+                            }
+                        } catch {
+                            print(error)
+                        }
                     }
+                }
             }
             .onTapGesture {
                 isRecording.toggle()
