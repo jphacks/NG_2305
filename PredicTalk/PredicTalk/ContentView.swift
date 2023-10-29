@@ -17,7 +17,7 @@ struct ContentView: View {
             ScrollView {
                 Group {
                     Text("\(speechRecognizer.transcript) ") +
-                    Text(wordPredictor.nextWord)
+                    Text(wordPredictor.nextSentence)
                         .foregroundColor(.secondary)
                 }
                     .font(.largeTitle)
