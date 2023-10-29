@@ -32,12 +32,11 @@ extension APITarget: TargetType {
             
             data["model"] = "gpt-3.5-turbo"
             
-            let sysMsg = ["role": "system", "content": "Please complete the rest of the sentence. Think of the sentence as if it were one person speaking. Please keep sentences a short as possible"]
-            let usrMsg = ["role": "user", "content": sentence]
+            let sysMsg = ["role": "system", "content": "Generate a continuation of the text entered. Also, please keep the sentences as short as possible. Make sure that the sentences you generate are natural when combined with the input sentences."]
+            let usrMsg = ["role": "assistant", "content": sentence]
             let msgs = [sysMsg, usrMsg]
             
             data["messages"] = msgs
-            data["max_tokens"] = 20
             data["temperature"] = 0
             
             return .requestParameters(parameters: data, encoding: JSONEncoding.default)
