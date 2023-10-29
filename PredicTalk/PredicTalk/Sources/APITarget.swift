@@ -8,11 +8,11 @@
 import Foundation
 import Moya
 
-public enum APIs: Decodable {
+public enum APITarget: Decodable {
     case predict(sentence: String)
 }
 
-extension APIs: TargetType {
+extension APITarget: TargetType {
     public var baseURL: URL {
         return URL(string: "https://api.openai.com/v1")!
     }

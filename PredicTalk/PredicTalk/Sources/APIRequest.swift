@@ -8,11 +8,11 @@
 import Foundation
 import Moya
 
-public final class Request {
-    public static let shared = Request()
+public final class APIRequest {
+    public static let shared = APIRequest()
     
-//    private let provider = MoyaProvider<APIs>(stubClosure: MoyaProvider.immediatelyStub)
-    private let provider = MoyaProvider<APIs>()
+//    private let provider = MoyaProvider<APITarget>(stubClosure: MoyaProvider.immediatelyStub)
+    private let provider = MoyaProvider<APITarget>()
     
     private init() {}
     
