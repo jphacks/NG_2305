@@ -39,9 +39,6 @@ struct ContentView: View {
                                     print(error)
                                 }
                             }
-                            withAnimation {
-                                reader.scrollTo(0)
-                            }
                         }
                     }
                 }
@@ -50,7 +47,13 @@ struct ContentView: View {
                     isRecording.toggle()
                 }
                 .onChange(of: isRecording) { isRecording in
-                    isRecording ? speechRecognizer.transcribe() : speechRecognizer.stopTranscribing()
+                    if isRecording {
+                        speechRecognizer.transcript = ""
+                        prediction = ""
+                        speechRecognizer.transcribe()
+                    } else {
+                        speechRecognizer.stopTranscribing()
+                    }
                 }
             }
         }
