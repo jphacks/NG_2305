@@ -11,11 +11,6 @@
 		1710D1C82AEC88F400BCAC46 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1710D1C72AEC88F400BCAC46 /* ContentView.swift */; };
 		1710D1CA2AEC88F500BCAC46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1710D1C92AEC88F500BCAC46 /* Assets.xcassets */; };
 		1710D1CD2AEC88F500BCAC46 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1710D1CC2AEC88F500BCAC46 /* Preview Assets.xcassets */; };
-		1710D1E22AECD83E00BCAC46 /* BertTokenizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1710D1E12AECD83E00BCAC46 /* BertTokenizer.swift */; };
-		1710D1E42AECD8A700BCAC46 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1710D1E32AECD8A700BCAC46 /* Utils.swift */; };
-		1710D1E62AECD96B00BCAC46 /* WordPredictor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1710D1E52AECD96B00BCAC46 /* WordPredictor.swift */; };
-		1710D1E82AECDFAE00BCAC46 /* MLMultiArray+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1710D1E72AECDFAE00BCAC46 /* MLMultiArray+Utils.swift */; };
-		1710D1EA2AECE06500BCAC46 /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1710D1E92AECE06500BCAC46 /* Math.swift */; };
 		4C25C1172AECA4C50030E4CE /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C25C1162AECA4C50030E4CE /* SpeechRecognizer.swift */; };
 /* End PBXBuildFile section */
 
@@ -25,11 +20,6 @@
 		1710D1C72AEC88F400BCAC46 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1710D1C92AEC88F500BCAC46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1710D1CC2AEC88F500BCAC46 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		1710D1E12AECD83E00BCAC46 /* BertTokenizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BertTokenizer.swift; sourceTree = "<group>"; };
-		1710D1E32AECD8A700BCAC46 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
-		1710D1E52AECD96B00BCAC46 /* WordPredictor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordPredictor.swift; sourceTree = "<group>"; };
-		1710D1E72AECDFAE00BCAC46 /* MLMultiArray+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MLMultiArray+Utils.swift"; sourceTree = "<group>"; };
-		1710D1E92AECE06500BCAC46 /* Math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
 		4C25C1162AECA4C50030E4CE /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SpeechRecognizer.swift; path = PredicTalk/Sources/SpeechRecognizer.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -84,11 +74,6 @@
 			isa = PBXGroup;
 			children = (
 				4C25C1162AECA4C50030E4CE /* SpeechRecognizer.swift */,
-				1710D1E12AECD83E00BCAC46 /* BertTokenizer.swift */,
-				1710D1E52AECD96B00BCAC46 /* WordPredictor.swift */,
-				1710D1E32AECD8A700BCAC46 /* Utils.swift */,
-				1710D1E72AECDFAE00BCAC46 /* MLMultiArray+Utils.swift */,
-				1710D1E92AECE06500BCAC46 /* Math.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -163,14 +148,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1710D1E62AECD96B00BCAC46 /* WordPredictor.swift in Sources */,
-				1710D1EA2AECE06500BCAC46 /* Math.swift in Sources */,
-				1710D1E82AECDFAE00BCAC46 /* MLMultiArray+Utils.swift in Sources */,
 				1710D1C82AEC88F400BCAC46 /* ContentView.swift in Sources */,
 				1710D1C62AEC88F400BCAC46 /* PredicTalkApp.swift in Sources */,
-				1710D1E22AECD83E00BCAC46 /* BertTokenizer.swift in Sources */,
 				4C25C1172AECA4C50030E4CE /* SpeechRecognizer.swift in Sources */,
-				1710D1E42AECD8A700BCAC46 /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
