@@ -17,6 +17,7 @@
 		1760F46E2AEDDE460019A36F /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1760F46D2AEDDE460019A36F /* APIRequest.swift */; };
 		1760F4722AEDED700019A36F /* MockResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 1760F4712AEDED700019A36F /* MockResponse.json */; };
 		176CD54B2AEE414500BA309E /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176CD54A2AEE414500BA309E /* APIKey.swift */; };
+		176CD54D2AEEF09600BA309E /* OpenAIAPIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176CD54C2AEEF09600BA309E /* OpenAIAPIKey.swift */; };
 		4C25C1172AECA4C50030E4CE /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C25C1162AECA4C50030E4CE /* SpeechRecognizer.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +33,7 @@
 		1760F4712AEDED700019A36F /* MockResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockResponse.json; sourceTree = "<group>"; };
 		1760F4762AEDF4ED0019A36F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		176CD54A2AEE414500BA309E /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		176CD54C2AEEF09600BA309E /* OpenAIAPIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIAPIKey.swift; sourceTree = "<group>"; };
 		4C25C1162AECA4C50030E4CE /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SpeechRecognizer.swift; path = PredicTalk/Sources/SpeechRecognizer.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -93,6 +95,7 @@
 				1760F46B2AEDDD060019A36F /* APIModel.swift */,
 				1760F46D2AEDDE460019A36F /* APIRequest.swift */,
 				176CD54A2AEE414500BA309E /* APIKey.swift */,
+				176CD54C2AEEF09600BA309E /* OpenAIAPIKey.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 				176CD54B2AEE414500BA309E /* APIKey.swift in Sources */,
 				1760F46E2AEDDE460019A36F /* APIRequest.swift in Sources */,
 				1710D1C62AEC88F400BCAC46 /* PredicTalkApp.swift in Sources */,
+				176CD54D2AEEF09600BA309E /* OpenAIAPIKey.swift in Sources */,
 				4C25C1172AECA4C50030E4CE /* SpeechRecognizer.swift in Sources */,
 				1760F4662AEDDB2E0019A36F /* APITarget.swift in Sources */,
 				1760F46C2AEDDD060019A36F /* APIModel.swift in Sources */,
@@ -322,7 +326,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PredicTalk/Preview Content\"";
-				DEVELOPMENT_TEAM = N38H3ZBTB2;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PredicTalk/Info.plist;
@@ -355,7 +359,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PredicTalk/Preview Content\"";
-				DEVELOPMENT_TEAM = N38H3ZBTB2;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PredicTalk/Info.plist;
