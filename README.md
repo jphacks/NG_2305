@@ -1,9 +1,10 @@
 # PredicTalk
-![header](https://github.com/jphacks/NG_2305/assets/78719395/c3160c3a-5101-4182-8e85-7ab3148c5d12)
-[こちら](https://youtu。be/Jx81Q2Q_JAw)からデモ動画をご覧いただけます。
+<img src="https://github.com/jphacks/NG_2305/assets/78719395/c3160c3a-5101-4182-8e85-7ab3148c5d12">
+
+[こちら](https://youtu.be/Jx81Q2Q_JAw)からデモ動画をご覧いただけます。
 
 ## 製品概要
-<span style="font-weight:bold">会話 × Tech</span>
+<span style="font-weight:bold">コミュニケーション × Tech</span>
 
 初心者以上・ネイティブ未満の外国語学習者の会話を視覚的に補助するためのアプリ
 
@@ -44,12 +45,12 @@
 ### 製品説明（具体的な製品の説明）
 会話の続きを予測するiOSアプリ 
 
-<img width="590" alt="スクリーンショット 2023-10-30 4 05 47" src="https://github.com/jphacks/NG_2305/assets/109562639/9a953ca5-4cbb-4e35-b914-3a31c8f906ec">
+<img width="590" alt="スクリーンショット 2023-10-30 4 05 47" src="https://github.com/jphacks/NG_2305/assets/78719395/8db669c8-8221-42f5-b3f7-cdd60c2bebc4">
 
 - アプリを起動して画面をタップすると音声認識が開始されます。
 - 自身の話した内容は白色の文字で表示されます。
   
-<img width="596" alt="スクリーンショット 2023-10-30 4 04 02" src="https://github.com/jphacks/NG_2305/assets/109562639/f7f2f95e-5545-4d91-9e0a-a506914f18fd">
+<img width="596" alt="スクリーンショット 2023-10-30 4 04 02" src="https://github.com/jphacks/NG_2305/assets/78719395/18f8ca2f-8d62-4b54-a269-0b932a0f29d6">
 
 - 会話の続きを予測した内容は薄い白色の文字で表示されます。
 - ユーザはARグラスに表示された単語を見ることで，思い出せなかった単語や文法を思い出すことで発話をスムーズに行うことができます。
@@ -106,10 +107,21 @@ UIに時間を割いて開発を行うことができなかったため、現在
 #### API・データ
 - OpenAI API(gpt-3.5-turbo)
     - ユーザの話した文章の続きを生成させるために使用
+    - 自身の環境で本アプリを動作させる場合には、OpenAIAPIKey.swiftに自身のOpenAI API Keyを入力してください。
+```Swift:OpenAIAPIKey.swift
+//  OpenAIAPIKey.swift
+
+let API_KEY = "<Input Your API Key Here>"
+```
 
 #### フレームワーク・ライブラリ・モジュール
-- Apple Speach framework
+- Speech
+    - Swiftの純正フレームワークで、音声処理に関するフレームワークです。
     - ユーザの話した内容を文字に起こすために使用しました。
+- CoreML・CoreMLTools
+    - CoreMLはSwiftの純正フレームワークで、機械学習モデルをSwift上で使用するためのフレームワークです。
+    - CoreMLToolsはPythonライブラリで、PytorchやTensorflowで作られたニューラルネットワークモデルをCoreML形式へ変換するためのツールです。
+    - これらのツールはMobileBertとGPT2をCoreML形式へ変換し、iOS端末上で動作させるようにするために使用しました。
 - Moya
     - OpenAIのAPIをSwiftを使って叩くために使用しました。
 
@@ -123,10 +135,13 @@ UIに時間を割いて開発を行うことができなかったため、現在
 * 特に力を入れた部分をファイルリンク、またはcommit_idを記載してください。
 
 ##### 音声認識結果を保存する機能
-commit_id:5674e3c7c945d6a1c6ec8a8ade41fcb9ef19ea1d
+commit_id: [5674e3c7c945d6a1c6ec8a8ade41fcb9ef19ea1d](https://github.com/jphacks/NG_2305/commit/5674e3c7c945d6a1c6ec8a8ade41fcb9ef19ea1d)
 
-SFSpeechRecognizerを用いて音声をテキストに起こすが、時間経過によりテキストがクリアされてしまうという問題があった。さらに、時間経過などの判定はフレームワークの機能になかったため、クリアされたタイミングを判定する機能を実装した。
+音声認識自体はSpeechフレームワークを用いて実装したのですが、音声認識結果を保存する機能を独自に実装しました。
 
+SFSpeechRecognizerを用いて音声をテキストに起こす際に、Speechフレームワークの仕様により音声認識の途中結果をいくつも出力してしまったり、時間経過により認識された文章が削除されてしまい、認識結果が重複して画面に表示されたり話すのを少しでも止めるとこれまでの認識結果が失われるといった問題がありました。
+
+これらを解決するために、音声認識の途中結果をバッファリングしておき、認識が完了したこと検知したら最終結果を画面に出力したり、時間経過で認識された文章が削除されないように、認識結果を保存しておく機能を実装しました。
 
 #### 製品に取り入れた研究内容（データ・ソフトウェアなど）（※アカデミック部門の場合のみ提出必須）
 アカデミック部門ではないため無し
