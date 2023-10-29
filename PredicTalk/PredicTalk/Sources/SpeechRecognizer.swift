@@ -128,7 +128,7 @@ class SpeechRecognizer: ObservableObject {
     }
 
     private func speak(_ message: String) {
-        if( !message.contains(" ") && !logMessage.isEmpty && logMessage != message){
+        if !message.contains(" ") && !logMessage.isEmpty && logMessage != message {
                     prv += logMessage + " "
         }
         transcript = prv + message
