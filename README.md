@@ -70,11 +70,10 @@
 2. [iOSアプリ単体で使用する方法](#iOSアプリ単体で使用する方法)で説明した通り，アプリを起動して音声認識を開始します
 4. ユーザが発話するとARグラス上に予測結果が透過表示されることで，ユーザは相手の表情や仕草を見ながら発話の支援を受けることができます
 
-<img width="1285" alt="スクリーンショット 2023-10-30 4 34 26" src="https://github.com/jphacks/NG_2305/assets/109562639/c99497f8-dbb3-4ae8-a9b1-bd5876359a21">
+<img width="1285" alt="スクリーンショット 2023-10-30 4 34 26" src="https://github.com/jphacks/NG_2305/assets/109562639/c99497f8-dbb3-4ae8-a9b1-bd5876359a21">*イメージ図*
 
 ARグラス着用時のイメージは下図の通りです．
-![IMG_7924](https://github.com/jphacks/NG_2305/assets/109562639/35ddd113-a542-46d0-9a0f-c078bbbcd8f7)
-*iPhone内で起動中の本製品とXREAL社のXREAL airを接続して着用している様子*
+![IMG_7924](https://github.com/jphacks/NG_2305/assets/109562639/35ddd113-a542-46d0-9a0f-c078bbbcd8f7)*iPhone内で起動中の本製品とXREAL社のXREAL airを接続して着用している様子*
 
 ### 他の方法との差別化
 音声認識と単語予測、さらにARグラスを組み合わせることで、円滑なコミュニケーションを可能としています！
