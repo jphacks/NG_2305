@@ -80,12 +80,12 @@
 ### iOSアプリ単体で使用する方法
 1. アプリを起動して画面をタップすると音声認識が開始されます
 
-<img width="100%" alt="スクリーンショット 2023-10-30 4 05 47" src="https://github.com/jphacks/NG_2305/assets/78719395/8db669c8-8221-42f5-b3f7-cdd60c2bebc4">
+<img width="50%" alt="アプリ起動時のスマホ画面" src="https://github.com/jphacks/NG_2305/assets/78719395/8db669c8-8221-42f5-b3f7-cdd60c2bebc4">
 
 2. ユーザが発話すると音声認識され，発話内容が白色の文字で表示されます
 3. ユーザの発話を基に続きの単語や文章が予測され，予測結果が薄い白色の文字で表示されます
   
-<img width="100%" alt="スクリーンショット 2023-10-30 4 04 02" src="https://github.com/jphacks/NG_2305/assets/78719395/18f8ca2f-8d62-4b54-a269-0b932a0f29d6">
+<img width="50%" alt="音声認識時のスマホ画面" src="https://github.com/jphacks/NG_2305/assets/78719395/18f8ca2f-8d62-4b54-a269-0b932a0f29d6">
 
 ### iOSアプリをARデバイスと組み合わせて使用する方法
 1. ARグラスとiPhoneを接続します（外部ディスプレイとして利用できるARグラスであればどの会社のARグラスでも利用可能です）
