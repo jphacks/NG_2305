@@ -39,7 +39,7 @@
   - [製品に取り入れた研究内容](#製品に取り入れた研究内容)
 
 ## 製品概要
-<span style="font size:50px;">「会話 × Tech」：初心者以上・ネイティブ未満の英語学習者を対象とした英会話を視覚的に補助するためのアプリ</span>
+<span style="font size:200%;">「会話 × Tech」：初心者以上・ネイティブ未満の英語学習者を対象とした英会話を視覚的に補助するためのアプリ</span>
 <img width="100%" alt="製品概要のイラスト" src="https://github.com/jphacks/NG_2305/assets/103105513/74a8bc0a-0edb-4606-ac84-3fe09efbc76f">
 
 ### 開発背景
