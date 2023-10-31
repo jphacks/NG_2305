@@ -1,7 +1,8 @@
 # PredicTalk
 <img src="https://github.com/jphacks/NG_2305/assets/78719395/c3160c3a-5101-4182-8e85-7ab3148c5d12">
 
-[こちら](https://youtu.be/Jx81Q2Q_JAw)からデモ動画をご覧いただけます。
+## デモ動画
+[こちら](https://youtu.be/Jx81Q2Q_JAw)からデモ動画をご覧いただけます．
 
 ## 目次
 - [製品概要](#製品概要)
