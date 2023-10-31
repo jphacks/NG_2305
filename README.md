@@ -1,5 +1,5 @@
 # PredicTalk
-<img src="https://github.com/jphacks/NG_2305/assets/78719395/c3160c3a-5101-4182-8e85-7ab3148c5d12">
+<img width="100%" alt="PredicTalk" src="https://github.com/jphacks/NG_2305/assets/78719395/c3160c3a-5101-4182-8e85-7ab3148c5d12">
 
 ## デモ動画
 [こちら](https://youtu.be/Jx81Q2Q_JAw)からデモ動画をご覧いただけます．
@@ -40,6 +40,7 @@
 
 ## 製品概要
 **「会話 × Tech」：初心者以上・ネイティブ未満の英語学習者を対象とした英会話を視覚的に補助するためのアプリ**
+<img width="100%" alt="製品概要のイラスト" src="https://github.com/jphacks/NG_2305/assets/103105513/74a8bc0a-0edb-4606-ac84-3fe09efbc76f">
 
 ### 開発背景
 日本人が外国人と英語で会話をする場合，英語をほとんど話せない初心者は翻訳アプリを利用します．  
