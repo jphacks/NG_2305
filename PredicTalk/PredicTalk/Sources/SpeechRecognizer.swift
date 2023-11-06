@@ -27,8 +27,6 @@ class SpeechRecognizer: ObservableObject {
     }
 
     @Published var transcript: String = "Tap the screen to start transcripting."
-    private var prv: String = ""
-    private var logMessage: String = ""
     
     private var audioEngine: AVAudioEngine?
     private var request: SFSpeechAudioBufferRecognitionRequest?
@@ -36,7 +34,7 @@ class SpeechRecognizer: ObservableObject {
     private let recognizer: SFSpeechRecognizer?
 
     init() {
-        recognizer = SFSpeechRecognizer()
+        recognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "en_US"))
 
         Task(priority: .background) {
             do {
@@ -60,8 +58,6 @@ class SpeechRecognizer: ObservableObject {
     }
 
     func reset() {
-        logMessage = ""
-        prv = ""
         task?.cancel()
         audioEngine?.stop()
         audioEngine = nil
@@ -128,11 +124,7 @@ class SpeechRecognizer: ObservableObject {
     }
 
     private func speak(_ message: String) {
-        if !message.contains(" ") && !logMessage.isEmpty && logMessage != message {
-                    prv += logMessage + " "
-        }
-        transcript = prv + message
-        logMessage = message
+        transcript = message
     }
 
     private func speakError(_ error: Error) {
