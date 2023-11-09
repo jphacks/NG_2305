@@ -90,3 +90,4 @@ iOSInjectionProject/
 *.mlpackage
 UserInterfaceState.xcuserstate
 APIKey.swift
+.DS_Store
