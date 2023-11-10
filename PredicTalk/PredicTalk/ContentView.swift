@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var speechRecognizer = SpeechRecognizer()
+    @StateObject var speechRecognizer = SpeechRecognizer(language: .english)
     @State private var prediction = ""
     @State private var isRecording = false
     @State private var timer: Timer?

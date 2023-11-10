@@ -9,6 +9,12 @@ import AVFoundation
 import Speech
 import SwiftUI
 
+enum Language {
+    case english
+    case french
+    case japanese
+}
+
 class SpeechRecognizer: ObservableObject {
     enum RecognizerError: Error {
         case nilRecognizer
@@ -31,10 +37,21 @@ class SpeechRecognizer: ObservableObject {
     private var audioEngine: AVAudioEngine?
     private var request: SFSpeechAudioBufferRecognitionRequest?
     private var task: SFSpeechRecognitionTask?
-    private let recognizer: SFSpeechRecognizer?
+    private var recognizer: SFSpeechRecognizer?
 
-    init() {
-        recognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "en_US"))
+    init(language: Language) {
+        let locale: Locale
+        
+        switch language {
+        case .english:
+            locale = Locale.init(identifier: "en_US")
+        case .french:
+            locale = Locale.init(identifier: "fr_FR")
+        case .japanese:
+            locale = Locale.init(identifier: "ja_JP")
+        }
+        
+        initRecognizer(locale: locale)
 
         Task(priority: .background) {
             do {
@@ -57,7 +74,11 @@ class SpeechRecognizer: ObservableObject {
         reset()
     }
 
-    func reset() {
+    func initRecognizer(locale: Locale) {
+        recognizer = SFSpeechRecognizer(locale: locale)
+    }
+
+    private func reset() {
         task?.cancel()
         audioEngine?.stop()
         audioEngine = nil
