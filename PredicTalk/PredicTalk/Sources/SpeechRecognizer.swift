@@ -79,7 +79,6 @@ class SpeechRecognizer: ObservableObject {
                 self.request = request
 
                 self.task = recognizer.recognitionTask(with: request) { result, error in
-                    self.resetTimeoutTimer()
                     let receivedFinalResult = result?.isFinal ?? false
                     let receivedError = error != nil
 
@@ -89,6 +88,7 @@ class SpeechRecognizer: ObservableObject {
                     }
 
                     if let result = result {
+                        self.resetTimeoutTimer()
                         self.isSilent = false
                         self.speak(result.bestTranscription.formattedString)
                     }
@@ -102,7 +102,7 @@ class SpeechRecognizer: ObservableObject {
     
     func resetTimeoutTimer() {
             timeoutTimer?.invalidate()
-            timeoutTimer = Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false) { timer in
+            timeoutTimer = Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false) { _ in
                     self.isSilent = true
                 
             }
