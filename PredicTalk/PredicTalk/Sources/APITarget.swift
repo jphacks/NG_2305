@@ -43,7 +43,11 @@ extension APITarget: TargetType {
             
             data["model"] = "gpt-4-1106-preview"
             
-            let sysMsg = ["role": "system", "content": "Generate a continuation of the text entered. Also, please keep the sentences as short as possible. Make sure that the sentences you generate are natural when combined with the input sentences."]
+            guard let fileURL = Bundle.main.url(forResource: "Prompt", withExtension: "md"), let prompt = try? String(contentsOf: fileURL, encoding: .utf8) else {
+                fatalError("読み込み出来ません")
+            }
+            
+            let sysMsg = ["role": "system", "content": prompt]
             let usrMsg = ["role": "assistant", "content": sentence]
             let msgs = [sysMsg, usrMsg]
             
