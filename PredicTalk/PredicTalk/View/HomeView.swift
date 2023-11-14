@@ -8,29 +8,71 @@
 import SwiftUI
 
 struct HomeView: View {
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @EnvironmentObject var setting: Setting
     @StateObject var speechRecognizer = SpeechRecognizer(language: .english_US)
     @State private var transcription = ""
     @State private var prediction = ""
     @State private var isRecording = false
+    @State private var isLoading = false
     
     let haptic = UIImpactFeedbackGenerator(style: .medium)
     
     var body: some View {
-        VStack(spacing: 0) {
-            ScrollView(.vertical, showsIndicators: false) {
-                Group {
-                    Text("\(transcription) ") +
-                    Text(prediction)
-                        .foregroundColor(.secondary)
+        GeometryReader { geometry in
+            VStack(spacing: 15) {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(.bar)
+                    
+                    VStack(spacing: 0) {
+                        HStack {
+                            Image(systemName: "waveform")
+                            Spacer()
+                            Button {
+                                haptic.impactOccurred()
+                                isRecording.toggle()
+                            } label: {
+                                Image(systemName: "mic.circle")
+                                    .foregroundStyle(isRecording ? .accent : .primary)
+                            }
+                        }
+                        .padding(10)
+                        
+                        ScrollView(.vertical, showsIndicators: false) {
+                            Text(transcription)
+                        }
+                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+                        .padding(10)
+                    }
                 }
-                .font(.largeTitle)
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+                
+                ZStack {
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(.bar)
+                    
+                    VStack(spacing: 0) {
+                        HStack {
+                            Image(systemName: "waveform.and.magnifyingglass")
+                            Spacer()
+                            if isLoading && isRecording {
+                                ProgressView()
+                            }
+                        }
+                        .padding(10)
+                        
+                        ScrollView(.vertical, showsIndicators: false) {
+                            Text(prediction)
+                                .foregroundStyle(.accent)
+                        }
+                        .frame(maxWidth: .infinity, maxHeight: geometry.size.height / 4, alignment: .topLeading)
+                        .padding(10)
+                    }
+                }
+                .frame(maxWidth: .infinity, maxHeight: geometry.size.height / 4)
             }
-            .onTapGesture {
-                haptic.impactOccurred()
-                isRecording.toggle()
-            }
+            .font(.title)
+            .padding(20)
         }
         .onChange(of: isRecording) { isRecording in
             if isRecording {
@@ -40,20 +82,42 @@ struct HomeView: View {
             }
         }
         .onChange(of: speechRecognizer.transcript) { newTranscript in
-            Task {
-                do {
-                    if !speechRecognizer.transcript.isEmpty {
-                        let newPrediction = try await APIRequest.shared.predict(sentence: newTranscript)
-                        if setting.selectedLanguage == .japanese && setting.convertToHiragana {
+            if !newTranscript.isEmpty {
+                if setting.selectedLanguage == .japanese && setting.convertToHiragana {
+                    Task {
+                        do {
                             transcription = try await APIRequest.shared.toHiragana(sentence: newTranscript)
-                            prediction = try await APIRequest.shared.toHiragana(sentence: newPrediction)
-                        } else {
-                            transcription = newTranscript
-                            prediction = newPrediction
+                        } catch {
+                            print(error)
                         }
                     }
-                } catch {
-                    print(error)
+                } else {
+                    transcription = newTranscript
+                }
+            }
+        }
+        .onChange(of: speechRecognizer.isSilent) { isSilent in
+            print(isSilent)
+            if isRecording {
+                if isSilent {
+                    if !transcription.isEmpty {
+                        Task {
+                            do {
+                                let newPrediction = try await APIRequest.shared.predict(sentence: transcription)
+                                if setting.selectedLanguage == .japanese && setting.convertToHiragana {
+                                    prediction = try await APIRequest.shared.toHiragana(sentence: newPrediction)
+                                } else {
+                                    prediction = newPrediction
+                                }
+                                isLoading = false
+                            } catch {
+                                print(error)
+                            }
+                        }
+                    }
+                } else {
+                    isLoading = true
+                    prediction = ""
                 }
             }
         }
@@ -61,12 +125,13 @@ struct HomeView: View {
             speechRecognizer.initRecognizer(locale: setting.selectedLanguage.locale)
         }
         .onDisappear {
-            speechRecognizer.stopTranscribing()
+            isRecording = false
+            isLoading = false
         }
     }
     
     func startRecording() {
-        speechRecognizer.transcript = ""
+        transcription = ""
         prediction = ""
         speechRecognizer.transcribe()
     }
