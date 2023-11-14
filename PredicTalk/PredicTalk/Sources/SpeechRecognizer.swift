@@ -9,10 +9,36 @@ import AVFoundation
 import Speech
 import SwiftUI
 
-enum Language {
+enum Language: CaseIterable, Identifiable {
     case english
     case french
     case japanese
+    
+    var name: String {
+        switch self {
+        case .english:
+            return "English"
+        case .french:
+            return "French"
+        case .japanese:
+            return "Japanese"
+        }
+    }
+    
+    var locale: Locale {
+        switch self {
+        case .english:
+            return Locale.init(identifier: "en_US")
+        case .french:
+            return Locale.init(identifier: "fr_FR")
+        case .japanese:
+            return Locale.init(identifier: "ja_JP")
+        }
+    }
+    
+    var id: Self {
+        self
+    }
 }
 
 class SpeechRecognizer: ObservableObject {
@@ -40,18 +66,7 @@ class SpeechRecognizer: ObservableObject {
     private var recognizer: SFSpeechRecognizer?
 
     init(language: Language) {
-        let locale: Locale
-        
-        switch language {
-        case .english:
-            locale = Locale.init(identifier: "en_US")
-        case .french:
-            locale = Locale.init(identifier: "fr_FR")
-        case .japanese:
-            locale = Locale.init(identifier: "ja_JP")
-        }
-        
-        initRecognizer(locale: locale)
+        initRecognizer(locale: language.locale)
 
         Task(priority: .background) {
             do {
