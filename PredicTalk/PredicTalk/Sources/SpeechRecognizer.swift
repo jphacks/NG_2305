@@ -124,11 +124,12 @@ class SpeechRecognizer: ObservableObject {
     }
 
     @Published var transcript: String = "Tap the screen to start transcripting."
-    
+    @Published var isSilent: Bool = false
     private var audioEngine: AVAudioEngine?
     private var request: SFSpeechAudioBufferRecognitionRequest?
     private var task: SFSpeechRecognitionTask?
-    private var recognizer: SFSpeechRecognizer?
+    private let recognizer: SFSpeechRecognizer?
+    private var timeoutTimer: Timer?
 
     init(language: Language) {
         initRecognizer(locale: language.locale)
@@ -188,6 +189,8 @@ class SpeechRecognizer: ObservableObject {
                     }
 
                     if let result = result {
+                        self.resetTimeoutTimer()
+                        self.isSilent = false
                         self.speak(result.bestTranscription.formattedString)
                     }
                 }
@@ -197,6 +200,14 @@ class SpeechRecognizer: ObservableObject {
             }
         }
     }
+    
+    func resetTimeoutTimer() {
+            timeoutTimer?.invalidate()
+            timeoutTimer = Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false) { _ in
+                    self.isSilent = true
+                
+            }
+        }
 
     private static func prepareEngine() throws -> (AVAudioEngine, SFSpeechAudioBufferRecognitionRequest) {
         let audioEngine = AVAudioEngine()
