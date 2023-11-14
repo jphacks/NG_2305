@@ -22,6 +22,7 @@
 		1760F46E2AEDDE460019A36F /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1760F46D2AEDDE460019A36F /* APIRequest.swift */; };
 		176CD54B2AEE414500BA309E /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176CD54A2AEE414500BA309E /* APIKey.swift */; };
 		17B91B742B031FE20007A87D /* Prompt.md in Resources */ = {isa = PBXBuildFile; fileRef = 17B91B732B031FE20007A87D /* Prompt.md */; };
+		17B91B762B0357200007A87D /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B91B752B0357200007A87D /* Language.swift */; };
 		4C25C1172AECA4C50030E4CE /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C25C1162AECA4C50030E4CE /* SpeechRecognizer.swift */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +43,7 @@
 		1760F4762AEDF4ED0019A36F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		176CD54A2AEE414500BA309E /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		17B91B732B031FE20007A87D /* Prompt.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Prompt.md; sourceTree = "<group>"; };
+		17B91B752B0357200007A87D /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		4C25C1162AECA4C50030E4CE /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SpeechRecognizer.swift; path = PredicTalk/Sources/SpeechRecognizer.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -110,6 +112,7 @@
 			children = (
 				1702EDB72B0316D400408B34 /* Setting.swift */,
 				4C25C1162AECA4C50030E4CE /* SpeechRecognizer.swift */,
+				17B91B752B0357200007A87D /* Language.swift */,
 				1760F4652AEDDB2E0019A36F /* APITarget.swift */,
 				1760F46B2AEDDD060019A36F /* APIModel.swift */,
 				1760F46D2AEDDE460019A36F /* APIRequest.swift */,
@@ -217,6 +220,7 @@
 				1702EDB32B02F01C00408B34 /* HomeView.swift in Sources */,
 				1760F4662AEDDB2E0019A36F /* APITarget.swift in Sources */,
 				1760F46C2AEDDD060019A36F /* APIModel.swift in Sources */,
+				17B91B762B0357200007A87D /* Language.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
