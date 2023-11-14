@@ -38,3 +38,9 @@ public struct Usage: Decodable {
     public let prompt_tokens: Int
     public let total_tokens: Int
 }
+
+public struct GooResponse: Decodable {
+    public let converted: String
+    public let output_type: String
+    public let request_id: String
+}

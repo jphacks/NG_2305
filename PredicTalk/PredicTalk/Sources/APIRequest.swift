@@ -42,4 +42,31 @@ public final class APIRequest {
             }
         }
     }
+    
+    public func toHiragana(sentence: String) async throws -> String {
+        try await withCheckedThrowingContinuation { continuation in
+            if _Concurrency.Task.isCancelled {
+                continuation.resume(throwing: CancellationError())
+            }
+            
+            provider.request(.toHiragana(sentence: sentence)) { result in
+                if _Concurrency.Task.isCancelled {
+                    continuation.resume(throwing: CancellationError())
+                }
+                
+                switch result {
+                case let .success(response):
+                    do {
+                        let successfullResponse = try response.filterSuccessfulStatusCodes()
+                        let decodedResponse = try successfullResponse.map(GooResponse.self)
+                        continuation.resume(returning: decodedResponse.converted)
+                    } catch {
+                        continuation.resume(throwing: error)
+                    }
+                case let .failure(moyaError):
+                    continuation.resume(throwing: moyaError)
+                }
+            }
+        }
+    }
 }
