@@ -13,15 +13,15 @@ struct ContentView: View {
             HomeView()
                 .tabItem {
                     VStack(spacing: 0) {
-                        Image(systemName: "bubble.left.and.text.bubble.right")
-                        Text("Home")
+                        Image(systemName: "platter.2.filled.iphone")
+                        Text("スマートフォン")
                     }
                 }
             SettingView()
                 .tabItem {
                     VStack(spacing: 0) {
                         Image(systemName: "gearshape")
-                        Text("Setting")
+                        Text("設定")
                     }
                 }
         }
