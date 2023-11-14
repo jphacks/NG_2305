@@ -12,14 +12,14 @@ struct ContentView: View {
         TabView {
             HomeView()
                 .tabItem {
-                    VStack {
+                    VStack(spacing: 0) {
                         Image(systemName: "bubble.left.and.text.bubble.right")
                         Text("Home")
                     }
                 }
             SettingView()
                 .tabItem {
-                    VStack {
+                    VStack(spacing: 0) {
                         Image(systemName: "gearshape")
                         Text("Setting")
                     }

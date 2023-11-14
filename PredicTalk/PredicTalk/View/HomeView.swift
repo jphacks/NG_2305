@@ -16,24 +16,19 @@ struct HomeView: View {
     let haptic = UIImpactFeedbackGenerator(style: .medium)
     
     var body: some View {
-        ZStack {
-            Color.black
-                .ignoresSafeArea()
-            
-            VStack(spacing: 0) {
-                ScrollView(.vertical, showsIndicators: false) {
-                    Group {
-                        Text("\(speechRecognizer.transcript) ").foregroundColor(.white) +
-                        Text(prediction)
-                            .foregroundColor(.secondary)
-                    }
-                    .font(.largeTitle)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+        VStack(spacing: 0) {
+            ScrollView(.vertical, showsIndicators: false) {
+                Group {
+                    Text("\(speechRecognizer.transcript) ").foregroundColor(.white) +
+                    Text(prediction)
+                        .foregroundColor(.secondary)
                 }
-                .onTapGesture {
-                    haptic.impactOccurred()
-                    isRecording.toggle()
-                }
+                .font(.largeTitle)
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+            }
+            .onTapGesture {
+                haptic.impactOccurred()
+                isRecording.toggle()
             }
         }
         .onChange(of: isRecording) { isRecording in
