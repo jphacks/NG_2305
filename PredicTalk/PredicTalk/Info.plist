@@ -9,7 +9,5 @@
 		<key>UIImageName</key>
 		<string>LaunchImage</string>
 	</dict>
-	<key>UIViewControllerBasedStatusBarAppearance</key>
-	<false/>
 </dict>
 </plist>

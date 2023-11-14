@@ -26,8 +26,8 @@ class SpeechRecognizer: ObservableObject {
         }
     }
 
-    @Published var transcript: String = "Tap the screen to start transcripting."
-    @Published var isSilent: Bool = false
+    @Published var transcript: String = ""
+    @Published var isSilent: Bool = true
     
     private var audioEngine: AVAudioEngine?
     private var request: SFSpeechAudioBufferRecognitionRequest?
@@ -107,7 +107,7 @@ class SpeechRecognizer: ObservableObject {
     
     func resetTimeoutTimer() {
             timeoutTimer?.invalidate()
-            timeoutTimer = Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false) { _ in
+            timeoutTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { _ in
                     self.isSilent = true
                 
             }
