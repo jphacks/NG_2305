@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct HomeView: View {
-    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @EnvironmentObject var setting: Setting
     @StateObject var speechRecognizer = SpeechRecognizer(language: .english_US)
     @State private var transcription = ""
