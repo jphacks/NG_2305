@@ -9,7 +9,8 @@ import SwiftUI
 
 struct HomeView: View {
     @EnvironmentObject var setting: Setting
-    @StateObject var speechRecognizer = SpeechRecognizer(language: .english)
+    @StateObject var speechRecognizer = SpeechRecognizer(language: .english_US)
+    @State private var transcription = ""
     @State private var prediction = ""
     @State private var isRecording = false
     
@@ -19,7 +20,7 @@ struct HomeView: View {
         VStack(spacing: 0) {
             ScrollView(.vertical, showsIndicators: false) {
                 Group {
-                    Text("\(speechRecognizer.transcript) ").foregroundColor(.white) +
+                    Text("\(transcription) ").foregroundColor(.white) +
                     Text(prediction)
                         .foregroundColor(.secondary)
                 }
@@ -35,14 +36,21 @@ struct HomeView: View {
             if isRecording {
                 startRecording()
             } else {
-                speechRecognizer.stopTranscribing()
+                stopRecording()
             }
         }
         .onChange(of: speechRecognizer.transcript) { newTranscript in
             Task {
                 do {
                     if !speechRecognizer.transcript.isEmpty {
-                        try await prediction = APIRequest.shared.predict(sentence: newTranscript)
+                        let newPrediction = try await APIRequest.shared.predict(sentence: newTranscript)
+                        if setting.selectedLanguage == .japanese && setting.convertToHiragana {
+                            transcription = try await APIRequest.shared.toHiragana(sentence: newTranscript)
+                            prediction = try await APIRequest.shared.toHiragana(sentence: newPrediction)
+                        } else {
+                            transcription = newTranscript
+                            prediction = newPrediction
+                        }
                     }
                 } catch {
                     print(error)
@@ -61,6 +69,12 @@ struct HomeView: View {
         speechRecognizer.transcript = ""
         prediction = ""
         speechRecognizer.transcribe()
+    }
+    
+    func stopRecording() {
+        speechRecognizer.stopTranscribing()
+        transcription = ""
+        prediction = ""
     }
 }
 

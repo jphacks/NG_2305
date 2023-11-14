@@ -13,13 +13,25 @@ struct SettingView: View {
     var body: some View {
         NavigationStack {
             Form {
-                Picker("Transcription", selection: $setting.selectedLanguage) {
-                    ForEach(Language.allCases) {
-                        Text($0.name)
+                Section {
+                    Picker("言語", selection: $setting.selectedLanguage) {
+                        ForEach(Language.allCases) {
+                            Text($0.name)
+                        }
                     }
+                } header: {
+                    Text("一般")
+                }
+                
+                Section {
+                    Toggle(isOn: $setting.convertToHiragana) {
+                        Text("日本語を全てひらがなに変換する")
+                    }
+                } header: {
+                    Text("日本語")
                 }
             }
-            .navigationTitle("Setting")
+            .navigationTitle("設定")
         }
     }
 }

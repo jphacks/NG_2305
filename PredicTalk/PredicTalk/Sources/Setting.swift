@@ -8,5 +8,6 @@
 import Foundation
 
 class Setting: ObservableObject {
-    @Published var selectedLanguage: Language = .english
+    @Published var selectedLanguage: Language = .english_US
+    @Published var convertToHiragana: Bool = true
 }
