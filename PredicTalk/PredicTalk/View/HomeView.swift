@@ -20,7 +20,7 @@ struct HomeView: View {
         VStack(spacing: 0) {
             ScrollView(.vertical, showsIndicators: false) {
                 Group {
-                    Text("\(transcription) ").foregroundColor(.white) +
+                    Text("\(transcription) ") +
                     Text(prediction)
                         .foregroundColor(.secondary)
                 }

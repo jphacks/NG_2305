@@ -48,11 +48,11 @@ extension APITarget: TargetType {
             }
             
             let sysMsg = ["role": "system", "content": prompt]
-            let usrMsg = ["role": "assistant", "content": sentence]
+            let usrMsg = ["role": "user", "content": sentence]
             let msgs = [sysMsg, usrMsg]
             
             data["messages"] = msgs
-            data["temperature"] = 0
+            data["temperature"] = 1
             
             return .requestParameters(parameters: data, encoding: JSONEncoding.default)
         case .toHiragana(let sentence):

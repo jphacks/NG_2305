@@ -28,6 +28,7 @@ class SpeechRecognizer: ObservableObject {
 
     @Published var transcript: String = "Tap the screen to start transcripting."
     @Published var isSilent: Bool = false
+    
     private var audioEngine: AVAudioEngine?
     private var request: SFSpeechAudioBufferRecognitionRequest?
     private var task: SFSpeechRecognitionTask?
