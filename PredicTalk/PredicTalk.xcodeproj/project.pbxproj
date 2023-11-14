@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1702EDB02B02EFEF00408B34 /* ChatResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 1702EDAE2B02EFEF00408B34 /* ChatResponse.json */; };
+		1702EDB12B02EFEF00408B34 /* HiraganaResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 1702EDAF2B02EFEF00408B34 /* HiraganaResponse.json */; };
+		1702EDB32B02F01C00408B34 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1702EDB22B02F01C00408B34 /* HomeView.swift */; };
+		1702EDB62B0307DE00408B34 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1702EDB52B0307DE00408B34 /* SettingView.swift */; };
+		1702EDB82B0316D400408B34 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1702EDB72B0316D400408B34 /* Setting.swift */; };
 		1710D1C62AEC88F400BCAC46 /* PredicTalkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1710D1C52AEC88F400BCAC46 /* PredicTalkApp.swift */; };
 		1710D1C82AEC88F400BCAC46 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1710D1C72AEC88F400BCAC46 /* ContentView.swift */; };
 		1710D1CA2AEC88F500BCAC46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1710D1C92AEC88F500BCAC46 /* Assets.xcassets */; };
@@ -15,13 +20,16 @@
 		1760F4662AEDDB2E0019A36F /* APITarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1760F4652AEDDB2E0019A36F /* APITarget.swift */; };
 		1760F46C2AEDDD060019A36F /* APIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1760F46B2AEDDD060019A36F /* APIModel.swift */; };
 		1760F46E2AEDDE460019A36F /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1760F46D2AEDDE460019A36F /* APIRequest.swift */; };
-		1760F4722AEDED700019A36F /* MockResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 1760F4712AEDED700019A36F /* MockResponse.json */; };
 		176CD54B2AEE414500BA309E /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176CD54A2AEE414500BA309E /* APIKey.swift */; };
-		176CD54D2AEEF09600BA309E /* OpenAIAPIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176CD54C2AEEF09600BA309E /* OpenAIAPIKey.swift */; };
 		4C25C1172AECA4C50030E4CE /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C25C1162AECA4C50030E4CE /* SpeechRecognizer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1702EDAE2B02EFEF00408B34 /* ChatResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ChatResponse.json; sourceTree = "<group>"; };
+		1702EDAF2B02EFEF00408B34 /* HiraganaResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = HiraganaResponse.json; sourceTree = "<group>"; };
+		1702EDB22B02F01C00408B34 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		1702EDB52B0307DE00408B34 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		1702EDB72B0316D400408B34 /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
 		1710D1C22AEC88F400BCAC46 /* PredicTalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PredicTalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1710D1C52AEC88F400BCAC46 /* PredicTalkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredicTalkApp.swift; sourceTree = "<group>"; };
 		1710D1C72AEC88F400BCAC46 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -30,10 +38,8 @@
 		1760F4652AEDDB2E0019A36F /* APITarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITarget.swift; sourceTree = "<group>"; };
 		1760F46B2AEDDD060019A36F /* APIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIModel.swift; sourceTree = "<group>"; };
 		1760F46D2AEDDE460019A36F /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
-		1760F4712AEDED700019A36F /* MockResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockResponse.json; sourceTree = "<group>"; };
 		1760F4762AEDF4ED0019A36F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		176CD54A2AEE414500BA309E /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
-		176CD54C2AEEF09600BA309E /* OpenAIAPIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIAPIKey.swift; sourceTree = "<group>"; };
 		4C25C1162AECA4C50030E4CE /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SpeechRecognizer.swift; path = PredicTalk/Sources/SpeechRecognizer.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -49,6 +55,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1702EDB42B02F13200408B34 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1710D1C72AEC88F400BCAC46 /* ContentView.swift */,
+				1702EDB22B02F01C00408B34 /* HomeView.swift */,
+				1702EDB52B0307DE00408B34 /* SettingView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		1710D1B92AEC88F400BCAC46 = {
 			isa = PBXGroup;
 			children = (
@@ -70,7 +86,7 @@
 			children = (
 				1760F4762AEDF4ED0019A36F /* Info.plist */,
 				1710D1C52AEC88F400BCAC46 /* PredicTalkApp.swift */,
-				1710D1C72AEC88F400BCAC46 /* ContentView.swift */,
+				1702EDB42B02F13200408B34 /* View */,
 				1760F4702AEDED490019A36F /* Resources */,
 				1710D1DA2AEC999F00BCAC46 /* Sources */,
 				1710D1C92AEC88F500BCAC46 /* Assets.xcassets */,
@@ -90,12 +106,12 @@
 		1710D1DA2AEC999F00BCAC46 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				1702EDB72B0316D400408B34 /* Setting.swift */,
 				4C25C1162AECA4C50030E4CE /* SpeechRecognizer.swift */,
 				1760F4652AEDDB2E0019A36F /* APITarget.swift */,
 				1760F46B2AEDDD060019A36F /* APIModel.swift */,
 				1760F46D2AEDDE460019A36F /* APIRequest.swift */,
 				176CD54A2AEE414500BA309E /* APIKey.swift */,
-				176CD54C2AEEF09600BA309E /* OpenAIAPIKey.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -103,7 +119,8 @@
 		1760F4702AEDED490019A36F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				1760F4712AEDED700019A36F /* MockResponse.json */,
+				1702EDAE2B02EFEF00408B34 /* ChatResponse.json */,
+				1702EDAF2B02EFEF00408B34 /* HiraganaResponse.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -174,7 +191,8 @@
 			files = (
 				1710D1CD2AEC88F500BCAC46 /* Preview Assets.xcassets in Resources */,
 				1710D1CA2AEC88F500BCAC46 /* Assets.xcassets in Resources */,
-				1760F4722AEDED700019A36F /* MockResponse.json in Resources */,
+				1702EDB02B02EFEF00408B34 /* ChatResponse.json in Resources */,
+				1702EDB12B02EFEF00408B34 /* HiraganaResponse.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,9 +206,11 @@
 				1710D1C82AEC88F400BCAC46 /* ContentView.swift in Sources */,
 				176CD54B2AEE414500BA309E /* APIKey.swift in Sources */,
 				1760F46E2AEDDE460019A36F /* APIRequest.swift in Sources */,
+				1702EDB62B0307DE00408B34 /* SettingView.swift in Sources */,
+				1702EDB82B0316D400408B34 /* Setting.swift in Sources */,
 				1710D1C62AEC88F400BCAC46 /* PredicTalkApp.swift in Sources */,
-				176CD54D2AEEF09600BA309E /* OpenAIAPIKey.swift in Sources */,
 				4C25C1172AECA4C50030E4CE /* SpeechRecognizer.swift in Sources */,
+				1702EDB32B02F01C00408B34 /* HomeView.swift in Sources */,
 				1760F4662AEDDB2E0019A36F /* APITarget.swift in Sources */,
 				1760F46C2AEDDD060019A36F /* APIModel.swift in Sources */,
 			);
