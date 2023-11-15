@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @EnvironmentObject var setting: Setting
     @StateObject var speechRecognizer = SpeechRecognizer(language: .english_US)
     @State private var transcription = ""
@@ -19,59 +20,114 @@ struct HomeView: View {
     
     var body: some View {
         GeometryReader { geometry in
-            VStack(spacing: 15) {
-                ZStack {
-                    RoundedRectangle(cornerRadius: 10)
-                        .fill(.bar)
-                    
-                    VStack(spacing: 0) {
-                        HStack {
-                            Image(systemName: "waveform")
-                            Spacer()
-                            Button {
-                                haptic.impactOccurred()
-                                isRecording.toggle()
-                            } label: {
-                                Image(systemName: "mic.circle")
-                                    .foregroundStyle(isRecording ? .accent : .primary)
-                            }
-                        }
-                        .padding(10)
+            if geometry.size.width < geometry.size.height {
+                VStack(spacing: 15) {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(.bar)
                         
-                        ScrollView(.vertical, showsIndicators: false) {
-                            Text(transcription)
+                        VStack(spacing: 0) {
+                            HStack {
+                                Image(systemName: "waveform")
+                                Spacer()
+                                Button {
+                                    haptic.impactOccurred()
+                                    isRecording.toggle()
+                                } label: {
+                                    Image(systemName: "mic.circle")
+                                        .foregroundStyle(isRecording ? .accent : .primary)
+                                }
+                            }
+                            .padding(10)
+                            
+                            ScrollView(.vertical, showsIndicators: false) {
+                                Text(transcription)
+                            }
+                            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+                            .padding(10)
                         }
-                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-                        .padding(10)
+                    }
+                    
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(.bar)
+                        
+                        VStack(spacing: 0) {
+                            HStack {
+                                Image(systemName: "waveform.and.magnifyingglass")
+                                Spacer()
+                                if isLoading && isRecording {
+                                    ProgressView()
+                                }
+                            }
+                            .padding(10)
+                            
+                            ScrollView(.vertical, showsIndicators: false) {
+                                Text(prediction)
+                                    .foregroundStyle(.accent)
+                            }
+                            .frame(maxWidth: .infinity, maxHeight: geometry.size.height / 3.5, alignment: .topLeading)
+                            .padding(10)
+                        }
+                    }
+                    .frame(maxWidth: .infinity, maxHeight: geometry.size.height / 3.5)
+                }
+                .font(.title)
+                .padding(20)
+            } else {
+                HStack(spacing: 15) {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(.bar)
+                        
+                        VStack(spacing: 0) {
+                            HStack {
+                                Image(systemName: "waveform")
+                                Spacer()
+                                Button {
+                                    haptic.impactOccurred()
+                                    isRecording.toggle()
+                                } label: {
+                                    Image(systemName: "mic.circle")
+                                        .foregroundStyle(isRecording ? .accent : .primary)
+                                }
+                            }
+                            .padding(10)
+                            
+                            ScrollView(.vertical, showsIndicators: false) {
+                                Text(transcription)
+                            }
+                            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+                            .padding(10)
+                        }
+                    }
+                    
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(.bar)
+                        
+                        VStack(spacing: 0) {
+                            HStack {
+                                Image(systemName: "waveform.and.magnifyingglass")
+                                Spacer()
+                                if isLoading && isRecording {
+                                    ProgressView()
+                                }
+                            }
+                            .padding(10)
+                            
+                            ScrollView(.vertical, showsIndicators: false) {
+                                Text(prediction)
+                                    .foregroundStyle(.accent)
+                            }
+                            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+                            .padding(10)
+                        }
                     }
                 }
-                
-                ZStack {
-                    RoundedRectangle(cornerRadius: 10)
-                        .fill(.bar)
-                    
-                    VStack(spacing: 0) {
-                        HStack {
-                            Image(systemName: "waveform.and.magnifyingglass")
-                            Spacer()
-                            if isLoading && isRecording {
-                                ProgressView()
-                            }
-                        }
-                        .padding(10)
-                        
-                        ScrollView(.vertical, showsIndicators: false) {
-                            Text(prediction)
-                                .foregroundStyle(.accent)
-                        }
-                        .frame(maxWidth: .infinity, maxHeight: geometry.size.height / 4, alignment: .topLeading)
-                        .padding(10)
-                    }
-                }
-                .frame(maxWidth: .infinity, maxHeight: geometry.size.height / 4)
+                .font(.title)
+                .padding(20)
             }
-            .font(.title)
-            .padding(20)
         }
         .onChange(of: isRecording) { isRecording in
             if isRecording {
