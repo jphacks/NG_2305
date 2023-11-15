@@ -90,6 +90,7 @@ class SpeechRecognizer: ObservableObject {
                     if receivedFinalResult || receivedError {
                         audioEngine.stop()
                         audioEngine.inputNode.removeTap(onBus: 0)
+                        return
                     }
 
                     if let result = result {
