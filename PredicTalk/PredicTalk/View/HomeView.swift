@@ -23,18 +23,19 @@ struct HomeView: View {
                 VStack(spacing: 15) {
                     ZStack {
                         RoundedRectangle(cornerRadius: 10)
-                            .fill(.bar)
+                            .fill(.ultraThinMaterial)
                         
                         VStack(spacing: 0) {
                             HStack {
                                 Image(systemName: "waveform")
+                                    .foregroundStyle(.accent)
                                 Spacer()
                                 Button {
                                     haptic.impactOccurred()
                                     isRecording.toggle()
                                 } label: {
                                     Image(systemName: "mic.circle")
-                                        .foregroundStyle(isRecording ? .accent : .primary)
+                                        .foregroundStyle(isRecording ? .red : .accent)
                                 }
                             }
                             .padding(10)
@@ -49,11 +50,12 @@ struct HomeView: View {
                     
                     ZStack {
                         RoundedRectangle(cornerRadius: 10)
-                            .fill(.bar)
+                            .fill(.ultraThinMaterial)
                         
                         VStack(spacing: 0) {
                             HStack {
                                 Image(systemName: "waveform.and.magnifyingglass")
+                                    .foregroundStyle(.accent)
                                 Spacer()
                                 if isLoading && isRecording {
                                     ProgressView()
@@ -77,18 +79,19 @@ struct HomeView: View {
                 HStack(spacing: 15) {
                     ZStack {
                         RoundedRectangle(cornerRadius: 10)
-                            .fill(.bar)
+                            .fill(.ultraThinMaterial)
                         
                         VStack(spacing: 0) {
                             HStack {
                                 Image(systemName: "waveform")
+                                    .foregroundStyle(.accent)
                                 Spacer()
                                 Button {
                                     haptic.impactOccurred()
                                     isRecording.toggle()
                                 } label: {
                                     Image(systemName: "mic.circle")
-                                        .foregroundStyle(isRecording ? .accent : .primary)
+                                        .foregroundStyle(isRecording ? .red : .accent)
                                 }
                             }
                             .padding(10)
@@ -103,11 +106,12 @@ struct HomeView: View {
                     
                     ZStack {
                         RoundedRectangle(cornerRadius: 10)
-                            .fill(.bar)
+                            .fill(.ultraThinMaterial)
                         
                         VStack(spacing: 0) {
                             HStack {
                                 Image(systemName: "waveform.and.magnifyingglass")
+                                    .foregroundStyle(.accent)
                                 Spacer()
                                 if isLoading && isRecording {
                                     ProgressView()
