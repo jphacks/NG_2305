@@ -23,6 +23,8 @@ enum Language: CaseIterable, Identifiable {
     case english_US
     case english_UK
     case korean
+    case chinese_traditional
+    case chinese_simplyfied
     case japanese
     
     var name: String {
@@ -57,6 +59,10 @@ enum Language: CaseIterable, Identifiable {
             return "英語（イギリス）"
         case .korean:
             return "韓国"
+        case .chinese_traditional:
+            return "中国語（国語、繁体字）"
+        case .chinese_simplyfied:
+            return "中国語（普通話、簡体字）"
         case .japanese:
             return "日本語"
         }
@@ -94,6 +100,10 @@ enum Language: CaseIterable, Identifiable {
             return Locale.init(identifier: "en_GB")
         case .korean:
             return Locale.init(identifier: "ko")
+        case .chinese_traditional:
+            return Locale.init(identifier: "zh_Hant")
+        case .chinese_simplyfied:
+            return Locale.init(identifier: "zh_Hans")
         case .japanese:
             return Locale.init(identifier: "ja_JP")
         }

@@ -17,6 +17,7 @@ struct ContentView: View {
                         Text("スマートフォン")
                     }
                 }
+            
             SettingView()
                 .tabItem {
                     VStack(spacing: 0) {
