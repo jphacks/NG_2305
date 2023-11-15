@@ -109,9 +109,8 @@ class SpeechRecognizer: ObservableObject {
             timeoutTimer?.invalidate()
             timeoutTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { _ in
                     self.isSilent = true
-                
             }
-        }
+    }
 
     private static func prepareEngine() throws -> (AVAudioEngine, SFSpeechAudioBufferRecognitionRequest) {
         let audioEngine = AVAudioEngine()
