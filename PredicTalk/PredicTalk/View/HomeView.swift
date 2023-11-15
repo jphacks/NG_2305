@@ -54,7 +54,7 @@ struct HomeView: View {
                         
                         VStack(spacing: 0) {
                             HStack {
-                                Image(systemName: "waveform.and.magnifyingglass")
+                                Image(systemName: "brain.head.profile")
                                     .foregroundStyle(.accent)
                                 Spacer()
                                 if isLoading && isRecording {
@@ -110,7 +110,7 @@ struct HomeView: View {
                         
                         VStack(spacing: 0) {
                             HStack {
-                                Image(systemName: "waveform.and.magnifyingglass")
+                                Image(systemName: "brain.head.profile")
                                     .foregroundStyle(.accent)
                                 Spacer()
                                 if isLoading && isRecording {
