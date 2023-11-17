@@ -21,18 +21,14 @@ class RotationModel: NSObject, ObservableObject {
         switch UIDevice.current.orientation {
         case .portrait:
             self.rotate(screenOrientation: .portrait)
-            print("解除 portrait")
         case .landscapeLeft:
             // UIDeviceOrientationとUIInterfaceOrientationMaskとでは向きが逆？
             self.rotate(screenOrientation: .landscapeRight)
-            print("解除 landscapeLeft")
         case .landscapeRight:
             // UIDeviceOrientationとUIInterfaceOrientationMaskとでは向きが逆？
             self.rotate(screenOrientation: .landscapeLeft)
-            print("解除 landscapeRight")
         default:
             self.rotate(screenOrientation: .portrait)
-            print("解除 不明 → portrait")
         }
         
         // 画面向きを固定している状態を解除する

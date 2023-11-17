@@ -17,34 +17,37 @@ struct ARView: View {
     
     var body: some View {
         ZStack {
-            Button {
-                isPresented = true
-            } label: {
-                ZStack {
-                    RoundedRectangle(cornerRadius: 25)
-                    Text("ARモードを開始")
-                        .foregroundStyle(.black)
+            VStack(spacing: 16) {
+                Button {
+                    isPresented = true
+                } label: {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 25)
+                        Text("ARモードを開始")
+                            .foregroundStyle(.black)
+                    }
                 }
+                .frame(width: 200, height: 50)
+                
+                Text("⚠︎ ARモードを修了するには、画面を2回タップしてください。")
             }
-            .frame(width: 200, height: 50)
+            .padding()
         }
         .fullScreenCover(isPresented: $isPresented) {
-            ZStack {
-                Text("LandscapeLockedView")
-            }
-            .onTapGesture(count: 2) {
-                isPresented = false
-            }
-            .onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now()) {
-                    rotationModel.rotate(screenOrientation: .landscapeLeft)
+            ARModeView()
+                .onTapGesture(count: 2) {
+                    isPresented = false
                 }
-            }
-            .onDisappear {
-                DispatchQueue.main.asyncAfter(deadline: .now()) {
-                    rotationModel.unRockScreenOrientation()
+                .onAppear {
+                    DispatchQueue.main.asyncAfter(deadline: .now()) {
+                        rotationModel.rotate(screenOrientation: .landscapeLeft)
+                    }
                 }
-            }
+                .onDisappear {
+                    DispatchQueue.main.asyncAfter(deadline: .now()) {
+                        rotationModel.unRockScreenOrientation()
+                    }
+                }
         }
     }
 }
