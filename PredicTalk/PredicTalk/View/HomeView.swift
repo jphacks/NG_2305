@@ -181,7 +181,6 @@ struct HomeView: View {
                     }
                 } else {
                     isLoading = true
-                    prediction = ""
                 }
             }
         }
