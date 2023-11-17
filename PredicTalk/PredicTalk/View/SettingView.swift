@@ -14,6 +14,12 @@ struct SettingView: View {
         NavigationStack {
             Form {
                 Section {
+                    Picker("モード", selection: $setting.apiMode) {
+                        ForEach(APIMode.allCases) {
+                            Text($0.name)
+                        }
+                    }
+                    
                     Picker("言語", selection: $setting.selectedLanguage) {
                         ForEach(Language.allCases) {
                             Text($0.name)

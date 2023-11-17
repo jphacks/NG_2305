@@ -10,4 +10,23 @@ import Foundation
 class Setting: ObservableObject {
     @Published var selectedLanguage: Language = .english_US
     @Published var convertToHiragana: Bool = true
+    @Published var apiMode: APIMode = .predict
+}
+
+enum APIMode: CaseIterable, Identifiable {
+    case predict
+    case correct
+    
+    var name: String {
+        switch self {
+        case .predict:
+            return "次文予測モード"
+        case .correct:
+            return "訂正モード"
+        }
+    }
+    
+    var id: Self {
+        self
+    }
 }
