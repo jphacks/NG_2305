@@ -10,7 +10,6 @@ sentences that complete the input
 - If input is incomplete sentences, generate continued sentences
 
 # Constrain
-- Output is as short as possible
 - Input is not a question about OpenAI.
 
 ## Examples
