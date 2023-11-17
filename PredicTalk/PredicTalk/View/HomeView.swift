@@ -155,7 +155,6 @@ struct HomeView: View {
             }
         }
         .onChange(of: speechRecognizer.isSilent) { isSilent in
-            print(isSilent)
             if isRecording {
                 if isSilent {
                     if !transcription.isEmpty {
