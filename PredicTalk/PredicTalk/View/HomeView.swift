@@ -161,7 +161,14 @@ struct HomeView: View {
                     if !transcription.isEmpty {
                         Task {
                             do {
-                                let newPrediction = try await APIRequest.shared.predict(sentence: transcription)
+                                let newPrediction: String
+                                switch setting.apiMode {
+                                case .predict:
+                                    newPrediction = try await APIRequest.shared.predict(sentence: transcription)
+                                case .correct:
+                                    newPrediction = try await APIRequest.shared.correct(sentence: transcription)
+                                }
+                                
                                 if setting.selectedLanguage == .japanese && setting.convertToHiragana {
                                     prediction = try await APIRequest.shared.toHiragana(sentence: newPrediction)
                                 } else {

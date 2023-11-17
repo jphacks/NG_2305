@@ -10,13 +10,14 @@ import Moya
 
 public enum APITarget: Decodable {
     case predict(sentence: String)
+    case correct(sentence: String)
     case toHiragana(sentence: String)
 }
 
 extension APITarget: TargetType {
     public var baseURL: URL {
         switch self {
-        case .predict:
+        case .predict, .correct:
             return URL(string: "https://api.openai.com/v1")!
         case .toHiragana:
             return URL(string: "https://labs.goo.ne.jp/api")!
@@ -25,7 +26,7 @@ extension APITarget: TargetType {
     
     public var path: String {
         switch self {
-        case .predict:
+        case .predict, .correct:
             return "/chat/completions"
         case .toHiragana:
             return "/hiragana"
@@ -43,7 +44,7 @@ extension APITarget: TargetType {
             
             data["model"] = "gpt-4-1106-preview"
             
-            guard let fileURL = Bundle.main.url(forResource: "Prompt", withExtension: "md"), let prompt = try? String(contentsOf: fileURL, encoding: .utf8) else {
+            guard let fileURL = Bundle.main.url(forResource: "Predict", withExtension: "md"), let prompt = try? String(contentsOf: fileURL, encoding: .utf8) else {
                 fatalError("読み込み出来ません")
             }
             
@@ -52,8 +53,25 @@ extension APITarget: TargetType {
             let msgs = [sysMsg, usrMsg]
             
             data["messages"] = msgs
-            data["temperature"] = 1
+            data["temperature"] = 0
             
+            return .requestParameters(parameters: data, encoding: JSONEncoding.default)
+        case .correct(let sentence):
+            var data: [String: Any] = [:]
+                
+            data["model"] = "gpt-4-1106-preview"
+                
+            guard let fileURL = Bundle.main.url(forResource: "Correct", withExtension: "md"), let prompt = try? String(contentsOf: fileURL, encoding: .utf8) else {
+                fatalError("読み込み出来ません")
+            }
+                
+            let sysMsg = ["role": "system", "content": prompt]
+            let usrMsg = ["role": "user", "content": sentence]
+            let msgs = [sysMsg, usrMsg]
+                
+            data["messages"] = msgs
+            data["temperature"] = 0
+                
             return .requestParameters(parameters: data, encoding: JSONEncoding.default)
         case .toHiragana(let sentence):
             let data: [String: Any] = ["app_id": APP_ID, "sentence": sentence, "output_type": "hiragana"]
@@ -63,7 +81,7 @@ extension APITarget: TargetType {
     
     public var sampleData: Data {
         switch self {
-        case .predict:
+        case .predict, .correct:
             let url = Bundle.main.url(forResource: "ChatResponse", withExtension: "json")!
             return try! Data(contentsOf: url)
         case .toHiragana:
@@ -74,7 +92,7 @@ extension APITarget: TargetType {
     
     public var headers: [String : String]? {
         switch self {
-        case .predict:
+        case .predict, .correct:
             return ["Authorization": "Bearer \(API_KEY)"]
         case .toHiragana:
             return ["Content-Type": "application/json"]
