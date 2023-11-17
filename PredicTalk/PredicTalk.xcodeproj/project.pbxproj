@@ -24,7 +24,8 @@
 		17B91B742B031FE20007A87D /* Prompt.md in Resources */ = {isa = PBXBuildFile; fileRef = 17B91B732B031FE20007A87D /* Prompt.md */; };
 		17B91B762B0357200007A87D /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B91B752B0357200007A87D /* Language.swift */; };
 		17C0CAC92B04F34100D92CFB /* ARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C0CAC82B04F34000D92CFB /* ARView.swift */; };
-		17C0CACB2B05300300D92CFB /* LandscapeLockedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C0CACA2B05300300D92CFB /* LandscapeLockedView.swift */; };
+		17C0CAD12B07621A00D92CFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C0CAD02B07621A00D92CFB /* AppDelegate.swift */; };
+		17C0CAD32B07627600D92CFB /* RotationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C0CAD22B07627600D92CFB /* RotationModel.swift */; };
 		4C25C1172AECA4C50030E4CE /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C25C1162AECA4C50030E4CE /* SpeechRecognizer.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,7 +48,8 @@
 		17B91B732B031FE20007A87D /* Prompt.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Prompt.md; sourceTree = "<group>"; };
 		17B91B752B0357200007A87D /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		17C0CAC82B04F34000D92CFB /* ARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARView.swift; sourceTree = "<group>"; };
-		17C0CACA2B05300300D92CFB /* LandscapeLockedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandscapeLockedView.swift; sourceTree = "<group>"; };
+		17C0CAD02B07621A00D92CFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		17C0CAD22B07627600D92CFB /* RotationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationModel.swift; sourceTree = "<group>"; };
 		4C25C1162AECA4C50030E4CE /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SpeechRecognizer.swift; path = PredicTalk/Sources/SpeechRecognizer.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -69,7 +71,6 @@
 				1710D1C72AEC88F400BCAC46 /* ContentView.swift */,
 				1702EDB22B02F01C00408B34 /* HomeView.swift */,
 				17C0CAC82B04F34000D92CFB /* ARView.swift */,
-				17C0CACA2B05300300D92CFB /* LandscapeLockedView.swift */,
 				1702EDB52B0307DE00408B34 /* SettingView.swift */,
 			);
 			path = View;
@@ -95,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				1760F4762AEDF4ED0019A36F /* Info.plist */,
+				17C0CAD02B07621A00D92CFB /* AppDelegate.swift */,
 				1710D1C52AEC88F400BCAC46 /* PredicTalkApp.swift */,
 				1702EDB42B02F13200408B34 /* View */,
 				1760F4702AEDED490019A36F /* Resources */,
@@ -117,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				1702EDB72B0316D400408B34 /* Setting.swift */,
+				17C0CAD22B07627600D92CFB /* RotationModel.swift */,
 				4C25C1162AECA4C50030E4CE /* SpeechRecognizer.swift */,
 				17B91B752B0357200007A87D /* Language.swift */,
 				1760F4652AEDDB2E0019A36F /* APITarget.swift */,
@@ -220,15 +223,16 @@
 				176CD54B2AEE414500BA309E /* APIKey.swift in Sources */,
 				1760F46E2AEDDE460019A36F /* APIRequest.swift in Sources */,
 				1702EDB62B0307DE00408B34 /* SettingView.swift in Sources */,
+				17C0CAD12B07621A00D92CFB /* AppDelegate.swift in Sources */,
 				1702EDB82B0316D400408B34 /* Setting.swift in Sources */,
 				17C0CAC92B04F34100D92CFB /* ARView.swift in Sources */,
 				1710D1C62AEC88F400BCAC46 /* PredicTalkApp.swift in Sources */,
 				4C25C1172AECA4C50030E4CE /* SpeechRecognizer.swift in Sources */,
 				1702EDB32B02F01C00408B34 /* HomeView.swift in Sources */,
-				17C0CACB2B05300300D92CFB /* LandscapeLockedView.swift in Sources */,
 				1760F4662AEDDB2E0019A36F /* APITarget.swift in Sources */,
 				1760F46C2AEDDD060019A36F /* APIModel.swift in Sources */,
 				17B91B762B0357200007A87D /* Language.swift in Sources */,
+				17C0CAD32B07627600D92CFB /* RotationModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

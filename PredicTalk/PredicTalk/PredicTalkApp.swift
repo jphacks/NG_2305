@@ -9,10 +9,15 @@ import SwiftUI
 
 @main
 struct PredicTalkApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environmentObject(Setting())
+                .onAppear {
+                    AppDelegate.orientationLock = .all
+                }
         }
     }
 }
