@@ -12,7 +12,7 @@ public final class APIRequest {
     public static let shared = APIRequest()
     
 //    private let provider = MoyaProvider<APITarget>(stubClosure: MoyaProvider.immediatelyStub)
-    private let provider = MoyaProvider<APITarget>()
+    private var provider = MoyaProvider<APITarget>()
     
     private init() {}
     
@@ -70,13 +70,13 @@ public final class APIRequest {
         }
     }
     
-    public func upload(file: Data) async throws -> String {
+    public func upload(file: Data, fileName: String) async throws -> String {
         return try await withCheckedThrowingContinuation { continuation in
             if _Concurrency.Task.isCancelled {
                 continuation.resume(throwing: CancellationError())
             }
             
-            provider.request(.upload(file: file)) { result in
+            provider.request(.upload(file: file, fileName: fileName)) { result in
                 if _Concurrency.Task.isCancelled {
                     continuation.resume(throwing: CancellationError())
                 }

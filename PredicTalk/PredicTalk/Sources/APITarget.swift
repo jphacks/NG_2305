@@ -11,7 +11,7 @@ import Moya
 public enum APITarget: Decodable {
     case predict(sentence: String)
     case correct(sentence: String)
-    case upload(file: Data)
+    case upload(file: Data, fileName: String)
     case toHiragana(sentence: String)
 }
 
@@ -76,8 +76,8 @@ extension APITarget: TargetType {
             data["temperature"] = 0
                 
             return .requestParameters(parameters: data, encoding: JSONEncoding.default)
-        case .upload(let file):
-            let fileData = MultipartFormData(provider: .data(file), name: "file", fileName: "file.pdf", mimeType: "application/pdf")
+        case .upload(let file, let fileName):
+            let fileData = MultipartFormData(provider: .data(file), name: "file", fileName: "\(fileName).pdf", mimeType: "application/pdf")
             let parametersData = MultipartFormData(provider: .data("assistants".data(using: .utf8)!), name: "purpose")
             let multipartData = [fileData, parametersData]
 
