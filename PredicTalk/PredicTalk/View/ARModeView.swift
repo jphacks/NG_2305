@@ -33,11 +33,18 @@ struct ARModeView: View {
         }
         .onChange(of: speechRecognizer.isSilent) { isSilent in
             if isSilent {
-                let transcript = speechRecognizer.transcript
-                if !transcript.isEmpty {
+                let transcription = speechRecognizer.transcript
+                if !transcription.isEmpty {
                     Task {
                         do {
-                            let newPrediction = try await APIRequest.shared.predict(sentence: transcript)
+                            let newPrediction: String
+                            switch setting.apiMode {
+                            case .predict:
+                                newPrediction = try await APIRequest.shared.predict(sentence: transcription)
+                            case .correct:
+                                newPrediction = try await APIRequest.shared.correct(sentence: transcription)
+                            }
+                            
                             if setting.selectedLanguage == .japanese && setting.convertToHiragana {
                                 prediction = try await APIRequest.shared.toHiragana(sentence: newPrediction)
                             } else {
