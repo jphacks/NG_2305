@@ -25,12 +25,18 @@ struct ARModeView: View {
                     Image(systemName: "brain.head.profile")
                         .foregroundStyle(.accent)
                         .opacity(isTransparent ? 0 : 1)
+                    
+                    Spacer()
+                    
                     Text(prediction)
                         .foregroundStyle(.white)
+                    
+                    Spacer()
                 }
                 .font(.largeTitle)
             }
         }
+        .bold()
         .onChange(of: speechRecognizer.isSilent) { isSilent in
             if isSilent {
                 let transcription = speechRecognizer.transcript

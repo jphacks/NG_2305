@@ -58,6 +58,8 @@ struct HomeView: View {
                                 Image(systemName: "brain.head.profile")
                                     .foregroundStyle(.accent)
                                     .opacity(isTransparent ? 0 : 1)
+                                
+                                Spacer()
                             }
                             .padding(10)
                             
@@ -111,6 +113,8 @@ struct HomeView: View {
                                 Image(systemName: "brain.head.profile")
                                     .foregroundStyle(.accent)
                                     .opacity(isTransparent ? 0 : 1)
+                                
+                                Spacer()
                             }
                             .padding(10)
                             
@@ -127,6 +131,7 @@ struct HomeView: View {
                 .padding(20)
             }
         }
+        .bold()
         .onChange(of: isRecording) { isRecording in
             if isRecording {
                 startRecording()

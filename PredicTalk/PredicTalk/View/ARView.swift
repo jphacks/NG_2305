@@ -31,6 +31,7 @@ struct ARView: View {
                 
                 Text("⚠︎ ARモードを終了するには、画面を2回タップしてください。")
             }
+            .bold()
             .padding()
         }
         .fullScreenCover(isPresented: $isPresented) {
