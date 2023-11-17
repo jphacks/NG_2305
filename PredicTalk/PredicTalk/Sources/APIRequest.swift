@@ -70,6 +70,32 @@ public final class APIRequest {
         }
     }
     
+    public func upload(file: Data) async throws {
+        return try await withCheckedThrowingContinuation { continuation in
+            if _Concurrency.Task.isCancelled {
+                continuation.resume(throwing: CancellationError())
+            }
+            
+            provider.request(.upload(file: file)) { result in
+                if _Concurrency.Task.isCancelled {
+                    continuation.resume(throwing: CancellationError())
+                }
+                
+                switch result {
+                case let .success(response):
+                    do {
+                        _ = try response.filterSuccessfulStatusCodes()
+                        continuation.resume(returning: ())
+                    } catch {
+                        continuation.resume(throwing: error)
+                    }
+                case let .failure(moyaError):
+                    continuation.resume(throwing: moyaError)
+                }
+            }
+        }
+    }
+    
     public func toHiragana(sentence: String) async throws -> String {
         try await withCheckedThrowingContinuation { continuation in
             if _Concurrency.Task.isCancelled {

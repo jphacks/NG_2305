@@ -39,6 +39,15 @@ public struct Usage: Decodable {
     public let total_tokens: Int
 }
 
+public struct File: Decodable {
+    public let id: String
+    public let bytes: Int
+    public let created_at: Int
+    public let filename: String
+    public let object: String
+    public let purpose: String
+}
+
 public struct GooResponse: Decodable {
     public let converted: String
     public let output_type: String

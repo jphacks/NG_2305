@@ -11,13 +11,14 @@ import Moya
 public enum APITarget: Decodable {
     case predict(sentence: String)
     case correct(sentence: String)
+    case upload(file: Data)
     case toHiragana(sentence: String)
 }
 
 extension APITarget: TargetType {
     public var baseURL: URL {
         switch self {
-        case .predict, .correct:
+        case .predict, .correct, .upload:
             return URL(string: "https://api.openai.com/v1")!
         case .toHiragana:
             return URL(string: "https://labs.goo.ne.jp/api")!
@@ -28,6 +29,8 @@ extension APITarget: TargetType {
         switch self {
         case .predict, .correct:
             return "/chat/completions"
+        case .upload:
+            return "/files"
         case .toHiragana:
             return "/hiragana"
         }
@@ -73,6 +76,11 @@ extension APITarget: TargetType {
             data["temperature"] = 0
                 
             return .requestParameters(parameters: data, encoding: JSONEncoding.default)
+        case .upload(let file):
+            let multipartData = [MultipartFormData(provider: .data(file), name: "file", fileName: "file.pdf", mimeType: "application/pdf")]
+            let urlParameters = ["purpose": "assistants"]
+            
+            return .uploadCompositeMultipart(multipartData, urlParameters: urlParameters)
         case .toHiragana(let sentence):
             let data: [String: Any] = ["app_id": APP_ID, "sentence": sentence, "output_type": "hiragana"]
             return .requestParameters(parameters: data, encoding: JSONEncoding.default)
@@ -84,6 +92,9 @@ extension APITarget: TargetType {
         case .predict, .correct:
             let url = Bundle.main.url(forResource: "ChatResponse", withExtension: "json")!
             return try! Data(contentsOf: url)
+        case .upload:
+            let url = Bundle.main.url(forResource: "UploadFileResponse", withExtension: "json")!
+            return try! Data(contentsOf: url)
         case .toHiragana:
             let url = Bundle.main.url(forResource: "HiraganaResponse", withExtension: "json")!
             return try! Data(contentsOf: url)
@@ -92,7 +103,7 @@ extension APITarget: TargetType {
     
     public var headers: [String : String]? {
         switch self {
-        case .predict, .correct:
+        case .predict, .correct, .upload:
             return ["Authorization": "Bearer \(API_KEY)"]
         case .toHiragana:
             return ["Content-Type": "application/json"]
