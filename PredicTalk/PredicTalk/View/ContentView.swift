@@ -18,6 +18,14 @@ struct ContentView: View {
                     }
                 }
             
+            ARView()
+                .tabItem {
+                    VStack(spacing: 0) {
+                        Image(systemName: "eyeglasses")
+                        Text("AR")
+                    }
+                }
+            
             SettingView()
                 .tabItem {
                     VStack(spacing: 0) {
