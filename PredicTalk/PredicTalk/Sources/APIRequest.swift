@@ -70,7 +70,7 @@ public final class APIRequest {
         }
     }
     
-    public func upload(file: Data) async throws {
+    public func upload(file: Data) async throws -> String {
         return try await withCheckedThrowingContinuation { continuation in
             if _Concurrency.Task.isCancelled {
                 continuation.resume(throwing: CancellationError())
@@ -84,8 +84,9 @@ public final class APIRequest {
                 switch result {
                 case let .success(response):
                     do {
-                        _ = try response.filterSuccessfulStatusCodes()
-                        continuation.resume(returning: ())
+                        let successfullResponse = try response.filterSuccessfulStatusCodes()
+                        let decodedResponse = try successfullResponse.map(File.self)
+                        continuation.resume(returning: decodedResponse.id)
                     } catch {
                         continuation.resume(throwing: error)
                     }

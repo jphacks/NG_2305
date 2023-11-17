@@ -77,10 +77,11 @@ extension APITarget: TargetType {
                 
             return .requestParameters(parameters: data, encoding: JSONEncoding.default)
         case .upload(let file):
-            let multipartData = [MultipartFormData(provider: .data(file), name: "file", fileName: "file.pdf", mimeType: "application/pdf")]
-            let urlParameters = ["purpose": "assistants"]
-            
-            return .uploadCompositeMultipart(multipartData, urlParameters: urlParameters)
+            let fileData = MultipartFormData(provider: .data(file), name: "file", fileName: "file.pdf", mimeType: "application/pdf")
+            let parametersData = MultipartFormData(provider: .data("assistants".data(using: .utf8)!), name: "purpose")
+            let multipartData = [fileData, parametersData]
+
+            return .uploadMultipart(multipartData)
         case .toHiragana(let sentence):
             let data: [String: Any] = ["app_id": APP_ID, "sentence": sentence, "output_type": "hiragana"]
             return .requestParameters(parameters: data, encoding: JSONEncoding.default)
