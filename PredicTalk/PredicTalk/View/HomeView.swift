@@ -14,6 +14,7 @@ struct HomeView: View {
     @State private var prediction = ""
     @State private var isRecording = false
     @State private var isLoading = false
+    @State private var isTransparent = false
     
     let haptic = UIImpactFeedbackGenerator(style: .medium)
     
@@ -56,10 +57,7 @@ struct HomeView: View {
                             HStack {
                                 Image(systemName: "brain.head.profile")
                                     .foregroundStyle(.accent)
-                                Spacer()
-                                if isLoading && isRecording {
-                                    ProgressView()
-                                }
+                                    .opacity(isTransparent ? 0 : 1)
                             }
                             .padding(10)
                             
@@ -112,10 +110,7 @@ struct HomeView: View {
                             HStack {
                                 Image(systemName: "brain.head.profile")
                                     .foregroundStyle(.accent)
-                                Spacer()
-                                if isLoading && isRecording {
-                                    ProgressView()
-                                }
+                                    .opacity(isTransparent ? 0 : 1)
                             }
                             .padding(10)
                             
@@ -137,6 +132,15 @@ struct HomeView: View {
                 startRecording()
             } else {
                 stopRecording()
+            }
+        }
+        .onChange(of: isLoading) { isLoading in
+            if isLoading {
+                withAnimation(Animation.easeInOut(duration: 0.5).repeatForever()) {
+                    isTransparent.toggle()
+                }
+            } else {
+                isTransparent = false
             }
         }
         .onChange(of: speechRecognizer.transcript) { newTranscript in
