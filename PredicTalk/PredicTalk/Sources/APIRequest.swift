@@ -97,7 +97,7 @@ public final class APIRequest {
         }
     }
     
-    public func createAssistant(fileId: String) async throws {
+    public func createAssistant(fileId: String) async throws -> String {
         return try await withCheckedThrowingContinuation { continuation in
             if _Concurrency.Task.isCancelled {
                 continuation.resume(throwing: CancellationError())
@@ -111,8 +111,9 @@ public final class APIRequest {
                 switch result {
                 case let .success(response):
                     do {
-                        _ = try response.filterSuccessfulStatusCodes()
-                        continuation.resume(returning: ())
+                        let successfulResponse = try response.filterSuccessfulStatusCodes()
+                        let decodedResponse = try successfulResponse.map(Assistant.self)
+                        continuation.resume(returning: decodedResponse.id)
                     } catch {
                         continuation.resume(throwing: error)
                     }

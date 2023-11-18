@@ -48,6 +48,19 @@ public struct File: Decodable {
     public let purpose: String
 }
 
+public struct Assistant: Decodable {
+    public let id: String
+    public let object: String
+    public let created_at: Int
+    public let name: String?
+    public let description: String?
+    public let model: String
+    public let instructions: String?
+    public let tools: [RetrievalTool]
+    public let file_ids: [String]
+    public let metadata: [String: String]
+}
+
 public struct Run: Decodable {
     public let id: String
     public let object: String
