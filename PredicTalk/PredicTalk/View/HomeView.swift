@@ -192,8 +192,9 @@ struct HomeView: View {
                                         speechRecognizer.transcribe()
                                     }
                                 case .assistant:
-                                  let threadId = try await APIRequest.shared.createThreadAndRun(assistantId: setting.assistantId, sentence: transcription)
-                                  newPrediction = try await APIRequest.shared.getMessage(threadId: threadId)
+                                    let threadId = try await APIRequest.shared.createThreadAndRun(assistantId: setting.assistantId, sentence: transcription)
+                                    sleep(5)
+                                    newPrediction = try await APIRequest.shared.getMessage(threadId: threadId)
                                 }
                                 
                                 if setting.selectedLanguage == .japanese && setting.convertToHiragana {
