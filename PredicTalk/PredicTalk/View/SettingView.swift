@@ -51,6 +51,28 @@ struct SettingView: View {
                     } label: {
                         Text("ファイルを選択")
                     }
+                    
+                    Button {
+                        isLoading = true
+                        Task {
+                            do {
+                                try await APIRequest.shared.deleteFile(fileId: setting.selectedFileId)
+                                setting.selectedFileName = "なし"
+                                setting.selectedFileId = ""
+                                
+                                try await APIRequest.shared.deleteAssistant(assistantId: setting.assistantId)
+                                setting.assistantId = ""
+                                
+                                isLoading = false
+                            } catch {
+                                print(error)
+                                isLoading = false
+                            }
+                        }
+                    } label: {
+                        Text("ファイルを削除")
+                            .foregroundStyle(.red)
+                    }
                 } header: {
                     Text("アシスタントモード")
                 }
@@ -74,7 +96,6 @@ struct SettingView: View {
                     let selectedFile = try result.get()
                     Task {
                         try await setPDF(url: selectedFile)
-                        setting.apiMode = .assistant
                         isLoading = false
                     }
                 } catch {
@@ -95,8 +116,8 @@ struct SettingView: View {
             let data = try Data(contentsOf: url)
             url.stopAccessingSecurityScopedResource()
             
-            let fileId = try await APIRequest.shared.upload(file: data, fileName: fileName)
-            setting.assistantId = try await APIRequest.shared.createAssistant(fileId: fileId)
+            setting.selectedFileId = try await APIRequest.shared.upload(file: data, fileName: fileName)
+            setting.assistantId = try await APIRequest.shared.createAssistant(fileId: setting.selectedFileId)
         }
     }
 }
