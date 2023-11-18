@@ -167,7 +167,11 @@ public final class APIRequest {
                     do {
                         let successfulResponse = try response.filterSuccessfulStatusCodes()
                         let decodedResponse = try successfulResponse.map(MessageList.self)
-                        continuation.resume(returning: decodedResponse.data[0].content[0].text.value)
+                        if decodedResponse.data[0].role == "assistant" {
+                            continuation.resume(returning: decodedResponse.data[0].content[0].text.value)
+                        } else {
+                            continuation.resume(throwing: APIError.noAnswerError)
+                        }
                     } catch {
                         continuation.resume(throwing: error)
                     }
@@ -178,7 +182,7 @@ public final class APIRequest {
         }
     }
     
-    public func deleteFile(fileId: String) async throws -> Bool {
+    public func deleteFile(fileId: String) async throws {
         return try await withCheckedThrowingContinuation { continuation in
             if _Concurrency.Task.isCancelled {
                 continuation.resume(throwing: CancellationError())
@@ -194,7 +198,11 @@ public final class APIRequest {
                     do {
                         let successfulResponse = try response.filterSuccessfulStatusCodes()
                         let decodedResponse = try successfulResponse.map(DeletionStatus.self)
-                        continuation.resume(returning: decodedResponse.deleted)
+                        if decodedResponse.deleted {
+                            continuation.resume(returning: ())
+                        } else {
+                            continuation.resume(throwing: APIError.deletionError)
+                        }
                     } catch {
                         continuation.resume(throwing: error)
                     }
@@ -205,7 +213,7 @@ public final class APIRequest {
         }
     }
     
-    public func deleteAssistant(assistantId: String) async throws -> Bool {
+    public func deleteAssistant(assistantId: String) async throws {
         return try await withCheckedThrowingContinuation { continuation in
             if _Concurrency.Task.isCancelled {
                 continuation.resume(throwing: CancellationError())
@@ -221,7 +229,11 @@ public final class APIRequest {
                     do {
                         let successfulResponse = try response.filterSuccessfulStatusCodes()
                         let decodedResponse = try successfulResponse.map(DeletionStatus.self)
-                        continuation.resume(returning: decodedResponse.deleted)
+                        if decodedResponse.deleted {
+                            continuation.resume(returning: ())
+                        } else {
+                            continuation.resume(throwing: APIError.deletionError)
+                        }
                     } catch {
                         continuation.resume(throwing: error)
                     }
@@ -256,6 +268,20 @@ public final class APIRequest {
                     continuation.resume(throwing: moyaError)
                 }
             }
+        }
+    }
+}
+
+enum APIError: Error {
+    case noAnswerError
+    case deletionError
+    
+    var message: String {
+        switch self {
+        case .noAnswerError:
+            return "アシスタントからの回答を取得できませんでした"
+        case .deletionError:
+            return "削除できませんでした"
         }
     }
 }
