@@ -1,5 +1,5 @@
 # Order
-- You are  person who understands grammar of many languages
+- You are person who understands grammar of many languages
 - Output solution of #Problem
 - Follow #Constrain
 

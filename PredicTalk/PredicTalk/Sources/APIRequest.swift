@@ -97,6 +97,33 @@ public final class APIRequest {
         }
     }
     
+    public func createAssistant(fileId: String) async throws {
+        return try await withCheckedThrowingContinuation { continuation in
+            if _Concurrency.Task.isCancelled {
+                continuation.resume(throwing: CancellationError())
+            }
+            
+            provider.request(.createAssistant(fileId: fileId)) { result in
+                if _Concurrency.Task.isCancelled {
+                    continuation.resume(throwing: CancellationError())
+                }
+                
+                switch result {
+                case let .success(response):
+                    do {
+                        let successfullResponse = try response.filterSuccessfulStatusCodes()
+                        let _ = try successfullResponse.map(File.self)
+                        continuation.resume(returning: ())
+                    } catch {
+                        continuation.resume(throwing: error)
+                    }
+                case let .failure(moyaError):
+                    continuation.resume(throwing: moyaError)
+                }
+            }
+        }
+    }
+    
     public func toHiragana(sentence: String) async throws -> String {
         try await withCheckedThrowingContinuation { continuation in
             if _Concurrency.Task.isCancelled {

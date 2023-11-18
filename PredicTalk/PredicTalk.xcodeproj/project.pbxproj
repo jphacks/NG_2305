@@ -16,6 +16,7 @@
 		1710D1C82AEC88F400BCAC46 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1710D1C72AEC88F400BCAC46 /* ContentView.swift */; };
 		1710D1CA2AEC88F500BCAC46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1710D1C92AEC88F500BCAC46 /* Assets.xcassets */; };
 		1710D1CD2AEC88F500BCAC46 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1710D1CC2AEC88F500BCAC46 /* Preview Assets.xcassets */; };
+		1710E8602B08B71900B7D081 /* CreateAssistantResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 1710E85F2B08B71900B7D081 /* CreateAssistantResponse.json */; };
 		174C53042B07687A00314514 /* ARModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174C53032B07687A00314514 /* ARModeView.swift */; };
 		1760F4642AEDDAE00019A36F /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 1760F4632AEDDAE00019A36F /* Moya */; };
 		1760F4662AEDDB2E0019A36F /* APITarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1760F4652AEDDB2E0019A36F /* APITarget.swift */; };
@@ -43,6 +44,8 @@
 		1710D1C72AEC88F400BCAC46 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1710D1C92AEC88F500BCAC46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1710D1CC2AEC88F500BCAC46 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1710E85C2B08B32900B7D081 /* Assistant.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Assistant.md; sourceTree = "<group>"; };
+		1710E85F2B08B71900B7D081 /* CreateAssistantResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CreateAssistantResponse.json; sourceTree = "<group>"; };
 		174C53032B07687A00314514 /* ARModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARModeView.swift; sourceTree = "<group>"; };
 		1760F4652AEDDB2E0019A36F /* APITarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITarget.swift; sourceTree = "<group>"; };
 		1760F46B2AEDDD060019A36F /* APIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIModel.swift; sourceTree = "<group>"; };
@@ -141,10 +144,12 @@
 			isa = PBXGroup;
 			children = (
 				17B91B732B031FE20007A87D /* Predict.md */,
+				4C849CBB2B077DF5006C94E2 /* Correct.md */,
+				1710E85C2B08B32900B7D081 /* Assistant.md */,
 				1702EDAE2B02EFEF00408B34 /* ChatResponse.json */,
 				179A28E82B07D8DA00F97B02 /* UploadFileResponse.json */,
+				1710E85F2B08B71900B7D081 /* CreateAssistantResponse.json */,
 				1702EDAF2B02EFEF00408B34 /* HiraganaResponse.json */,
-				4C849CBB2B077DF5006C94E2 /* Correct.md */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -214,6 +219,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				17B91B742B031FE20007A87D /* Predict.md in Resources */,
+				1710E8602B08B71900B7D081 /* CreateAssistantResponse.json in Resources */,
 				1710D1CD2AEC88F500BCAC46 /* Preview Assets.xcassets in Resources */,
 				1710D1CA2AEC88F500BCAC46 /* Assets.xcassets in Resources */,
 				179A28E92B07D8DA00F97B02 /* UploadFileResponse.json in Resources */,
@@ -378,7 +384,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PredicTalk/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = N38H3ZBTB2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PredicTalk/Info.plist;
@@ -412,7 +418,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PredicTalk/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = N38H3ZBTB2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PredicTalk/Info.plist;
