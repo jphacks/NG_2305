@@ -10,6 +10,7 @@ import SwiftUI
 struct ARModeView: View {
     @EnvironmentObject var setting: Setting
     @StateObject var speechRecognizer = SpeechRecognizer(language: .english_US)
+    @State private var fileNameInfo = ""
     @State private var prediction = ""
     @State private var isLoading = false
     @State private var isTransparent = false
@@ -19,6 +20,14 @@ struct ARModeView: View {
             Color.black
                 .ignoresSafeArea()
             VStack {
+                HStack {
+                    Spacer()
+                    Text(fileNameInfo)
+                        .lineLimit(1)
+                        .foregroundStyle(.gray)
+                        .font(.headline)
+                }
+                .padding()
                 Spacer()
                 
                 HStack(spacing: 16) {
@@ -55,8 +64,9 @@ struct ARModeView: View {
                                     speechRecognizer.transcribe()
                                 }
                             case .assistant:
-                              let threadId = try await APIRequest.shared.createThreadAndRun(assistantId: setting.assistantId, sentence: transcription)
-                              newPrediction = try await APIRequest.shared.getMessage(threadId: threadId)
+                                let threadId = try await APIRequest.shared.createThreadAndRun(assistantId: setting.assistantId, sentence: transcription)
+                                sleep(5)
+                                newPrediction = try await APIRequest.shared.getMessage(threadId: threadId)
                             }
                             
                             if setting.selectedLanguage == .japanese && setting.convertToHiragana {
@@ -87,6 +97,11 @@ struct ARModeView: View {
         .onAppear {
             speechRecognizer.initRecognizer(locale: setting.selectedLanguage.locale)
             startRecording()
+            if setting.apiMode == .assistant && setting.selectedFileName != "なし" {
+                fileNameInfo = setting.selectedFileName
+            } else {
+                fileNameInfo = ""
+            }
         }
         .onDisappear {
             stopRecording()
