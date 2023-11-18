@@ -105,7 +105,7 @@ extension APITarget: TargetType {
         case .createThreadAndRun(let assistantId, let sentence):
             var data: [String: Any] = [:]
             data["assistant_id"] = assistantId
-            data["thread"] = ["message": [["role": "user"], ["content": sentence]]]
+            data["thread"] = ["messages": [["role": "user", "content": sentence]]]
             
             return .requestParameters(parameters: data, encoding: JSONEncoding.default)
         case .toHiragana(let sentence):

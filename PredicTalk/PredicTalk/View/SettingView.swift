@@ -28,7 +28,11 @@ struct SettingView: View {
                             Text($0.name)
                         }
                     }
-                    
+                } header: {
+                    Text("一般")
+                }
+                
+                Section {
                     HStack {
                         Text("ファイル")
                         
@@ -47,26 +51,8 @@ struct SettingView: View {
                     } label: {
                         Text("ファイルを選択")
                     }
-                    .fileImporter(
-                        isPresented: $isDocumentPickerPresented,
-                        allowedContentTypes: [UTType.pdf],
-                        onCompletion: { result in
-                            isLoading = true
-                            do {
-                                let selectedFile = try result.get()
-                                Task {
-                                    try await setPDF(url: selectedFile)
-                                    setting.apiMode = .assistant
-                                    isLoading = false
-                                }
-                            } catch {
-                                print(error)
-                                isLoading = false
-                            }
-                        }
-                    )
                 } header: {
-                    Text("一般")
+                    Text("アシスタントモード")
                 }
                 
                 Section {
@@ -79,6 +65,24 @@ struct SettingView: View {
             }
             .navigationTitle("設定")
         }
+        .fileImporter(
+            isPresented: $isDocumentPickerPresented,
+            allowedContentTypes: [UTType.pdf],
+            onCompletion: { result in
+                isLoading = true
+                do {
+                    let selectedFile = try result.get()
+                    Task {
+                        try await setPDF(url: selectedFile)
+                        setting.apiMode = .assistant
+                        isLoading = false
+                    }
+                } catch {
+                    print(error)
+                    isLoading = false
+                }
+            }
+        )
     }
     
     func setPDF(url: URL) async throws {
@@ -91,8 +95,8 @@ struct SettingView: View {
             let data = try Data(contentsOf: url)
             url.stopAccessingSecurityScopedResource()
             
-            setting.selectedFileId = try await APIRequest.shared.upload(file: data, fileName: fileName)
-            let assistantId = try await APIRequest.shared.createAssistant(fileId: setting.selectedFileId)
+            let fileId = try await APIRequest.shared.upload(file: data, fileName: fileName)
+            setting.assistantId = try await APIRequest.shared.createAssistant(fileId: fileId)
         }
     }
 }

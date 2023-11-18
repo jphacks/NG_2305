@@ -32,12 +32,6 @@ class Setting: ObservableObject {
         }
     }
     
-    @Published var selectedFileId: String {
-        didSet {
-            UserDefaults.standard.set(selectedFileId, forKey: "selectedFileId")
-        }
-    }
-    
     @Published var assistantId: String {
         didSet {
             UserDefaults.standard.set(assistantId, forKey: "assistantId")
@@ -49,7 +43,6 @@ class Setting: ObservableObject {
         self.convertToHiragana = UserDefaults.standard.bool(forKey: "convertToHiragana")
         self.apiMode = APIMode(rawValue: UserDefaults.standard.string(forKey: "apiMode") ?? "") ?? .predict
         self.selectedFileName = UserDefaults.standard.string(forKey: "selectedFileName") ?? "なし"
-        self.selectedFileId = UserDefaults.standard.string(forKey: "selectedFileId") ?? ""
         self.assistantId = UserDefaults.standard.string(forKey: "assistantId") ?? ""
     }
 }
