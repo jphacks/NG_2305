@@ -1,0 +1,19 @@
+{
+    "id": "run_abc123",
+    "object": "thread.run",
+    "created_at": 1699076792,
+    "assistant_id": "asst_abc123",
+    "thread_id": "thread_abc123",
+    "status": "queued",
+    "started_at": null,
+    "expires_at": 1699077392,
+    "cancelled_at": null,
+    "failed_at": null,
+    "completed_at": null,
+    "last_error": null,
+    "model": "gpt-4",
+    "instructions": "You are a helpful assistant.",
+    "tools": [],
+    "file_ids": [],
+    "metadata": {}
+}

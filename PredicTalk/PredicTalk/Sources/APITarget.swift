@@ -13,13 +13,14 @@ public enum APITarget: Decodable {
     case correct(sentence: String)
     case upload(file: Data, fileName: String)
     case createAssistant(fileId: String)
+    case createThreadAndRun(assistantId: String, sentence: String)
     case toHiragana(sentence: String)
 }
 
 extension APITarget: TargetType {
     public var baseURL: URL {
         switch self {
-        case .predict, .correct, .upload, .createAssistant:
+        case .predict, .correct, .upload, .createAssistant, .createThreadAndRun:
             return URL(string: "https://api.openai.com/v1")!
         case .toHiragana:
             return URL(string: "https://labs.goo.ne.jp/api")!
@@ -34,6 +35,8 @@ extension APITarget: TargetType {
             return "/files"
         case .createAssistant:
             return "/assistants"
+        case .createThreadAndRun:
+            return "/threads/runs"
         case .toHiragana:
             return "/hiragana"
         }
@@ -99,6 +102,12 @@ extension APITarget: TargetType {
             data["file_ids"] = [fileId]
                 
             return .requestParameters(parameters: data, encoding: JSONEncoding.default)
+        case .createThreadAndRun(let assistantId, let sentence):
+            var data: [String: Any] = [:]
+            data["assistant_id"] = assistantId
+            data["thread"] = ["message": [["role": "user"], ["content": sentence]]]
+            
+            return .requestParameters(parameters: data, encoding: JSONEncoding.default)
         case .toHiragana(let sentence):
             let data: [String: Any] = ["app_id": APP_ID, "sentence": sentence, "output_type": "hiragana"]
             return .requestParameters(parameters: data, encoding: JSONEncoding.default)
@@ -116,6 +125,9 @@ extension APITarget: TargetType {
         case .createAssistant:
             let url = Bundle.main.url(forResource: "CreateAssistantResponse", withExtension: "json")!
             return try! Data(contentsOf: url)
+        case .createThreadAndRun:
+            let url = Bundle.main.url(forResource: "CreateThreadAndRunResponse", withExtension: "json")!
+            return try! Data(contentsOf: url)
         case .toHiragana:
             let url = Bundle.main.url(forResource: "HiraganaResponse", withExtension: "json")!
             return try! Data(contentsOf: url)
@@ -126,7 +138,7 @@ extension APITarget: TargetType {
         switch self {
         case .predict, .correct, .upload:
             return ["Authorization": "Bearer \(API_KEY)"]
-        case .createAssistant:
+        case .createAssistant, .createThreadAndRun:
             return ["Content-Type": "application/json", "Authorization": "Bearer \(API_KEY)", "OpenAI-Beta": "assistants=v1"]
         case .toHiragana:
             return ["Content-Type": "application/json"]

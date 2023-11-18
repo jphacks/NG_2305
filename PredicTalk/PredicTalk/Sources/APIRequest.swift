@@ -30,8 +30,8 @@ public final class APIRequest {
                 switch result {
                 case let .success(response):
                     do {
-                        let successfullResponse = try response.filterSuccessfulStatusCodes()
-                        let decodedResponse = try successfullResponse.map(ChatCompletion.self)
+                        let successfulResponse = try response.filterSuccessfulStatusCodes()
+                        let decodedResponse = try successfulResponse.map(ChatCompletion.self)
                         continuation.resume(returning: decodedResponse.choices.first!.message.content!)
                     } catch {
                         continuation.resume(throwing: error)
@@ -57,8 +57,8 @@ public final class APIRequest {
                 switch result {
                 case let .success(response):
                     do {
-                        let successfullResponse = try response.filterSuccessfulStatusCodes()
-                        let decodedResponse = try successfullResponse.map(ChatCompletion.self)
+                        let successfulResponse = try response.filterSuccessfulStatusCodes()
+                        let decodedResponse = try successfulResponse.map(ChatCompletion.self)
                         continuation.resume(returning: decodedResponse.choices.first!.message.content!)
                     } catch {
                         continuation.resume(throwing: error)
@@ -84,8 +84,8 @@ public final class APIRequest {
                 switch result {
                 case let .success(response):
                     do {
-                        let successfullResponse = try response.filterSuccessfulStatusCodes()
-                        let decodedResponse = try successfullResponse.map(File.self)
+                        let successfulResponse = try response.filterSuccessfulStatusCodes()
+                        let decodedResponse = try successfulResponse.map(File.self)
                         continuation.resume(returning: decodedResponse.id)
                     } catch {
                         continuation.resume(throwing: error)
@@ -123,6 +123,33 @@ public final class APIRequest {
         }
     }
     
+    public func createThreadAndRun(assistantId: String, sentence: String) async throws -> String {
+        return try await withCheckedThrowingContinuation { continuation in
+            if _Concurrency.Task.isCancelled {
+                continuation.resume(throwing: CancellationError())
+            }
+            
+            provider.request(.createThreadAndRun(assistantId: assistantId, sentence: sentence)) { result in
+                if _Concurrency.Task.isCancelled {
+                    continuation.resume(throwing: CancellationError())
+                }
+                
+                switch result {
+                case let .success(response):
+                    do {
+                        let successfulResponse = try response.filterSuccessfulStatusCodes()
+                        let decodedResponse = try successfulResponse.map(Run.self)
+                        continuation.resume(returning: decodedResponse.thread_id)
+                    } catch {
+                        continuation.resume(throwing: error)
+                    }
+                case let .failure(moyaError):
+                    continuation.resume(throwing: moyaError)
+                }
+            }
+        }
+    }
+    
     public func toHiragana(sentence: String) async throws -> String {
         try await withCheckedThrowingContinuation { continuation in
             if _Concurrency.Task.isCancelled {
@@ -137,8 +164,8 @@ public final class APIRequest {
                 switch result {
                 case let .success(response):
                     do {
-                        let successfullResponse = try response.filterSuccessfulStatusCodes()
-                        let decodedResponse = try successfullResponse.map(GooResponse.self)
+                        let successfulResponse = try response.filterSuccessfulStatusCodes()
+                        let decodedResponse = try successfulResponse.map(GooResponse.self)
                         continuation.resume(returning: decodedResponse.converted)
                     } catch {
                         continuation.resume(throwing: error)
