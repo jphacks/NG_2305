@@ -1,0 +1,5 @@
+{
+    "id": "asst_abc123",
+    "object": "assistant.deleted",
+    "deleted": true
+}

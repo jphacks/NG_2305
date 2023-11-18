@@ -178,6 +178,60 @@ public final class APIRequest {
         }
     }
     
+    public func deleteFile(fileId: String) async throws -> Bool {
+        return try await withCheckedThrowingContinuation { continuation in
+            if _Concurrency.Task.isCancelled {
+                continuation.resume(throwing: CancellationError())
+            }
+            
+            provider.request(.deleteFile(fileId: fileId)) { result in
+                if _Concurrency.Task.isCancelled {
+                    continuation.resume(throwing: CancellationError())
+                }
+                
+                switch result {
+                case let .success(response):
+                    do {
+                        let successfulResponse = try response.filterSuccessfulStatusCodes()
+                        let decodedResponse = try successfulResponse.map(DeletionStatus.self)
+                        continuation.resume(returning: decodedResponse.deleted)
+                    } catch {
+                        continuation.resume(throwing: error)
+                    }
+                case let .failure(moyaError):
+                    continuation.resume(throwing: moyaError)
+                }
+            }
+        }
+    }
+    
+    public func deleteAssistant(assistantId: String) async throws -> Bool {
+        return try await withCheckedThrowingContinuation { continuation in
+            if _Concurrency.Task.isCancelled {
+                continuation.resume(throwing: CancellationError())
+            }
+            
+            provider.request(.deleteAssistant(assistantId: assistantId)) { result in
+                if _Concurrency.Task.isCancelled {
+                    continuation.resume(throwing: CancellationError())
+                }
+                
+                switch result {
+                case let .success(response):
+                    do {
+                        let successfulResponse = try response.filterSuccessfulStatusCodes()
+                        let decodedResponse = try successfulResponse.map(DeletionStatus.self)
+                        continuation.resume(returning: decodedResponse.deleted)
+                    } catch {
+                        continuation.resume(throwing: error)
+                    }
+                case let .failure(moyaError):
+                    continuation.resume(throwing: moyaError)
+                }
+            }
+        }
+    }
+    
     public func toHiragana(sentence: String) async throws -> String {
         try await withCheckedThrowingContinuation { continuation in
             if _Concurrency.Task.isCancelled {

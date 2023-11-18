@@ -15,13 +15,15 @@ public enum APITarget: Decodable {
     case createAssistant(fileId: String)
     case createThreadAndRun(assistantId: String, sentence: String)
     case listMessages(threadId: String)
+    case deleteFile(fileId: String)
+    case deleteAssistant(assistantId: String)
     case toHiragana(sentence: String)
 }
 
 extension APITarget: TargetType {
     public var baseURL: URL {
         switch self {
-        case .predict, .correct, .upload, .createAssistant, .createThreadAndRun, .listMessages:
+        case .predict, .correct, .upload, .createAssistant, .createThreadAndRun, .listMessages, .deleteFile, .deleteAssistant:
             return URL(string: "https://api.openai.com/v1")!
         case .toHiragana:
             return URL(string: "https://labs.goo.ne.jp/api")!
@@ -40,6 +42,10 @@ extension APITarget: TargetType {
             return "/threads/runs"
         case .listMessages(let threadId):
             return "/threads/\(threadId)/messages"
+        case .deleteFile(let fileId):
+            return "/files/\(fileId)"
+        case .deleteAssistant(let assistantId):
+            return "/assistants/\(assistantId)"
         case .toHiragana:
             return "/hiragana"
         }
@@ -51,6 +57,8 @@ extension APITarget: TargetType {
             return .get
         case .predict, .correct, .upload, .createAssistant, .createThreadAndRun, .toHiragana:
             return .post
+        case .deleteFile, .deleteAssistant:
+            return .delete
         }
     }
     
@@ -141,6 +149,9 @@ extension APITarget: TargetType {
         case .listMessages:
             let url = Bundle.main.url(forResource: "ListMessagesResponse", withExtension: "json")!
             return try! Data(contentsOf: url)
+        case .deleteFile, .deleteAssistant:
+            let url = Bundle.main.url(forResource: "DeleteAccountResponse", withExtension: "json")!
+            return try! Data(contentsOf: url)
         case .toHiragana:
             let url = Bundle.main.url(forResource: "HiraganaResponse", withExtension: "json")!
             return try! Data(contentsOf: url)
@@ -149,9 +160,9 @@ extension APITarget: TargetType {
     
     public var headers: [String : String]? {
         switch self {
-        case .predict, .correct, .upload:
+        case .predict, .correct, .upload, .deleteFile:
             return ["Authorization": "Bearer \(API_KEY)"]
-        case .createAssistant, .createThreadAndRun, .listMessages:
+        case .createAssistant, .createThreadAndRun, .listMessages, .deleteAssistant:
             return ["Content-Type": "application/json", "Authorization": "Bearer \(API_KEY)", "OpenAI-Beta": "assistants=v1"]
         case .toHiragana:
             return ["Content-Type": "application/json"]

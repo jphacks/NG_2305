@@ -134,6 +134,12 @@ public struct FileCitation: Decodable {
     public let quote: String
 }
 
+public struct DeletionStatus: Decodable {
+    public let id: String
+    public let object: String
+    public let deleted: Bool
+}
+
 public struct GooResponse: Decodable {
     public let converted: String
     public let output_type: String

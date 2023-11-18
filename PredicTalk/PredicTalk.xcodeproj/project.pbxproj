@@ -28,6 +28,7 @@
 		179A28E92B07D8DA00F97B02 /* UploadFileResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 179A28E82B07D8DA00F97B02 /* UploadFileResponse.json */; };
 		17B91B742B031FE20007A87D /* Predict.md in Resources */ = {isa = PBXBuildFile; fileRef = 17B91B732B031FE20007A87D /* Predict.md */; };
 		17B91B762B0357200007A87D /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B91B752B0357200007A87D /* Language.swift */; };
+		17BF866E2B090F8800C7F4A0 /* DeleteAccountResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 17BF866D2B090F8800C7F4A0 /* DeleteAccountResponse.json */; };
 		17C0CAC92B04F34100D92CFB /* ARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C0CAC82B04F34000D92CFB /* ARView.swift */; };
 		17C0CAD12B07621A00D92CFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C0CAD02B07621A00D92CFB /* AppDelegate.swift */; };
 		17C0CAD32B07627600D92CFB /* RotationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C0CAD22B07627600D92CFB /* RotationModel.swift */; };
@@ -59,6 +60,7 @@
 		179A28E82B07D8DA00F97B02 /* UploadFileResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = UploadFileResponse.json; sourceTree = "<group>"; };
 		17B91B732B031FE20007A87D /* Predict.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Predict.md; sourceTree = "<group>"; };
 		17B91B752B0357200007A87D /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
+		17BF866D2B090F8800C7F4A0 /* DeleteAccountResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = DeleteAccountResponse.json; sourceTree = "<group>"; };
 		17C0CAC82B04F34000D92CFB /* ARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARView.swift; sourceTree = "<group>"; };
 		17C0CAD02B07621A00D92CFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17C0CAD22B07627600D92CFB /* RotationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationModel.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				1710E85F2B08B71900B7D081 /* CreateAssistantResponse.json */,
 				1710E8622B08E55900B7D081 /* CreateThreadAndRunResponse.json */,
 				17F6F05A2B08FFAC007593E2 /* ListMessagesResponse.json */,
+				17BF866D2B090F8800C7F4A0 /* DeleteAccountResponse.json */,
 				1702EDAF2B02EFEF00408B34 /* HiraganaResponse.json */,
 			);
 			path = Resources;
@@ -234,6 +237,7 @@
 				4C849CBC2B077DF5006C94E2 /* Correct.md in Resources */,
 				17F6F05B2B08FFAC007593E2 /* ListMessagesResponse.json in Resources */,
 				1702EDB02B02EFEF00408B34 /* ChatResponse.json in Resources */,
+				17BF866E2B090F8800C7F4A0 /* DeleteAccountResponse.json in Resources */,
 				1702EDB12B02EFEF00408B34 /* HiraganaResponse.json in Resources */,
 				1710E8612B08BA5200B7D081 /* Assistant.md in Resources */,
 			);
@@ -391,7 +395,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PredicTalk/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
@@ -426,7 +431,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PredicTalk/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
