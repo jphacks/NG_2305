@@ -90,6 +90,50 @@ public struct RetrievalTool: Decodable {
     public let type: String
 }
 
+public struct MessageObject: Decodable {
+    public let id: String
+    public let object: String
+    public let created_at: Int
+    public let thread_id: String
+    public let role: String
+    public let content: [TextObject]
+    public let assistant_id: String?
+    public let run_id: String?
+    public let file_ids: [String]
+    public let metadata: [String: String]
+}
+
+public struct MessageList: Decodable {
+    public let object: String
+    public let data: [MessageObject]
+    public let first_id: String
+    public let last_id: String
+    public let has_more: Bool
+}
+
+public struct TextObject: Decodable {
+    public let type: String
+    public let text: TextValue
+}
+
+public struct TextValue: Decodable {
+    public let value: String
+    public let annotations: [Citation]
+}
+
+public struct Citation: Decodable {
+    public let type: String
+    public let text: String
+    public let file_citation: FileCitation
+    public let start_index: Int
+    public let end_index: Int
+}
+
+public struct FileCitation: Decodable {
+    public let file_id: String
+    public let quote: String
+}
+
 public struct GooResponse: Decodable {
     public let converted: String
     public let output_type: String

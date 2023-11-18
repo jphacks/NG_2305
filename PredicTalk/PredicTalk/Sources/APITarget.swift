@@ -14,13 +14,14 @@ public enum APITarget: Decodable {
     case upload(file: Data, fileName: String)
     case createAssistant(fileId: String)
     case createThreadAndRun(assistantId: String, sentence: String)
+    case listMessages(threadId: String)
     case toHiragana(sentence: String)
 }
 
 extension APITarget: TargetType {
     public var baseURL: URL {
         switch self {
-        case .predict, .correct, .upload, .createAssistant, .createThreadAndRun:
+        case .predict, .correct, .upload, .createAssistant, .createThreadAndRun, .listMessages:
             return URL(string: "https://api.openai.com/v1")!
         case .toHiragana:
             return URL(string: "https://labs.goo.ne.jp/api")!
@@ -37,6 +38,8 @@ extension APITarget: TargetType {
             return "/assistants"
         case .createThreadAndRun:
             return "/threads/runs"
+        case .listMessages(let threadId):
+            return "/threads/\(threadId)/messages"
         case .toHiragana:
             return "/hiragana"
         }
@@ -111,6 +114,8 @@ extension APITarget: TargetType {
         case .toHiragana(let sentence):
             let data: [String: Any] = ["app_id": APP_ID, "sentence": sentence, "output_type": "hiragana"]
             return .requestParameters(parameters: data, encoding: JSONEncoding.default)
+        default:
+            return .requestPlain
         }
     }
     
@@ -128,6 +133,9 @@ extension APITarget: TargetType {
         case .createThreadAndRun:
             let url = Bundle.main.url(forResource: "CreateThreadAndRunResponse", withExtension: "json")!
             return try! Data(contentsOf: url)
+        case .listMessages:
+            let url = Bundle.main.url(forResource: "ListMessagesResponse", withExtension: "json")!
+            return try! Data(contentsOf: url)
         case .toHiragana:
             let url = Bundle.main.url(forResource: "HiraganaResponse", withExtension: "json")!
             return try! Data(contentsOf: url)
@@ -138,7 +146,7 @@ extension APITarget: TargetType {
         switch self {
         case .predict, .correct, .upload:
             return ["Authorization": "Bearer \(API_KEY)"]
-        case .createAssistant, .createThreadAndRun:
+        case .createAssistant, .createThreadAndRun, .listMessages:
             return ["Content-Type": "application/json", "Authorization": "Bearer \(API_KEY)", "OpenAI-Beta": "assistants=v1"]
         case .toHiragana:
             return ["Content-Type": "application/json"]

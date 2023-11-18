@@ -31,6 +31,7 @@
 		17C0CAC92B04F34100D92CFB /* ARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C0CAC82B04F34000D92CFB /* ARView.swift */; };
 		17C0CAD12B07621A00D92CFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C0CAD02B07621A00D92CFB /* AppDelegate.swift */; };
 		17C0CAD32B07627600D92CFB /* RotationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C0CAD22B07627600D92CFB /* RotationModel.swift */; };
+		17F6F05B2B08FFAC007593E2 /* ListMessagesResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 17F6F05A2B08FFAC007593E2 /* ListMessagesResponse.json */; };
 		4C25C1172AECA4C50030E4CE /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C25C1162AECA4C50030E4CE /* SpeechRecognizer.swift */; };
 		4C849CBC2B077DF5006C94E2 /* Correct.md in Resources */ = {isa = PBXBuildFile; fileRef = 4C849CBB2B077DF5006C94E2 /* Correct.md */; };
 /* End PBXBuildFile section */
@@ -61,6 +62,7 @@
 		17C0CAC82B04F34000D92CFB /* ARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARView.swift; sourceTree = "<group>"; };
 		17C0CAD02B07621A00D92CFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17C0CAD22B07627600D92CFB /* RotationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationModel.swift; sourceTree = "<group>"; };
+		17F6F05A2B08FFAC007593E2 /* ListMessagesResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ListMessagesResponse.json; sourceTree = "<group>"; };
 		4C25C1162AECA4C50030E4CE /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SpeechRecognizer.swift; path = PredicTalk/Sources/SpeechRecognizer.swift; sourceTree = SOURCE_ROOT; };
 		4C849CBB2B077DF5006C94E2 /* Correct.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Correct.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -153,6 +155,7 @@
 				179A28E82B07D8DA00F97B02 /* UploadFileResponse.json */,
 				1710E85F2B08B71900B7D081 /* CreateAssistantResponse.json */,
 				1710E8622B08E55900B7D081 /* CreateThreadAndRunResponse.json */,
+				17F6F05A2B08FFAC007593E2 /* ListMessagesResponse.json */,
 				1702EDAF2B02EFEF00408B34 /* HiraganaResponse.json */,
 			);
 			path = Resources;
@@ -229,6 +232,7 @@
 				1710D1CA2AEC88F500BCAC46 /* Assets.xcassets in Resources */,
 				179A28E92B07D8DA00F97B02 /* UploadFileResponse.json in Resources */,
 				4C849CBC2B077DF5006C94E2 /* Correct.md in Resources */,
+				17F6F05B2B08FFAC007593E2 /* ListMessagesResponse.json in Resources */,
 				1702EDB02B02EFEF00408B34 /* ChatResponse.json in Resources */,
 				1702EDB12B02EFEF00408B34 /* HiraganaResponse.json in Resources */,
 				1710E8612B08BA5200B7D081 /* Assistant.md in Resources */,

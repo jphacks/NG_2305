@@ -151,6 +151,33 @@ public final class APIRequest {
         }
     }
     
+    public func getMessage(threadId: String) async throws -> String {
+        return try await withCheckedThrowingContinuation { continuation in
+            if _Concurrency.Task.isCancelled {
+                continuation.resume(throwing: CancellationError())
+            }
+            
+            provider.request(.listMessages(threadId: threadId)) { result in
+                if _Concurrency.Task.isCancelled {
+                    continuation.resume(throwing: CancellationError())
+                }
+                
+                switch result {
+                case let .success(response):
+                    do {
+                        let successfulResponse = try response.filterSuccessfulStatusCodes()
+                        let decodedResponse = try successfulResponse.map(MessageList.self)
+                        continuation.resume(returning: decodedResponse.data[0].content[0].text.value)
+                    } catch {
+                        continuation.resume(throwing: error)
+                    }
+                case let .failure(moyaError):
+                    continuation.resume(throwing: moyaError)
+                }
+            }
+        }
+    }
+    
     public func toHiragana(sentence: String) async throws -> String {
         try await withCheckedThrowingContinuation { continuation in
             if _Concurrency.Task.isCancelled {
