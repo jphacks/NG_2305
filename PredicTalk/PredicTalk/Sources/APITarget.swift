@@ -46,7 +46,12 @@ extension APITarget: TargetType {
     }
     
     public var method: Moya.Method {
-        return .post
+        switch self {
+        case .listMessages:
+            return .get
+        case .predict, .correct, .upload, .createAssistant, .createThreadAndRun, .toHiragana:
+            return .post
+        }
     }
     
     public var task: Task {

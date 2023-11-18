@@ -51,8 +51,7 @@ struct ARModeView: View {
                                 newPrediction = try await APIRequest.shared.correct(sentence: transcription)
                             case .assistant:
                                 let threadId = try await APIRequest.shared.createThreadAndRun(assistantId: setting.assistantId, sentence: transcription)
-                                //TODO: threadIdからmessageを取得してnewPredictionへ代入する処理
-                                newPrediction = ""
+                                newPrediction = try await APIRequest.shared.getMessage(threadId: threadId)
                             }
                             
                             if setting.selectedLanguage == .japanese && setting.convertToHiragana {
@@ -63,6 +62,7 @@ struct ARModeView: View {
                             isLoading = false
                         } catch {
                             print(error)
+                            isLoading = false
                         }
                     }
                 }
