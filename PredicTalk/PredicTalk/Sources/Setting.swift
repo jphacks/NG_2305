@@ -37,6 +37,12 @@ class Setting: ObservableObject {
             UserDefaults.standard.set(selectedFileId, forKey: "selectedFileId")
         }
     }
+    
+    @Published var assistantId: String {
+        didSet {
+            UserDefaults.standard.set(assistantId, forKey: "assistantId")
+        }
+    }
 
     init() {
         self.selectedLanguage = Language(rawValue: UserDefaults.standard.string(forKey: "selectedLanguage") ?? "") ?? .english_US
@@ -44,12 +50,14 @@ class Setting: ObservableObject {
         self.apiMode = APIMode(rawValue: UserDefaults.standard.string(forKey: "apiMode") ?? "") ?? .predict
         self.selectedFileName = UserDefaults.standard.string(forKey: "selectedFileName") ?? "なし"
         self.selectedFileId = UserDefaults.standard.string(forKey: "selectedFileId") ?? ""
+        self.assistantId = UserDefaults.standard.string(forKey: "assistantId") ?? ""
     }
 }
 
 enum APIMode: String, CaseIterable, Identifiable {
     case predict
     case correct
+    case assistant
     
     var name: String {
         switch self {
@@ -57,6 +65,8 @@ enum APIMode: String, CaseIterable, Identifiable {
             return "次文予測モード"
         case .correct:
             return "訂正モード"
+        case .assistant:
+            return "アシスタントモード"
         }
     }
     

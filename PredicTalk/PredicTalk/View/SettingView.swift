@@ -56,6 +56,7 @@ struct SettingView: View {
                                 let selectedFile = try result.get()
                                 Task {
                                     try await setPDF(url: selectedFile)
+                                    setting.apiMode = .assistant
                                     isLoading = false
                                 }
                             } catch {
@@ -91,7 +92,7 @@ struct SettingView: View {
             url.stopAccessingSecurityScopedResource()
             
             setting.selectedFileId = try await APIRequest.shared.upload(file: data, fileName: fileName)
-            _ = try await APIRequest.shared.createAssistant(fileId: setting.selectedFileId)
+            let assistantId = try await APIRequest.shared.createAssistant(fileId: setting.selectedFileId)
         }
     }
 }
