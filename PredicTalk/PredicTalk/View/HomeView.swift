@@ -193,7 +193,7 @@ struct HomeView: View {
                                     }
                                 case .assistant:
                                     let threadId = try await APIRequest.shared.createThreadAndRun(assistantId: setting.assistantId, sentence: transcription)
-                                    sleep(5)
+                                    sleep(8)
                                     newPrediction = try await APIRequest.shared.getMessage(threadId: threadId)
                                 }
                                 
