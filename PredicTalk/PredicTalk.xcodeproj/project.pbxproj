@@ -17,6 +17,7 @@
 		1710D1CA2AEC88F500BCAC46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1710D1C92AEC88F500BCAC46 /* Assets.xcassets */; };
 		1710D1CD2AEC88F500BCAC46 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1710D1CC2AEC88F500BCAC46 /* Preview Assets.xcassets */; };
 		1710E8602B08B71900B7D081 /* CreateAssistantResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 1710E85F2B08B71900B7D081 /* CreateAssistantResponse.json */; };
+		1710E8612B08BA5200B7D081 /* Assistant.md in Resources */ = {isa = PBXBuildFile; fileRef = 1710E85C2B08B32900B7D081 /* Assistant.md */; };
 		174C53042B07687A00314514 /* ARModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174C53032B07687A00314514 /* ARModeView.swift */; };
 		1760F4642AEDDAE00019A36F /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 1760F4632AEDDAE00019A36F /* Moya */; };
 		1760F4662AEDDB2E0019A36F /* APITarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1760F4652AEDDB2E0019A36F /* APITarget.swift */; };
@@ -226,6 +227,7 @@
 				4C849CBC2B077DF5006C94E2 /* Correct.md in Resources */,
 				1702EDB02B02EFEF00408B34 /* ChatResponse.json in Resources */,
 				1702EDB12B02EFEF00408B34 /* HiraganaResponse.json in Resources */,
+				1710E8612B08BA5200B7D081 /* Assistant.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,7 +386,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PredicTalk/Preview Content\"";
-				DEVELOPMENT_TEAM = N38H3ZBTB2;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PredicTalk/Info.plist;
@@ -418,7 +420,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PredicTalk/Preview Content\"";
-				DEVELOPMENT_TEAM = N38H3ZBTB2;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PredicTalk/Info.plist;

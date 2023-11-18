@@ -52,7 +52,6 @@ struct SettingView: View {
                         allowedContentTypes: [UTType.pdf],
                         onCompletion: { result in
                             isLoading = true
-                            print(isLoading)
                             do {
                                 let selectedFile = try result.get()
                                 Task {
@@ -61,8 +60,8 @@ struct SettingView: View {
                                 }
                             } catch {
                                 print(error)
+                                isLoading = false
                             }
-                            print(isLoading)
                         }
                     )
                 } header: {
@@ -88,11 +87,11 @@ struct SettingView: View {
             setting.selectedFileName = destinationURL.lastPathComponent
 
             _ = url.startAccessingSecurityScopedResource()
-            
             let data = try Data(contentsOf: url)
-            setting.selectedFileId = try await APIRequest.shared.upload(file: data, fileName: fileName)
-            
             url.stopAccessingSecurityScopedResource()
+            
+            setting.selectedFileId = try await APIRequest.shared.upload(file: data, fileName: fileName)
+            _ = try await APIRequest.shared.createAssistant(fileId: setting.selectedFileId)
         }
     }
 }

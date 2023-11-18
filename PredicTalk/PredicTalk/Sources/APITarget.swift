@@ -95,7 +95,7 @@ extension APITarget: TargetType {
             }
             
             data["instructions"] = prompt
-            data["tools"] = [["type": "code_interpreter"]]
+            data["tools"] = [["type": "retrieval"]]
             data["file_ids"] = [fileId]
                 
             return .requestParameters(parameters: data, encoding: JSONEncoding.default)

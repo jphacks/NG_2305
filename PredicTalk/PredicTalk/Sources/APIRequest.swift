@@ -12,7 +12,7 @@ public final class APIRequest {
     public static let shared = APIRequest()
     
 //    private let provider = MoyaProvider<APITarget>(stubClosure: MoyaProvider.immediatelyStub)
-    private var provider = MoyaProvider<APITarget>()
+    private var provider = MoyaProvider<APITarget>(plugins: [NetworkLoggerPlugin(configuration: .init(logOptions: .verbose))])
     
     private init() {}
     
@@ -111,8 +111,7 @@ public final class APIRequest {
                 switch result {
                 case let .success(response):
                     do {
-                        let successfullResponse = try response.filterSuccessfulStatusCodes()
-                        let _ = try successfullResponse.map(File.self)
+                        _ = try response.filterSuccessfulStatusCodes()
                         continuation.resume(returning: ())
                     } catch {
                         continuation.resume(throwing: error)
