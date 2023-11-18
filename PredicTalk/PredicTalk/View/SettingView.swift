@@ -25,6 +25,10 @@ struct SettingView: View {
                             Text($0.name)
                         }
                     }
+                    
+                    NavigationLink("ファイルの選択") {
+                        FileSelectionView()
+                    }
                 } header: {
                     Text("一般")
                 }
