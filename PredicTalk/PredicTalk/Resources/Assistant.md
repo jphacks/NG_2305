@@ -4,7 +4,7 @@
 - Follow #Constrain
 
 # Problem
-- Please complete the sentence in Input
+- Please complete the sentence in Input according to attached file
 - If input is questions and complete sentences, generate sentences that complete the input
 - If input is incomplete sentences, generate continued sentences
 

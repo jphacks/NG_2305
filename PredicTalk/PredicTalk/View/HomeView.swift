@@ -10,6 +10,7 @@ import SwiftUI
 struct HomeView: View {
     @EnvironmentObject var setting: Setting
     @StateObject var speechRecognizer = SpeechRecognizer(language: .english_US)
+    @State private var fileNameInfo = ""
     @State private var transcription = ""
     @State private var prediction = ""
     @State private var isRecording = false
@@ -60,6 +61,11 @@ struct HomeView: View {
                                     .opacity(isTransparent ? 0 : 1)
                                 
                                 Spacer()
+                                
+                                Text(fileNameInfo)
+                                    .lineLimit(1)
+                                    .foregroundStyle(.gray)
+                                    .font(.headline)
                             }
                             .padding(10)
                             
@@ -115,6 +121,11 @@ struct HomeView: View {
                                     .opacity(isTransparent ? 0 : 1)
                                 
                                 Spacer()
+                                
+                                Text(fileNameInfo)
+                                    .lineLimit(1)
+                                    .foregroundStyle(.gray)
+                                    .font(.headline)
                             }
                             .padding(10)
                             
@@ -180,6 +191,9 @@ struct HomeView: View {
                                         speechRecognizer.stopTranscribing()
                                         speechRecognizer.transcribe()
                                     }
+                                case .assistant:
+                                  let threadId = try await APIRequest.shared.createThreadAndRun(assistantId: setting.assistantId, sentence: transcription)
+                                  newPrediction = try await APIRequest.shared.getMessage(threadId: threadId)
                                 }
                                 
                                 if setting.selectedLanguage == .japanese && setting.convertToHiragana {
@@ -190,6 +204,7 @@ struct HomeView: View {
                                 isLoading = false
                             } catch {
                                 print(error)
+                                isLoading = false
                             }
                         }
                     }
@@ -200,6 +215,11 @@ struct HomeView: View {
         }
         .onAppear {
             speechRecognizer.initRecognizer(locale: setting.selectedLanguage.locale)
+            if setting.apiMode == .assistant && setting.selectedFileName != "なし" {
+                fileNameInfo = setting.selectedFileName
+            } else {
+                fileNameInfo = ""
+            }
         }
         .onDisappear {
             isRecording = false

@@ -6,9 +6,12 @@
 //
 
 import SwiftUI
+import UniformTypeIdentifiers
 
 struct SettingView: View {
     @EnvironmentObject var setting: Setting
+    @State private var isDocumentPickerPresented = false
+    @State private var isLoading = false
     
     var body: some View {
         NavigationStack {
@@ -30,6 +33,52 @@ struct SettingView: View {
                 }
                 
                 Section {
+                    HStack {
+                        Text("ファイル")
+                        
+                        Spacer()
+                        
+                        if !isLoading {
+                            Text(setting.selectedFileName)
+                                .foregroundStyle(.gray)
+                        } else {
+                            ProgressView()
+                        }
+                    }
+                    
+                    Button {
+                        isDocumentPickerPresented = true
+                    } label: {
+                        Text("ファイルを選択")
+                            .foregroundStyle(.blue)
+                    }
+                    
+                    Button {
+                        isLoading = true
+                        Task {
+                            do {
+                                try await APIRequest.shared.deleteFile(fileId: setting.selectedFileId)
+                                setting.selectedFileName = "なし"
+                                setting.selectedFileId = ""
+                                
+                                try await APIRequest.shared.deleteAssistant(assistantId: setting.assistantId)
+                                setting.assistantId = ""
+                                
+                                isLoading = false
+                            } catch {
+                                print(error)
+                                isLoading = false
+                            }
+                        }
+                    } label: {
+                        Text("ファイルを削除")
+                            .foregroundStyle(.red)
+                    }
+                } header: {
+                    Text("アシスタントモード")
+                }
+                
+                Section {
                     Toggle(isOn: $setting.convertToHiragana) {
                         Text("日本語を全てひらがなに変換する")
                     }
@@ -38,6 +87,38 @@ struct SettingView: View {
                 }
             }
             .navigationTitle("設定")
+        }
+        .fileImporter(
+            isPresented: $isDocumentPickerPresented,
+            allowedContentTypes: [UTType.pdf],
+            onCompletion: { result in
+                isLoading = true
+                do {
+                    let selectedFile = try result.get()
+                    Task {
+                        try await setPDF(url: selectedFile)
+                        isLoading = false
+                    }
+                } catch {
+                    print(error)
+                    isLoading = false
+                }
+            }
+        )
+    }
+    
+    func setPDF(url: URL) async throws {
+        if let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+            let fileName = url.lastPathComponent
+            let destinationURL = documentsDirectory.appendingPathComponent(fileName)
+            setting.selectedFileName = destinationURL.lastPathComponent
+
+            _ = url.startAccessingSecurityScopedResource()
+            let data = try Data(contentsOf: url)
+            url.stopAccessingSecurityScopedResource()
+            
+            setting.selectedFileId = try await APIRequest.shared.upload(file: data, fileName: fileName)
+            setting.assistantId = try await APIRequest.shared.createAssistant(fileId: setting.selectedFileId)
         }
     }
 }
