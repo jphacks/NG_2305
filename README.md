@@ -1,5 +1,6 @@
 # PredicTalk
-<img width="100%" alt="PredicTalk" src="https://github.com/jphacks/NG_2305/assets/78719395/c3160c3a-5101-4182-8e85-7ab3148c5d12">
+![cover](https://github.com/jphacks/NG_2305/assets/109562639/d6412a9f-97bf-4412-8c15-e3613416b732)
+
 
 ## デモ動画
 [こちら](https://youtu.be/Jx81Q2Q_JAw)からデモ動画をご覧いただけます．
@@ -42,7 +43,6 @@
 ## 製品概要
 **「会話 × Tech」：初心者以上・ネイティブ未満の英語学習者を対象とした英会話を視覚的に補助するためのアプリ**  
 
-<img width="100%" alt="製品概要のイラスト" src="https://github.com/jphacks/NG_2305/assets/103105513/74a8bc0a-0edb-4606-ac84-3fe09efbc76f">
 
 ### 開発背景
 日本人が外国人と英語で会話をする場合，英語をほとんど話せない初心者は翻訳アプリを利用します．  
@@ -88,13 +88,12 @@
 ## 製品説明
 ### iOSアプリ単体で使用する方法
 1. アプリを起動して画面をタップすると音声認識が開始されます
-
-<img width="50%" alt="アプリ起動時のスマホ画面" src="https://github.com/jphacks/NG_2305/assets/78719395/8db669c8-8221-42f5-b3f7-cdd60c2bebc4">
+<img width="20%" src="https://github.com/jphacks/NG_2305/assets/109562639/6c4817d6-ee86-4188-911a-22515e895b6d">
 
 2. ユーザが発話すると音声認識され，発話内容が白色の文字で表示されます
 3. ユーザの発話を基に続きの単語や文章が予測され，予測結果が薄い白色の文字で表示されます
   
-<img width="50%" alt="音声認識時のスマホ画面" src="https://github.com/jphacks/NG_2305/assets/78719395/18f8ca2f-8d62-4b54-a269-0b932a0f29d6">
+<img width="20%" alt="音声認識時のスマホ画面" src="https://github.com/jphacks/NG_2305/assets/109562639/09dbf542-187a-4ac4-8048-79c9c90ea893">　<img width="20%" alt="音声認識時のスマホ画面" src="https://github.com/jphacks/NG_2305/assets/109562639/e3c547d5-c232-4ea0-9747-bd8053f56f73">　<img width="20%" alt="音声認識時のスマホ画面" src="https://github.com/jphacks/NG_2305/assets/109562639/e24ccf19-6aa8-4fb5-acda-ee41bdeb986b">
 
 ### iOSアプリをARデバイスと組み合わせて使用する方法
 1. ARグラスとiPhoneを接続します（外部ディスプレイとして利用できるARグラスであればどの会社のARグラスでも利用可能です）
