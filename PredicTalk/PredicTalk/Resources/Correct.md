@@ -9,6 +9,7 @@
 
 # Constrain
 - Output is as short as possible
+- Add '$' to the end of Output only if Input is complete
 
 ## Examples
 - [Input] I study a lot machine learning [Output] I study machine learning a lot

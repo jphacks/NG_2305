@@ -43,15 +43,20 @@ struct ARModeView: View {
                 if !transcription.isEmpty {
                     Task {
                         do {
-                            let newPrediction: String
+                            var newPrediction: String
                             switch setting.apiMode {
                             case .predict:
                                 newPrediction = try await APIRequest.shared.predict(sentence: transcription)
                             case .correct:
                                 newPrediction = try await APIRequest.shared.correct(sentence: transcription)
+                                if newPrediction.contains("$") {
+                                    newPrediction.removeAll(where:{ $0 == "$"})
+                                    speechRecognizer.stopTranscribing()
+                                    speechRecognizer.transcribe()
+                                }
                             case .assistant:
-                                let threadId = try await APIRequest.shared.createThreadAndRun(assistantId: setting.assistantId, sentence: transcription)
-                                newPrediction = try await APIRequest.shared.getMessage(threadId: threadId)
+                              let threadId = try await APIRequest.shared.createThreadAndRun(assistantId: setting.assistantId, sentence: transcription)
+                              newPrediction = try await APIRequest.shared.getMessage(threadId: threadId)
                             }
                             
                             if setting.selectedLanguage == .japanese && setting.convertToHiragana {
