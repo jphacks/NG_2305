@@ -29,7 +29,7 @@ struct ARView: View {
                 }
                 .frame(width: 200, height: 50)
                 
-                Text("⚠︎ ARモードを終了するには、画面を2回タップしてください。")
+                Text("⚠︎ ARモードを終了するには、\n画面を2回タップしてください。")
             }
             .bold()
             .padding()
