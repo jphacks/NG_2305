@@ -6,9 +6,12 @@
 //
 
 import SwiftUI
+import UniformTypeIdentifiers
 
 struct SettingView: View {
     @EnvironmentObject var setting: Setting
+    @State private var isDocumentPickerPresented = false
+    @State private var isLoading = false
     
     var body: some View {
         NavigationStack {
@@ -26,9 +29,42 @@ struct SettingView: View {
                         }
                     }
                     
-                    NavigationLink("ファイルの選択") {
-                        FileSelectionView()
+                    HStack {
+                        Text("ファイル")
+                        
+                        Spacer()
+                        
+                        if !isLoading {
+                            Text(setting.selectedFileName)
+                                .foregroundStyle(.gray)
+                        } else {
+                            ProgressView()
+                        }
                     }
+                    
+                    Button {
+                        isDocumentPickerPresented = true
+                    } label: {
+                        Text("ファイルを選択")
+                    }
+                    .fileImporter(
+                        isPresented: $isDocumentPickerPresented,
+                        allowedContentTypes: [UTType.pdf],
+                        onCompletion: { result in
+                            isLoading = true
+                            print(isLoading)
+                            do {
+                                let selectedFile = try result.get()
+                                Task {
+                                    try await setPDF(url: selectedFile)
+                                    isLoading = false
+                                }
+                            } catch {
+                                print(error)
+                            }
+                            print(isLoading)
+                        }
+                    )
                 } header: {
                     Text("一般")
                 }
@@ -42,6 +78,21 @@ struct SettingView: View {
                 }
             }
             .navigationTitle("設定")
+        }
+    }
+    
+    func setPDF(url: URL) async throws {
+        if let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+            let fileName = url.lastPathComponent
+            let destinationURL = documentsDirectory.appendingPathComponent(fileName)
+            setting.selectedFileName = destinationURL.lastPathComponent
+
+            _ = url.startAccessingSecurityScopedResource()
+            
+            let data = try Data(contentsOf: url)
+            setting.selectedFileId = try await APIRequest.shared.upload(file: data, fileName: fileName)
+            
+            url.stopAccessingSecurityScopedResource()
         }
     }
 }

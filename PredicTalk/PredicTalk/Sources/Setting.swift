@@ -11,6 +11,8 @@ class Setting: ObservableObject {
     @Published var selectedLanguage: Language = .english_US
     @Published var convertToHiragana: Bool = true
     @Published var apiMode: APIMode = .predict
+    @Published var selectedFileName = "なし"
+    @Published var selectedFileId = ""
 }
 
 enum APIMode: CaseIterable, Identifiable {
