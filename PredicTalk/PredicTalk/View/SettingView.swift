@@ -50,6 +50,7 @@ struct SettingView: View {
                         isDocumentPickerPresented = true
                     } label: {
                         Text("ファイルを選択")
+                            .foregroundStyle(.blue)
                     }
                     
                     Button {
