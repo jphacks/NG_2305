@@ -100,7 +100,7 @@
 2. [iOSアプリ単体で使用する方法](#iOSアプリ単体で使用する方法)で説明した通り，アプリを起動して音声認識を開始します
 4. ユーザが発話するとARグラス上に予測結果が透過表示されることで，ユーザは相手の表情や仕草を見ながら発話の支援を受けることができます
 
-<img width="100%" alt="ARモード" src="https://github.com/jphacks/NG_2305/assets/103105513/31778fc9-ccaf-4f73-819a-e5c301b411c5">
+<img width="70%" alt="ARモード" src="https://github.com/jphacks/NG_2305/assets/103105513/31778fc9-ccaf-4f73-819a-e5c301b411c5">
 <img width="50%" alt="AR" src="https://github.com/jphacks/NG_2305/assets/109562639/35ddd113-a542-46d0-9a0f-c078bbbcd8f7">
 
 ## 解決出来ること
