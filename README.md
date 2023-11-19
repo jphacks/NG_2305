@@ -138,7 +138,8 @@
 画面には自分が話した内容とその文章の続きしか表示されないため余計な情報が存在せず，**会話中にも使用しやすいUX**となっています．
 
 ## 開発技術
-<img width="100%" alt="開発技術の概要図" src="https://github.com/jphacks/NG_2305/assets/103105513/70c02aa3-dbcf-446d-8d1e-8a81180a0067">
+<img width="100%" alt="開発技術の概要図" src="https://github.com/jphacks/NG_2305/assets/103105513/6fc83e97-27b3-4802-b044-31bab11f751b">
+
 
 ### 活用した技術
 #### API・データ
