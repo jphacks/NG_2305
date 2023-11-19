@@ -103,7 +103,7 @@
 <table>
   <tr>
     <td>
-      <img width="100%" alt="ARグラス装着時のイメージ図" src="https://github.com/jphacks/NG_2305/assets/109562639/c99497f8-dbb3-4ae8-a9b1-bd5876359a21">
+      <img width="100%" alt="ARモードのイメージ図" src="https://github.com/jphacks/NG_2305/assets/103105513/31778fc9-ccaf-4f73-819a-e5c301b411c5">
     </td>
     <td>
       <img width="100%" alt="iPhone内で起動中の本製品とXREAL社のXREAL airを接続して着用している様子" src="https://github.com/jphacks/NG_2305/assets/109562639/35ddd113-a542-46d0-9a0f-c078bbbcd8f7">
