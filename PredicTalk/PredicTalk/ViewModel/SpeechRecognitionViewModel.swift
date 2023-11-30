@@ -47,6 +47,8 @@ class SpeechRecognitionViewModel: ObservableObject {
     }
     
     func startTranscribing() {
+        model.transcription = ""
+        
         DispatchQueue(label: "Speech Recognizer Queue", qos: .background).async { [weak self] in
             guard let self = self, let recognizer = self.recognizer, recognizer.isAvailable else {
                 self?.speakError(RecognizerError.recognizerIsUnavailable)

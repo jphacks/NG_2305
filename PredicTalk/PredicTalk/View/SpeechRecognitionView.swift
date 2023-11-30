@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SpeechRecognitionView: View {
+    @EnvironmentObject var setting: Setting
     @EnvironmentObject var viewModel: SpeechRecognitionViewModel
     
     let haptic = UIImpactFeedbackGenerator(style: .medium)
@@ -36,6 +37,23 @@ struct SpeechRecognitionView: View {
                 ScrollView(.vertical, showsIndicators: false) {
                     Text(viewModel.model.transcription)
                 }
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+            }
+            .font(.title)
+            .bold()
+            .padding()
+        }
+        .onAppear() {
+            viewModel.initRecognizer(locale: setting.selectedLanguage.locale)
+        }
+        .onDisappear {
+            viewModel.stopTranscribing()
+        }
+        .onChange(of: viewModel.model.isRecording) { isRecording in
+            if isRecording {
+                viewModel.startTranscribing()
+            } else {
+                viewModel.stopTranscribing()
             }
         }
     }
@@ -43,5 +61,6 @@ struct SpeechRecognitionView: View {
 
 #Preview {
     SpeechRecognitionView()
+        .environmentObject(Setting())
         .environmentObject(SpeechRecognitionViewModel(language: .english_US))
 }
