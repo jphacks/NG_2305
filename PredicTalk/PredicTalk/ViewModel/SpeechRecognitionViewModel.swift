@@ -1,5 +1,5 @@
 //
-//  SpeechRecognizerViewModel.swift
+//  SpeechRecognitionViewModel.swift
 //  PredicTalk
 //
 //  Created by 青原光 on 2023/11/30.
@@ -8,8 +8,8 @@
 import AVFoundation
 import Speech
 
-class SpeechRecognizerViewModel: ObservableObject {
-    @Published var model = SpeechRecognizerModel()
+class SpeechRecognitionViewModel: ObservableObject {
+    @Published var model = SpeechRecognitionModel()
     
     private var audioEngine: AVAudioEngine?
     private var request: SFSpeechAudioBufferRecognitionRequest?
