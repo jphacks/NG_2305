@@ -19,6 +19,8 @@
 		1710E8602B08B71900B7D081 /* CreateAssistantResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 1710E85F2B08B71900B7D081 /* CreateAssistantResponse.json */; };
 		1710E8612B08BA5200B7D081 /* Assistant.md in Resources */ = {isa = PBXBuildFile; fileRef = 1710E85C2B08B32900B7D081 /* Assistant.md */; };
 		1710E8632B08E55900B7D081 /* CreateThreadAndRunResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 1710E8622B08E55900B7D081 /* CreateThreadAndRunResponse.json */; };
+		172A56212B18705C0028CEA1 /* SpeechRecognizerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172A56202B18705C0028CEA1 /* SpeechRecognizerModel.swift */; };
+		172A56252B1873880028CEA1 /* SpeechRecognizerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172A56242B1873880028CEA1 /* SpeechRecognizerViewModel.swift */; };
 		174C53042B07687A00314514 /* ARModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174C53032B07687A00314514 /* ARModeView.swift */; };
 		1760F4642AEDDAE00019A36F /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 1760F4632AEDDAE00019A36F /* Moya */; };
 		1760F4662AEDDB2E0019A36F /* APITarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1760F4652AEDDB2E0019A36F /* APITarget.swift */; };
@@ -33,7 +35,6 @@
 		17C0CAD12B07621A00D92CFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C0CAD02B07621A00D92CFB /* AppDelegate.swift */; };
 		17C0CAD32B07627600D92CFB /* RotationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C0CAD22B07627600D92CFB /* RotationModel.swift */; };
 		17F6F05B2B08FFAC007593E2 /* ListMessagesResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 17F6F05A2B08FFAC007593E2 /* ListMessagesResponse.json */; };
-		4C25C1172AECA4C50030E4CE /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C25C1162AECA4C50030E4CE /* SpeechRecognizer.swift */; };
 		4C849CBC2B077DF5006C94E2 /* Correct.md in Resources */ = {isa = PBXBuildFile; fileRef = 4C849CBB2B077DF5006C94E2 /* Correct.md */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +52,8 @@
 		1710E85C2B08B32900B7D081 /* Assistant.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Assistant.md; sourceTree = "<group>"; };
 		1710E85F2B08B71900B7D081 /* CreateAssistantResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CreateAssistantResponse.json; sourceTree = "<group>"; };
 		1710E8622B08E55900B7D081 /* CreateThreadAndRunResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CreateThreadAndRunResponse.json; sourceTree = "<group>"; };
+		172A56202B18705C0028CEA1 /* SpeechRecognizerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizerModel.swift; sourceTree = "<group>"; };
+		172A56242B1873880028CEA1 /* SpeechRecognizerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizerViewModel.swift; sourceTree = "<group>"; };
 		174C53032B07687A00314514 /* ARModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARModeView.swift; sourceTree = "<group>"; };
 		1760F4652AEDDB2E0019A36F /* APITarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITarget.swift; sourceTree = "<group>"; };
 		1760F46B2AEDDD060019A36F /* APIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIModel.swift; sourceTree = "<group>"; };
@@ -65,7 +68,6 @@
 		17C0CAD02B07621A00D92CFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17C0CAD22B07627600D92CFB /* RotationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationModel.swift; sourceTree = "<group>"; };
 		17F6F05A2B08FFAC007593E2 /* ListMessagesResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ListMessagesResponse.json; sourceTree = "<group>"; };
-		4C25C1162AECA4C50030E4CE /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SpeechRecognizer.swift; path = PredicTalk/Sources/SpeechRecognizer.swift; sourceTree = SOURCE_ROOT; };
 		4C849CBB2B077DF5006C94E2 /* Correct.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Correct.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,6 +117,8 @@
 				1760F4762AEDF4ED0019A36F /* Info.plist */,
 				17C0CAD02B07621A00D92CFB /* AppDelegate.swift */,
 				1710D1C52AEC88F400BCAC46 /* PredicTalkApp.swift */,
+				172A561F2B1870390028CEA1 /* Model */,
+				172A56232B1873370028CEA1 /* ViewModel */,
 				1702EDB42B02F13200408B34 /* View */,
 				1760F4702AEDED490019A36F /* Resources */,
 				1710D1DA2AEC999F00BCAC46 /* Sources */,
@@ -137,7 +141,6 @@
 			children = (
 				1702EDB72B0316D400408B34 /* Setting.swift */,
 				17C0CAD22B07627600D92CFB /* RotationModel.swift */,
-				4C25C1162AECA4C50030E4CE /* SpeechRecognizer.swift */,
 				17B91B752B0357200007A87D /* Language.swift */,
 				1760F4652AEDDB2E0019A36F /* APITarget.swift */,
 				1760F46B2AEDDD060019A36F /* APIModel.swift */,
@@ -145,6 +148,22 @@
 				176CD54A2AEE414500BA309E /* APIKey.swift */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		172A561F2B1870390028CEA1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				172A56202B18705C0028CEA1 /* SpeechRecognizerModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		172A56232B1873370028CEA1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				172A56242B1873880028CEA1 /* SpeechRecognizerViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		1760F4702AEDED490019A36F /* Resources */ = {
@@ -257,9 +276,10 @@
 				1702EDB62B0307DE00408B34 /* SettingView.swift in Sources */,
 				17C0CAD12B07621A00D92CFB /* AppDelegate.swift in Sources */,
 				1702EDB82B0316D400408B34 /* Setting.swift in Sources */,
+				172A56252B1873880028CEA1 /* SpeechRecognizerViewModel.swift in Sources */,
+				172A56212B18705C0028CEA1 /* SpeechRecognizerModel.swift in Sources */,
 				17C0CAC92B04F34100D92CFB /* ARView.swift in Sources */,
 				1710D1C62AEC88F400BCAC46 /* PredicTalkApp.swift in Sources */,
-				4C25C1172AECA4C50030E4CE /* SpeechRecognizer.swift in Sources */,
 				1702EDB32B02F01C00408B34 /* HomeView.swift in Sources */,
 				1760F4662AEDDB2E0019A36F /* APITarget.swift in Sources */,
 				1760F46C2AEDDD060019A36F /* APIModel.swift in Sources */,

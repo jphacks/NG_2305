@@ -1,40 +1,22 @@
 //
-//  SpeechRecognizer.swift
+//  SpeechRecognizerViewModel.swift
 //  PredicTalk
 //
-//  Created by 伊藤朝陽 on 2023/10/28.
+//  Created by 青原光 on 2023/11/30.
 //
 
 import AVFoundation
 import Speech
-import SwiftUI
 
-class SpeechRecognizer: ObservableObject {
-    enum RecognizerError: Error {
-        case nilRecognizer
-        case notAuthorizedToRecognize
-        case notPermittedToRecord
-        case recognizerIsUnavailable
-
-        var message: String {
-            switch self {
-            case .nilRecognizer: return "Can't initialize speech recognizer"
-            case .notAuthorizedToRecognize: return "Not authorized to recognize speech"
-            case .notPermittedToRecord: return "Not permitted to record audio"
-            case .recognizerIsUnavailable: return "Recognizer is unavailable"
-            }
-        }
-    }
-
-    @Published var transcript: String = ""
-    @Published var isSilent: Bool = true
+class SpeechRecognizerViewModel: ObservableObject {
+    @Published var model = SpeechRecognizerModel()
     
     private var audioEngine: AVAudioEngine?
     private var request: SFSpeechAudioBufferRecognitionRequest?
     private var task: SFSpeechRecognitionTask?
     private var recognizer: SFSpeechRecognizer?
     private var timeoutTimer: Timer?
-
+    
     init(language: Language) {
         initRecognizer(locale: language.locale)
 
@@ -54,24 +36,17 @@ class SpeechRecognizer: ObservableObject {
             }
         }
     }
-
+    
     deinit {
-        reset()
+        stopTranscribing()
     }
-
+    
     func initRecognizer(locale: Locale) {
+        stopTranscribing()
         recognizer = SFSpeechRecognizer(locale: locale)
     }
-
-    private func reset() {
-        task?.cancel()
-        audioEngine?.stop()
-        audioEngine = nil
-        request = nil
-        task = nil
-    }
-
-    func transcribe() {
+    
+    func startTranscribing() {
         DispatchQueue(label: "Speech Recognizer Queue", qos: .background).async { [weak self] in
             guard let self = self, let recognizer = self.recognizer, recognizer.isAvailable else {
                 self?.speakError(RecognizerError.recognizerIsUnavailable)
@@ -95,24 +70,25 @@ class SpeechRecognizer: ObservableObject {
 
                     if let result = result {
                         self.resetTimeoutTimer()
-                        self.isSilent = false
-                        self.speak(result.bestTranscription.formattedString)
+                        self.model.isSilent = false
+                        self.model.transcription = result.bestTranscription.formattedString
                     }
                 }
             } catch {
-                self.reset()
-                self.speakError(error)
+                stopTranscribing()
+                speakError(error)
             }
         }
     }
     
-    func resetTimeoutTimer() {
-            timeoutTimer?.invalidate()
-            timeoutTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { _ in
-                    self.isSilent = true
-            }
+    func stopTranscribing() {
+        task?.cancel()
+        audioEngine?.stop()
+        audioEngine = nil
+        request = nil
+        task = nil
     }
-
+    
     private static func prepareEngine() throws -> (AVAudioEngine, SFSpeechAudioBufferRecognitionRequest) {
         let audioEngine = AVAudioEngine()
 
@@ -134,23 +110,38 @@ class SpeechRecognizer: ObservableObject {
 
         return (audioEngine, request)
     }
-
-    func stopTranscribing() {
-        reset()
+    
+    private func resetTimeoutTimer() {
+        timeoutTimer?.invalidate()
+        timeoutTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { _ in
+            self.model.isSilent = true
+        }
     }
-
-    private func speak(_ message: String) {
-        transcript = message
-    }
-
+    
     private func speakError(_ error: Error) {
-            var errorMessage = ""
-            if let error = error as? RecognizerError {
-                errorMessage += error.message
-            } else {
-                errorMessage += error.localizedDescription
-            }
-            transcript = "<< \(errorMessage) >>"
+        var errorMessage = ""
+        if let error = error as? RecognizerError {
+            errorMessage += error.message
+        } else {
+            errorMessage += error.localizedDescription
+        }
+        model.transcription = "<< \(errorMessage) >>"
+    }
+}
+
+enum RecognizerError: Error {
+    case nilRecognizer
+    case notAuthorizedToRecognize
+    case notPermittedToRecord
+    case recognizerIsUnavailable
+
+    var message: String {
+        switch self {
+        case .nilRecognizer: return "Can't initialize speech recognizer"
+        case .notAuthorizedToRecognize: return "Not authorized to recognize speech"
+        case .notPermittedToRecord: return "Not permitted to record audio"
+        case .recognizerIsUnavailable: return "Recognizer is unavailable"
+        }
     }
 }
 
@@ -173,4 +164,3 @@ extension AVAudioSession {
         }
     }
 }
-
