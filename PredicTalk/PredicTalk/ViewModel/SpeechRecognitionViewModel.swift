@@ -17,6 +17,8 @@ class SpeechRecognitionViewModel: ObservableObject {
     private var recognizer: SFSpeechRecognizer?
     private var timeoutTimer: Timer?
     
+    private let apiRequest = APIRequest.shared
+    
     init(language: Language) {
         initRecognizer(locale: language.locale)
 
@@ -47,6 +49,43 @@ class SpeechRecognitionViewModel: ObservableObject {
     }
     
     func startTranscribing() {
+        model.transcription = ""
+        
+        DispatchQueue(label: "Speech Recognizer Queue", qos: .background).async { [weak self] in
+            guard let self = self, let recognizer = self.recognizer, recognizer.isAvailable else {
+                self?.speakError(RecognizerError.recognizerIsUnavailable)
+                return
+            }
+
+            do {
+                let (audioEngine, request) = try Self.prepareEngine()
+                self.audioEngine = audioEngine
+                self.request = request
+
+                self.task = recognizer.recognitionTask(with: request) { result, error in
+                    let receivedFinalResult = result?.isFinal ?? false
+                    let receivedError = error != nil
+
+                    if receivedFinalResult || receivedError {
+                        audioEngine.stop()
+                        audioEngine.inputNode.removeTap(onBus: 0)
+                        return
+                    }
+
+                    if let result = result {
+                        self.resetTimeoutTimer()
+                        self.model.isSilent = false
+                        self.model.transcription = result.bestTranscription.formattedString
+                    }
+                }
+            } catch {
+                stopTranscribing()
+                speakError(error)
+            }
+        }
+    }
+    
+    func startTranscribingHiragana() {
         model.transcription = ""
         
         DispatchQueue(label: "Speech Recognizer Queue", qos: .background).async { [weak self] in

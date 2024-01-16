@@ -14,7 +14,7 @@ struct PredicTalkApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(Setting())
+                .environmentObject(SettingViewModel())
                 .environmentObject(SpeechRecognitionViewModel(language: .english_US))
                 .onAppear {
                     AppDelegate.orientationLock = .all

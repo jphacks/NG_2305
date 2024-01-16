@@ -22,6 +22,10 @@
 		172A56212B18705C0028CEA1 /* SpeechRecognitionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172A56202B18705C0028CEA1 /* SpeechRecognitionModel.swift */; };
 		172A56252B1873880028CEA1 /* SpeechRecognitionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172A56242B1873880028CEA1 /* SpeechRecognitionViewModel.swift */; };
 		172A56272B1879D60028CEA1 /* SpeechRecognitionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172A56262B1879D60028CEA1 /* SpeechRecognitionView.swift */; };
+		172A56292B18832E0028CEA1 /* PredictionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172A56282B18832E0028CEA1 /* PredictionModel.swift */; };
+		172A562B2B1883900028CEA1 /* PredictionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172A562A2B1883900028CEA1 /* PredictionViewModel.swift */; };
+		172A562D2B18CCBD0028CEA1 /* SettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172A562C2B18CCBD0028CEA1 /* SettingModel.swift */; };
+		172A562F2B18D8E70028CEA1 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172A562E2B18D8E70028CEA1 /* SettingViewModel.swift */; };
 		174C53042B07687A00314514 /* ARModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174C53032B07687A00314514 /* ARModeView.swift */; };
 		1760F4642AEDDAE00019A36F /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 1760F4632AEDDAE00019A36F /* Moya */; };
 		1760F4662AEDDB2E0019A36F /* APITarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1760F4652AEDDB2E0019A36F /* APITarget.swift */; };
@@ -56,6 +60,10 @@
 		172A56202B18705C0028CEA1 /* SpeechRecognitionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognitionModel.swift; sourceTree = "<group>"; };
 		172A56242B1873880028CEA1 /* SpeechRecognitionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognitionViewModel.swift; sourceTree = "<group>"; };
 		172A56262B1879D60028CEA1 /* SpeechRecognitionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognitionView.swift; sourceTree = "<group>"; };
+		172A56282B18832E0028CEA1 /* PredictionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictionModel.swift; sourceTree = "<group>"; };
+		172A562A2B1883900028CEA1 /* PredictionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictionViewModel.swift; sourceTree = "<group>"; };
+		172A562C2B18CCBD0028CEA1 /* SettingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingModel.swift; sourceTree = "<group>"; };
+		172A562E2B18D8E70028CEA1 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		174C53032B07687A00314514 /* ARModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARModeView.swift; sourceTree = "<group>"; };
 		1760F4652AEDDB2E0019A36F /* APITarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITarget.swift; sourceTree = "<group>"; };
 		1760F46B2AEDDD060019A36F /* APIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIModel.swift; sourceTree = "<group>"; };
@@ -157,6 +165,8 @@
 			isa = PBXGroup;
 			children = (
 				172A56202B18705C0028CEA1 /* SpeechRecognitionModel.swift */,
+				172A56282B18832E0028CEA1 /* PredictionModel.swift */,
+				172A562C2B18CCBD0028CEA1 /* SettingModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -165,6 +175,8 @@
 			isa = PBXGroup;
 			children = (
 				172A56242B1873880028CEA1 /* SpeechRecognitionViewModel.swift */,
+				172A562A2B1883900028CEA1 /* PredictionViewModel.swift */,
+				172A562E2B18D8E70028CEA1 /* SettingViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -272,10 +284,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				172A562D2B18CCBD0028CEA1 /* SettingModel.swift in Sources */,
+				172A562F2B18D8E70028CEA1 /* SettingViewModel.swift in Sources */,
 				1710D1C82AEC88F400BCAC46 /* ContentView.swift in Sources */,
 				176CD54B2AEE414500BA309E /* APIKey.swift in Sources */,
 				174C53042B07687A00314514 /* ARModeView.swift in Sources */,
 				1760F46E2AEDDE460019A36F /* APIRequest.swift in Sources */,
+				172A56292B18832E0028CEA1 /* PredictionModel.swift in Sources */,
 				1702EDB62B0307DE00408B34 /* SettingView.swift in Sources */,
 				17C0CAD12B07621A00D92CFB /* AppDelegate.swift in Sources */,
 				1702EDB82B0316D400408B34 /* Setting.swift in Sources */,
@@ -285,6 +300,7 @@
 				1710D1C62AEC88F400BCAC46 /* PredicTalkApp.swift in Sources */,
 				1702EDB32B02F01C00408B34 /* HomeView.swift in Sources */,
 				1760F4662AEDDB2E0019A36F /* APITarget.swift in Sources */,
+				172A562B2B1883900028CEA1 /* PredictionViewModel.swift in Sources */,
 				1760F46C2AEDDD060019A36F /* APIModel.swift in Sources */,
 				172A56272B1879D60028CEA1 /* SpeechRecognitionView.swift in Sources */,
 				17B91B762B0357200007A87D /* Language.swift in Sources */,

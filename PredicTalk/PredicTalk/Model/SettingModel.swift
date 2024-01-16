@@ -5,4 +5,8 @@
 //  Created by 青原光 on 2023/11/30.
 //
 
-import Foundation
+struct SettingModel: Codable {
+    var apiMode = APIMode.predict
+    var selectedLanguage = Language.english_US
+    var convertToHiragana = true
+}

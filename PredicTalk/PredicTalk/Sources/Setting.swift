@@ -52,7 +52,7 @@ class Setting: ObservableObject {
     }
 }
 
-enum APIMode: String, CaseIterable, Identifiable {
+enum APIMode: Codable, CaseIterable, Identifiable {
     case predict
     case correct
     case assistant
